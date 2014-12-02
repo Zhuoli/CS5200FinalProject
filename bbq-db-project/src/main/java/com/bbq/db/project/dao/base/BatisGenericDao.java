@@ -71,7 +71,7 @@ public class BatisGenericDao extends SqlSessionDaoSupport {
 				try {
 					throw new Exception("...");
 				} catch (Exception e) {
-//					log.error("å¼?å¸¸ï??", e.getMessage());
+					e.printStackTrace();
 				}
 			result.put(PARAMNAME_CUSTOMTABLENAME, tablename);
 			result.put(PARAMNAME_PARAMETER, parameter);
@@ -113,7 +113,7 @@ public class BatisGenericDao extends SqlSessionDaoSupport {
 		for ( int i=1; i<size; i++ ) {
 			if ( list.get(i)!=first ) {
 				try {
-					throw new Exception("ä¸?æ­?ä¸???¡ç?????ï¼?"+ list.size() );
+					throw new Exception("error:"+ list.size() );
 				} catch (Exception e) {
 				}
 			}

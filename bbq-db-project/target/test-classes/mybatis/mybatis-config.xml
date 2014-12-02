@@ -12,9 +12,11 @@
 	
 	<typeAliases>
 		<typeAlias alias="Test" type="com.bbq.db.project.model.Test"/>
+		<typeAlias alias="User" type="com.bbq.db.project.model.User"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mybatis/mapper/Test.xml"/>
+		<mapper resource="mybatis/mapper/User.xml"/>
 	</mappers> 
 </configuration>

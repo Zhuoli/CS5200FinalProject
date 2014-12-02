@@ -1,12 +1,12 @@
 package com.bbq.db.project.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class User {
 	private int userId;
 	private String userName;
 	private String password;
-	private String gender;
+	private Integer gender;
 	private String email;
 	private String telephone;
 	private Date registerTime;
@@ -19,7 +19,7 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
-	public String getGender() {
+	public Integer getGender() {
 		return gender;
 	}
 	public String getEmail() {
@@ -40,7 +40,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public void setGender(String gender) {
+	public void setGender(Integer gender) {
 		this.gender = gender;
 	}
 	public void setEmail(String email) {
@@ -52,7 +52,7 @@ public class User {
 	public void setRegisterTime(Date registerTime) {
 		this.registerTime = registerTime;
 	}
-	public User(int userId, String userName, String password, String gender,
+	public User(int userId, String userName, String password, Integer gender,
 			String email, String telephone, Date registerTime) {
 		super();
 		this.userId = userId;
