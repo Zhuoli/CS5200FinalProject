@@ -1,5 +1,8 @@
 package com.bbq.db.project.dao.test;
 
+import java.util.List;
+
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +35,46 @@ public class AddressDaoTest {
 		Address address = new Address();
 		User user = userDao.getUserById(1);
 		address.setUser(user);
-		address.setStreet("aaaa");
-		address.setCity("aaa");
-		address.setCountry("aaa");
-		address.setZipcode(111);
+		address.setStreet("bbbb");
+		address.setCity("bbb");
+		address.setCountry("bbb");
+		address.setZipcode(222);
 		addressDao.insert(address);
 	}
 
+	@Test
+	public void selectAllAddress() {
+		
+		List<Address> addresses = addressDao.getAll();
+		Assert.assertTrue(addresses.size() > 0);
+	}
+	
+	@Test
+	public void getAddressById() {
+		
+		Address address = addressDao.getAddressById(1);
+		Assert.assertTrue(address != null);
+	}
+	
+	@Test
+	public void getAddressByUserId() {
+		User user = userDao.getUserById(1);
+		List<Address> addresses = addressDao.getAddressByUserId(user);
+		Assert.assertTrue(addresses.size() > 0);
+	}
+	
+	@Test
+	public void updateAddress() {
+		
+		Address address  = new Address();
+		User user = userDao.getUserById(1);
+		address.setAddressId(1);
+		address.setUser(user);
+		address.setStreet("aaa2");
+		address.setCity("aaa2");
+		address.setCountry("aaa2");
+		address.setZipcode(222222);
+		int effectCount = addressDao.update(address);
+		Assert.assertTrue(effectCount > 0);
+	}
 }

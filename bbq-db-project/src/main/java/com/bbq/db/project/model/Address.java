@@ -6,7 +6,7 @@ public class Address {
 	private String street;
 	private String city;
 	private String country;
-	private int zipcode;
+	private int zip_code;
 	public int getAddressId() {
 		return addressId;
 	}
@@ -23,7 +23,7 @@ public class Address {
 		return country;
 	}
 	public int getZipcode() {
-		return zipcode;
+		return zip_code;
 	}
 	public void setAddressId(int id) {
 		addressId = id;
@@ -41,7 +41,7 @@ public class Address {
 		this.country = country;
 	}
 	public void setZipcode(int zipcode) {
-		this.zipcode = zipcode;
+		this.zip_code = zipcode;
 	}
 	public Address(int id, User user, String street, String city,
 			String country, int zipcode) {
@@ -51,7 +51,7 @@ public class Address {
 		this.street = street;
 		this.city = city;
 		this.country = country;
-		this.zipcode = zipcode;
+		this.zip_code = zipcode;
 	}
 	public Address() {
 		super();

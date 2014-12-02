@@ -3,11 +3,11 @@
 <mapper namespace="Address" >
 	<resultMap id="BaseResultMap" type="Address" >
 		<id column="ADDRESS_ID" property="addressId" jdbcType="INTEGER" />
-		<result column="USER_ID" property="userId" jdbcType="INTEGER" />
+		<result column="USER_ID" property="user" jdbcType="INTEGER" />
 		<result column="STREET" property="street" jdbcType="VARCHAR" />
 		<result column="CITY" property="city" jdbcType="VARCHAR" />
 		<result column="COUNTRY" property="country" jdbcType="VARCHAR" />
-		<result column="ZIPCODE" property="zipcode" jdbcType="INTEGER" />
+		<result column="ZIPCODE" property="zip_code" jdbcType="INTEGER" />
 	</resultMap>
 	
 	<sql id="Base_Column_List" >
@@ -22,7 +22,7 @@
 		#{street,jdbcType=VARCHAR},
 		#{city,jdbcType=VARCHAR}, 
 		#{country,jdbcType=VARCHAR},
-		#{zipcode,jdbcType=INTEGER})
+		#{zip_code,jdbcType=INTEGER})
 	</insert>
 	
 	<select id="select_all" resultMap="BaseResultMap">
@@ -34,12 +34,12 @@
 	</select>
 	
 	<select id="getAddressByUserID" parameterType="java.util.Map" resultMap="BaseResultMap">
-		select <include refid="Base_Column_List" /> from Address where user_id = #{userId}
+		select <include refid="Base_Column_List" /> from Address where user_id = #{user.userId}
 	</select>
 	
 	<select id="update" parameterType="java.util.Map">
 		update Address set STREET=#{street,jdbcType=VARCHAR},CITY=#{city,jdbcType=VARCHAR},COUNTRY=#{country,jdbcType=VARCHAR},
-		ZIPCODE=#{zipcode,jdbcType=INTEGER}where ADDRESS_ID=#{addressId,jdbcType=INTEGER}
+		ZIPCODE=#{zip_code,jdbcType=INTEGER} where ADDRESS_ID=#{addressId,jdbcType=INTEGER}
 	</select>
 	
 </mapper>
