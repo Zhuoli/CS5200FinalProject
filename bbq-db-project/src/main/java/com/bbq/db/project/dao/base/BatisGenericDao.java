@@ -69,7 +69,7 @@ public class BatisGenericDao extends SqlSessionDaoSupport {
 			String tablename=getTableName();
 			if (tablename==null)
 				try {
-					throw new Exception("æ²¡æ??è¡¨å?????");
+					throw new Exception("...");
 				} catch (Exception e) {
 //					log.error("å¼?å¸¸ï??", e.getMessage());
 				}

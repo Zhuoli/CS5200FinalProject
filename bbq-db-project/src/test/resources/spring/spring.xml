@@ -17,7 +17,7 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     
  	<context:annotation-config />  
-	<context:component-scan base-package="com.itv.cooperative"/>
+	<context:component-scan base-package="com.bbq.db.project"/>
 	
     <aop:aspectj-autoproxy expose-proxy="true" proxy-target-class="true"/> 
     
@@ -28,6 +28,6 @@
 		</property>
 	</bean>
 	<import resource="classpath:spring/spring-mybatis.xml"/>
-	<import resource="classpath:spring/spring-quartz.xml"/> 
+	<!-- <import resource="classpath:spring/spring-quartz.xml"/>  -->
 	<!--  <import resource="classpath:spring/spring-activemq.xml"/> -->
 </beans>
