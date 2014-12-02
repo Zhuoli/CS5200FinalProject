@@ -2,7 +2,7 @@ package com.bbq.db.project.model;
 
 public class Address {
 	private int addressId;
-	private User userId;
+	private User user;
 	private String street;
 	private String city;
 	private String country;
@@ -10,8 +10,8 @@ public class Address {
 	public int getAddressId() {
 		return addressId;
 	}
-	public User getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 	public String getStreet() {
 		return street;
@@ -28,8 +28,8 @@ public class Address {
 	public void setAddressId(int id) {
 		addressId = id;
 	}
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public void setStreet(String street) {
 		this.street = street;
@@ -43,11 +43,11 @@ public class Address {
 	public void setZipcode(int zipcode) {
 		this.zipcode = zipcode;
 	}
-	public Address(int id, User userId, String street, String city,
+	public Address(int id, User user, String street, String city,
 			String country, int zipcode) {
 		super();
 		this.addressId = id;
-		this.userId = userId;
+		this.user = user;
 		this.street = street;
 		this.city = city;
 		this.country = country;

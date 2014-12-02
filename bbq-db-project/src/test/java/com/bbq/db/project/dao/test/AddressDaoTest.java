@@ -1,9 +1,5 @@
 package com.bbq.db.project.dao.test;
 
-import static org.junit.Assert.*;
-
-import java.util.Date;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,17 +20,18 @@ locations={
 }
 ) 
 public class AddressDaoTest {
+	
 	@Autowired
 	public AddressDao addressDao;
+	@Autowired
 	public UserDao userDao;
 
 	@Test
 	public void insertAddress() {
 		
 		Address address = new Address();
-		User user =  userDao.getUserById(1);
-		
-		address.setUserId(user);
+		User user = userDao.getUserById(1);
+		address.setUser(user);
 		address.setStreet("aaaa");
 		address.setCity("aaa");
 		address.setCountry("aaa");
