@@ -12,8 +12,9 @@ import com.bbq.db.project.dao.TestDao;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
 locations={
-		"classpath:spring/*",
-		"classpath:mybatis/*"
+		"/mybatis/mapper/*",
+		"/mybatis/mybatis-config.xml",
+		"/spring/spring.xml"
 }
 ) 
 public class TestDaoTest {
