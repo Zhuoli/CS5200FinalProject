@@ -1,22 +1,23 @@
 package com.bbq.db.project.model;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 public class Book {
 	private int bookId;
-	private User userId;
+	private User user;
 	private String title;
 	private String author;
-	private String isbn;
+	private String bookIsbn;
 	private int quantity;
-	private float price;
+	private double price;
 	private String publisher;
 	private Date publishTime;
 	public int getBookId() {
 		return bookId;
 	}
-	public User getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 	public String getTitle() {
 		return title;
@@ -25,12 +26,12 @@ public class Book {
 		return author;
 	}
 	public String getIsbn() {
-		return isbn;
+		return bookIsbn;
 	}
 	public int getQuantity() {
 		return quantity;
 	}
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	public String getPublisher() {
@@ -42,8 +43,8 @@ public class Book {
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public void setTitle(String title) {
 		this.title = title;
@@ -52,12 +53,12 @@ public class Book {
 		this.author = author;
 	}
 	public void setIsbn(String isbn) {
-		this.isbn = isbn;
+		this.bookIsbn = isbn;
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public void setPrice(float price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public void setPublisher(String publisher) {
@@ -66,15 +67,15 @@ public class Book {
 	public void setPublishTime(Date publishTime) {
 		this.publishTime = publishTime;
 	}
-	public Book(int bookId, User userId, String title, String author,
-			String isbn, int quantity, float price, String publisher,
+	public Book(int bookId, User user, String title, String author,
+			String isbn, int quantity, double price, String publisher,
 			Date publishTime) {
 		super();
 		this.bookId = bookId;
-		this.userId = userId;
+		this.user = user;
 		this.title = title;
 		this.author = author;
-		this.isbn = isbn;
+		this.bookIsbn = isbn;
 		this.quantity = quantity;
 		this.price = price;
 		this.publisher = publisher;

@@ -14,11 +14,13 @@
 		<typeAlias alias="Test" type="com.bbq.db.project.model.Test"/>
 		<typeAlias alias="User" type="com.bbq.db.project.model.User"/>
 		<typeAlias alias="Address" type="com.bbq.db.project.model.Address"/>
+		<typeAlias alias="Book" type="com.bbq.db.project.model.Book"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mybatis/mapper/Test.xml"/>
 		<mapper resource="mybatis/mapper/User.xml"/>
-		<mapper resource="mybatis/mapper/Address.xml"/>
+		<mapper resource="mybatis/mapper/Address.xml"/>	
+		<mapper resource="mybatis/mapper/Book.xml"/>
 	</mappers> 
 </configuration>

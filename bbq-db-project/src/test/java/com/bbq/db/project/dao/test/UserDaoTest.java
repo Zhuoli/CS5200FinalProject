@@ -30,11 +30,11 @@ public class UserDaoTest {
 	public void insertUser() {
 		
 		User user = new User();
-		user.setUserName("John");
-		user.setPassword("asdfghjk");
-		user.setGender(1);
-		user.setEmail("john@gmail.com");
-		user.setTelephone("2068888888");
+		user.setUserName("Jack");
+		user.setPassword("aswewejk");
+		user.setGender(2);
+		user.setEmail("jack@gmail.com");
+		user.setTelephone("20688666688");
 		user.setRegisterTime(new Date());
 		userDao.insert(user);
 	}
