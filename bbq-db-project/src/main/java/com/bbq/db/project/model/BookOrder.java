@@ -2,8 +2,7 @@ package com.bbq.db.project.model;
 
 import java.util.Date;
 
-
-public class Order {
+public class BookOrder {
 	private int orderId;
 	private User user;
 	private Address address;
@@ -39,7 +38,7 @@ public class Order {
 	public void setOrderTime(Date orderTime) {
 		this.orderTime = orderTime;
 	}
-	public Order(int orderId, User user, Address address, String status,
+	public BookOrder(int orderId, User user, Address address, String status, 
 			Date orderTime) {
 		super();
 		this.orderId = orderId;
@@ -48,9 +47,8 @@ public class Order {
 		this.status = status;
 		this.orderTime = orderTime;
 	}
-	public Order() {
+	public BookOrder() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
 }

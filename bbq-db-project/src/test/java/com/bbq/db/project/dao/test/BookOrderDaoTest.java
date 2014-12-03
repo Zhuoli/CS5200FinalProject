@@ -10,10 +10,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.bbq.db.project.dao.AddressDao;
-import com.bbq.db.project.dao.OrderDao;
+import com.bbq.db.project.dao.BookOrderDao;
 import com.bbq.db.project.dao.UserDao;
 import com.bbq.db.project.model.Address;
-import com.bbq.db.project.model.Order;
+import com.bbq.db.project.model.BookOrder;
 import com.bbq.db.project.model.User;
 
 
@@ -26,10 +26,10 @@ locations={
 }
 )
 
-public class OrderDaoTest {
+public class BookOrderDaoTest {
 
 	@Autowired
-	public OrderDao orderDao;
+	public BookOrderDao bookorderDao;
 	@Autowired
 	public UserDao userDao;
 	@Autowired
@@ -37,14 +37,14 @@ public class OrderDaoTest {
 	
 	@Test
 	public void insertOrder() {		
-		Order order = new Order();
+		BookOrder bookorder = new BookOrder();
 		User user = userDao.getUserById(1);
 		Address address = addressDao.getAddressById(1);
-		order.setUser(user);
-		order.setAddress(address);
-		order.setStatus("delivered");
-		order.setOrderTime(new Date());
-		orderDao.insert(order);
+		bookorder.setUser(user);
+		bookorder.setAddress(address);
+		bookorder.setStatus("delivered");
+		bookorder.setOrderTime(new Date());
+		bookorderDao.insert(bookorder);
 	}
 
 }

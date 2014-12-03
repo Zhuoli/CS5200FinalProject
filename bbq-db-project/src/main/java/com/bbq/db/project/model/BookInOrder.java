@@ -1,11 +1,11 @@
 package com.bbq.db.project.model;
 
 public class BookInOrder {
-	private Order orderId;
+	private BookOrder bookorder;
 	private Book bookId;
 	private int quantity;
-	public Order getOrderId() {
-		return orderId;
+	public BookOrder getOrder() {
+		return bookorder;
 	}
 	public Book getBookId() {
 		return bookId;
@@ -13,8 +13,8 @@ public class BookInOrder {
 	public int getQuantity() {
 		return quantity;
 	}
-	public void setOrderId(Order orderId) {
-		this.orderId = orderId;
+	public void setOrderId(BookOrder bookorder) {
+		this.bookorder = bookorder;
 	}
 	public void setBookId(Book bookId) {
 		this.bookId = bookId;
@@ -22,9 +22,9 @@ public class BookInOrder {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public BookInOrder(Order orderId, Book bookId, int quantity) {
+	public BookInOrder(BookOrder bookorder, Book bookId, int quantity) {
 		super();
-		this.orderId = orderId;
+		this.bookorder = bookorder;
 		this.bookId = bookId;
 		this.quantity = quantity;
 	}
