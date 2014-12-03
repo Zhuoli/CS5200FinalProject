@@ -1,18 +1,19 @@
 package com.bbq.db.project.model;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 public class Order {
 	private int orderId;
-	private User userId;
+	private User user;
 	private Address address;
 	private String status;
 	private Date orderTime;
 	public int getOrderId() {
 		return orderId;
 	}
-	public User getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 	public Address getAddress() {
 		return address;
@@ -26,8 +27,8 @@ public class Order {
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public void setAddress(Address address) {
 		this.address = address;
@@ -38,11 +39,11 @@ public class Order {
 	public void setOrderTime(Date orderTime) {
 		this.orderTime = orderTime;
 	}
-	public Order(int orderId, User userId, Address address, String status,
+	public Order(int orderId, User user, Address address, String status,
 			Date orderTime) {
 		super();
 		this.orderId = orderId;
-		this.userId = userId;
+		this.user = user;
 		this.address = address;
 		this.status = status;
 		this.orderTime = orderTime;

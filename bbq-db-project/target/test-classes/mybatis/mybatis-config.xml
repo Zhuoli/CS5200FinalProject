@@ -15,6 +15,7 @@
 		<typeAlias alias="User" type="com.bbq.db.project.model.User"/>
 		<typeAlias alias="Address" type="com.bbq.db.project.model.Address"/>
 		<typeAlias alias="Book" type="com.bbq.db.project.model.Book"/>
+		<typeAlias alias="Order" type="com.bbq.db.project.model.Order"/>
 	</typeAliases>
 	
 	<mappers>
@@ -22,5 +23,6 @@
 		<mapper resource="mybatis/mapper/User.xml"/>
 		<mapper resource="mybatis/mapper/Address.xml"/>	
 		<mapper resource="mybatis/mapper/Book.xml"/>
+		<mapper resource="mybatis/mapper/Order.xml"/>
 	</mappers> 
 </configuration>
