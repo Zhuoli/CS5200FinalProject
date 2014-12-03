@@ -10,7 +10,7 @@ import com.bbq.db.project.dao.base.BatisEntityDao;
 import com.bbq.db.project.model.BookOrder;
 import com.bbq.db.project.model.User;
 
-@Service("orderDao")
+@Service("bookorderDao")
 public class BookOrderDao extends BatisEntityDao<BookOrder>{
 	public BookOrder getOrderById(Integer orderId) {
 		Map<String, Integer> sqlMap = new HashMap<String, Integer>();

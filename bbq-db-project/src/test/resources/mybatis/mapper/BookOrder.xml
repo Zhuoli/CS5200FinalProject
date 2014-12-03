@@ -38,4 +38,8 @@
 		update BookOrder set STATUS=#{status,jdbcType=VARCHAR} where ORDER_ID=#{orderId,jdbcType=INTEGER}
 	</select>
 	
+	<select id="delete" parameterType="java.util.Map">
+		update BookOrder set STATUS=#{status,jdbcType=VARCHAR} where ORDER_ID=#{orderId,jdbcType=INTEGER}
+	</select>
+	
 </mapper>

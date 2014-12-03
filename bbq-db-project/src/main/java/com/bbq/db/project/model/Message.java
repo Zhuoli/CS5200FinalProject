@@ -1,6 +1,7 @@
 package com.bbq.db.project.model;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 public class Message {
 	private int messageId;
