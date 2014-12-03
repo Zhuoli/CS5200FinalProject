@@ -2,14 +2,14 @@ package com.bbq.db.project.model;
 
 public class BookInOrder {
 	private BookOrder bookorder;
-	private Book bookId;
+	private Book book;
 	private int quantity;
 	
 	public BookOrder getBookorder() {
 		return bookorder;
 	}
-	public Book getBookId() {
-		return bookId;
+	public Book getBook() {
+		return book;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -18,17 +18,17 @@ public class BookInOrder {
 	public void setBookorder(BookOrder bookorder) {
 		this.bookorder = bookorder;
 	}
-	public void setBookId(Book bookId) {
-		this.bookId = bookId;
+	public void setBook(Book book) {
+		this.book = book;
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 	
-	public BookInOrder(BookOrder bookorder, Book bookId, int quantity) {
+	public BookInOrder(BookOrder bookorder, Book book, int quantity) {
 		super();
 		this.bookorder = bookorder;
-		this.bookId = bookId;
+		this.book = book;
 		this.quantity = quantity;
 	}
 	public BookInOrder() {
