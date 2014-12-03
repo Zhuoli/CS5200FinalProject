@@ -71,15 +71,15 @@ public class BookInOrderDaoTest {
 		BookOrder bookorder = bookorderDao.getOrderById(1);
 		Book book = bookDao.getBookById(1);
 		int quantity = 666;
-		int updateNum = bookinorderDao.updateByOrderIDandBookID(bookorder, book, quantity);
-		Assert.assertTrue(updateNum == 1);
+		int effectCount = bookinorderDao.updateByOrderIDandBookID(bookorder, book, quantity);
+		Assert.assertTrue(effectCount == 1);
 	}
 	
 	@Test
 	public void deleteByOrderIDandBookID() {
 		BookOrder bookorder = bookorderDao.getOrderById(1);
 		Book book = bookDao.getBookById(2);
-		int updateNum = bookinorderDao.deleteByOrderIDandBookID(bookorder, book);
-		Assert.assertTrue(updateNum == 1);
+		int effectCount = bookinorderDao.deleteByOrderIDandBookID(bookorder, book);
+		Assert.assertTrue(effectCount == 1);
 	}
 }
