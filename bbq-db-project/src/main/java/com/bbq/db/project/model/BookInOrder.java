@@ -4,7 +4,8 @@ public class BookInOrder {
 	private BookOrder bookorder;
 	private Book bookId;
 	private int quantity;
-	public BookOrder getOrder() {
+	
+	public BookOrder getBookorder() {
 		return bookorder;
 	}
 	public Book getBookId() {
@@ -13,7 +14,8 @@ public class BookInOrder {
 	public int getQuantity() {
 		return quantity;
 	}
-	public void setOrderId(BookOrder bookorder) {
+	
+	public void setBookorder(BookOrder bookorder) {
 		this.bookorder = bookorder;
 	}
 	public void setBookId(Book bookId) {
@@ -22,6 +24,7 @@ public class BookInOrder {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	
 	public BookInOrder(BookOrder bookorder, Book bookId, int quantity) {
 		super();
 		this.bookorder = bookorder;

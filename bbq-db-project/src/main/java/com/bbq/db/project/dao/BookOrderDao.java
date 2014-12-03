@@ -7,12 +7,11 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.bbq.db.project.dao.base.BatisEntityDao;
-import com.bbq.db.project.model.Book;
 import com.bbq.db.project.model.BookOrder;
 import com.bbq.db.project.model.User;
 
 @Service("orderDao")
-public class BookOrderDao extends BatisEntityDao<Book>{
+public class BookOrderDao extends BatisEntityDao<BookOrder>{
 	public BookOrder getOrderById(Integer orderId) {
 		Map<String, Integer> sqlMap = new HashMap<String, Integer>();
 		sqlMap.put("orderId", orderId);
