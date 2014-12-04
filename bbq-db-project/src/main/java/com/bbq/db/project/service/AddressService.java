@@ -2,12 +2,17 @@ package com.bbq.db.project.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.bbq.db.project.dao.AddressDao;
 import com.bbq.db.project.model.Address;
 import com.bbq.db.project.model.User;
 
+@Service("addressService")
 public class AddressService {
-	private AddressDao addressDao = new AddressDao();
+	@Autowired
+	private AddressDao addressDao; 
 	
 	public void insertAddress(Address address) {
 		addressDao.insert(address);

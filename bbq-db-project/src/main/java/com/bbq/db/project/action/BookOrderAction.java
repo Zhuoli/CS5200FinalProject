@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Namespace("/bookorder")
 public class BookOrderAction extends BaseAction {
 
-    @Autowired
+	@Autowired
     private BookOrderService bookOrderService;
 
     private Integer id;

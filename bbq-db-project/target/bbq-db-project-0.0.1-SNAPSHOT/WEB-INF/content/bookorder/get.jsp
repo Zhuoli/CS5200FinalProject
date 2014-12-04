@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-   <h1>  ${bookOrder.status}  </h1>
+   <h1>  ${bookOrder.status} </h1>
 </body>
 </html>

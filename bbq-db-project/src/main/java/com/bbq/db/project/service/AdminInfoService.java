@@ -1,10 +1,15 @@
 package com.bbq.db.project.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.bbq.db.project.dao.AdminInfoDao;
 import com.bbq.db.project.model.AdminInfo;
 
+@Service("adminInfoService")
 public class AdminInfoService {
-	private AdminInfoDao admininfoDao = new AdminInfoDao();
+	@Autowired
+	private AdminInfoDao admininfoDao;
 	
 	public void insertAdmin(AdminInfo admin) {
 		admininfoDao.insert(admin);

@@ -2,12 +2,17 @@ package com.bbq.db.project.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.bbq.db.project.dao.MessageDao;
 import com.bbq.db.project.model.Message;
 import com.bbq.db.project.model.User;
 
+@Service("messageService")
 public class MessageService {
-	private MessageDao messageDao = new MessageDao();
+	@Autowired
+	private MessageDao messageDao;
 	
 	public void insertMessage(Message message) {
 		messageDao.insert(message);

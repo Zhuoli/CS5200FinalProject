@@ -2,12 +2,17 @@ package com.bbq.db.project.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.bbq.db.project.dao.BookDao;
 import com.bbq.db.project.model.Book;
 import com.bbq.db.project.model.User;
 
+@Service("bookService")
 public class BookService {
-	private BookDao bookDao = new BookDao();
+	@Autowired
+	private BookDao bookDao;
 	
 	public void insertBook(Book book) {
 		bookDao.insert(book);

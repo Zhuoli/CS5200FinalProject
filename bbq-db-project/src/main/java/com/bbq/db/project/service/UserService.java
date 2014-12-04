@@ -1,10 +1,15 @@
 package com.bbq.db.project.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.bbq.db.project.dao.UserDao;
 import com.bbq.db.project.model.User;
 
+@Service("userService")
 public class UserService {
-	private UserDao userDao = new UserDao();
+	@Autowired
+	private UserDao userDao;
 	
 	public void insertUser(User user){
 		userDao.insert(user);
