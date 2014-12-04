@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="1.841" errors="0" skipped="0" tests="7" name="com.bbq.db.project.dao.test.MessageDaoTest">
+<testsuite failures="0" time="2.057" errors="0" skipped="0" tests="7" name="com.bbq.db.project.dao.test.MessageDaoTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -22,7 +22,7 @@
     <property name="basedir" value="/Users/maohao/Documents/neu-class/db management/db_project_resource/CS5200FinalProject/bbq-db-project"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="surefire.real.class.path" value="/var/folders/33/90fzy1gj3cq9vmcz9mfrm8j00000gn/T/surefirebooter2761356540495673703.jar"/>
+    <property name="surefire.real.class.path" value="/var/folders/33/90fzy1gj3cq9vmcz9mfrm8j00000gn/T/surefirebooter3054758934798178570.jar"/>
     <property name="java.io.tmpdir" value="/var/folders/33/90fzy1gj3cq9vmcz9mfrm8j00000gn/T/"/>
     <property name="line.separator" value="
 "/>
@@ -45,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.0"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"/>
-    <property name="sun.java.command" value="/var/folders/33/90fzy1gj3cq9vmcz9mfrm8j00000gn/T/surefirebooter2761356540495673703.jar /var/folders/33/90fzy1gj3cq9vmcz9mfrm8j00000gn/T/surefire4015921505492117158tmp /var/folders/33/90fzy1gj3cq9vmcz9mfrm8j00000gn/T/surefire3764349929908297963tmp"/>
+    <property name="sun.java.command" value="/var/folders/33/90fzy1gj3cq9vmcz9mfrm8j00000gn/T/surefirebooter3054758934798178570.jar /var/folders/33/90fzy1gj3cq9vmcz9mfrm8j00000gn/T/surefire6175254620667857314tmp /var/folders/33/90fzy1gj3cq9vmcz9mfrm8j00000gn/T/surefire6497400166258684029tmp"/>
     <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="user.language" value="zh"/>
     <property name="awt.toolkit" value="apple.awt.CToolkit"/>
@@ -62,11 +62,11 @@
     <property name="mrj.version" value="1070.1.6.0_65-462"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.51" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="insertMessage"/>
-  <testcase time="0.168" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="selectAllMessage"/>
-  <testcase time="0.166" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="getMessageById"/>
-  <testcase time="0.329" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="getMessageBySenderId"/>
-  <testcase time="0.332" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="getMessageByReceiverId"/>
-  <testcase time="0.332" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="updateMessage"/>
-  <testcase time="0" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="deleteMessage"/>
+  <testcase time="0.53" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="insertMessage"/>
+  <testcase time="0.202" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="selectAllMessage"/>
+  <testcase time="0.194" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="getMessageById"/>
+  <testcase time="0.37" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="getMessageBySenderId"/>
+  <testcase time="0.374" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="getMessageByReceiverId"/>
+  <testcase time="0.385" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="updateMessage"/>
+  <testcase time="0.001" classname="com.bbq.db.project.dao.test.MessageDaoTest" name="deleteMessage"/>
 </testsuite>

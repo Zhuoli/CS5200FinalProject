@@ -4,6 +4,9 @@
       <string>currentBuild</string>
       <path-set>
         <pathsSet class="linked-hash-set">
+          <string>index.jsp</string>
+          <string>WEB-INF/content/bookorder/get.jsp</string>
+          <string>WEB-INF/web.xml</string>
           <string>WEB-INF/classes/.gitignore</string>
           <string>WEB-INF/classes/bbq/db/project/dao/utils/GenericsUtils.class</string>
           <string>WEB-INF/classes/bbq/db/project/dao/utils/PageInfo.class</string>
@@ -34,6 +37,12 @@
           <string>WEB-INF/classes/com/bbq/db/project/service/UserService.class</string>
           <string>WEB-INF/classes/config.properties</string>
           <string>WEB-INF/classes/log4j.properties</string>
+          <string>WEB-INF/classes/mybatis/mapper/Address.xml</string>
+          <string>WEB-INF/classes/mybatis/mapper/AdminInfo.xml</string>
+          <string>WEB-INF/classes/mybatis/mapper/Book.xml</string>
+          <string>WEB-INF/classes/mybatis/mapper/BookInOrder.xml</string>
+          <string>WEB-INF/classes/mybatis/mapper/BookOrder.xml</string>
+          <string>WEB-INF/classes/mybatis/mapper/Message.xml</string>
           <string>WEB-INF/classes/mybatis/mapper/Test.xml</string>
           <string>WEB-INF/classes/mybatis/mapper/User.xml</string>
           <string>WEB-INF/classes/mybatis/mybatis-config.xml</string>
