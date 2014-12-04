@@ -10,6 +10,8 @@
           <string>WEB-INF/classes/.gitignore</string>
           <string>WEB-INF/classes/bbq/db/project/dao/utils/GenericsUtils.class</string>
           <string>WEB-INF/classes/bbq/db/project/dao/utils/PageInfo.class</string>
+          <string>WEB-INF/classes/com/bbq/db/project/action/BaseAction.class</string>
+          <string>WEB-INF/classes/com/bbq/db/project/action/BookOrderAction.class</string>
           <string>WEB-INF/classes/com/bbq/db/project/dao/AddressDao.class</string>
           <string>WEB-INF/classes/com/bbq/db/project/dao/AdminInfoDao.class</string>
           <string>WEB-INF/classes/com/bbq/db/project/dao/base/BatisEntityDao.class</string>

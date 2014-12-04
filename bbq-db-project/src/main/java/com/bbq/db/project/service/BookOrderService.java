@@ -5,9 +5,14 @@ import java.util.List;
 import com.bbq.db.project.dao.BookOrderDao;
 import com.bbq.db.project.model.BookOrder;
 import com.bbq.db.project.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("bookOrderService")
 public class BookOrderService {
-	private BookOrderDao bookorderDao = new BookOrderDao();
+
+    @Autowired
+	private BookOrderDao bookorderDao;
 	
 	public void insertBookOrder(BookOrder bookorder) {
 		bookorderDao.insert(bookorder);
@@ -24,4 +29,12 @@ public class BookOrderService {
 	public void updateBookOrder(BookOrder bookorder) {
 		bookorderDao.update(bookorder);
 	}
+
+    public BookOrderDao getBookorderDao() {
+        return bookorderDao;
+    }
+
+    public void setBookorderDao(BookOrderDao bookorderDao) {
+        this.bookorderDao = bookorderDao;
+    }
 }

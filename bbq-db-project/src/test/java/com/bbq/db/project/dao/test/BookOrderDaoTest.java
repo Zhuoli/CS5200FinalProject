@@ -31,7 +31,7 @@ locations={
 public class BookOrderDaoTest {
 
 	@Autowired
-	public BookOrderDao bookorderDao;
+	public BookOrderDao bookOrderDao;
 	@Autowired
 	public UserDao userDao;
 	@Autowired
@@ -46,26 +46,26 @@ public class BookOrderDaoTest {
 		bookorder.setAddress(address);
 		bookorder.setStatus("bbbb");
 		bookorder.setOrderTime(new Date());
-		bookorderDao.insert(bookorder);
+        bookOrderDao.insert(bookorder);
 	}
 
 	@Test
 	public void selectAllOrder() {		
-		List<BookOrder> bookorders = bookorderDao.getAll();
+		List<BookOrder> bookorders = bookOrderDao.getAll();
 		Assert.assertTrue(bookorders.size() > 0);
 	}
 	
 	@Test
 	public void getOrderById() {		
-		BookOrder bookorder = bookorderDao.getOrderById(1);
-		Assert.assertTrue(bookorder != null);
+		BookOrder bookOrder = bookOrderDao.getOrderById(1);
+		Assert.assertTrue(bookOrder != null);
 	}
 	
 	@Test
 	public void getOrderByUserId() {
 		User user = userDao.getUserById(1);
-		List<BookOrder> bookorders = bookorderDao.getOrderByUserId(user);
-		Assert.assertTrue(bookorders.size() > 0);
+		List<BookOrder> bookOrders = bookOrderDao.getOrderByUserId(user);
+		Assert.assertTrue(bookOrders.size() > 0);
 	}
 	
 	@Test
@@ -73,7 +73,7 @@ public class BookOrderDaoTest {
 		BookOrder bookorder = new BookOrder();
 		bookorder.setOrderId(1);
 		bookorder.setStatus("update");
-		int effectCount = bookorderDao.update(bookorder);
+		int effectCount = bookOrderDao.update(bookorder);
 		Assert.assertTrue(effectCount > 0);
 	}
 }

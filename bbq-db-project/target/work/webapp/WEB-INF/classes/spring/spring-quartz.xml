@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean id="deleteCronService" class="com.itv.cooperative.cron.DeleteCronService">
+		<property name="syncSearchMsgDao" ref="syncSearchMsgDao" />
+	</bean>
+
+	<bean id="deleteCronJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="deleteCronService" />
+		</property>
+		<property name="targetMethod">
+			<value>deleteOverdueMsg</value>
+		</property>
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="deleteCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="deleteCronJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 59 2 * * ?</value>
+		</property>
+	</bean>
+	
+	<bean id="fullAlbumCronService" class="com.itv.cooperative.cron.FullAlbumCronService">
+		<property name="albumService" ref="albumService" />
+		<property name="albumDao" ref="albumDao" />
+		<property name="filePath" value="${allalbum.file.path}"></property>
+		<property name="uploadServers" value="${allalbum.file.server}"></property>
+	</bean>
+
+	<bean id="fullAlbumCronJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="fullAlbumCronService" />
+		</property>
+		<property name="targetMethod">
+			<value>getFullALbumInfos</value>
+		</property>
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="fullAlbumCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="fullAlbumCronJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 59 1 * * ?</value>
+		</property>
+	</bean>
+
+	<bean id="schedulerFactoryBean"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+		autowire="no" >
+		<property name="autoStartup" value="true" />
+		<property name="applicationContextSchedulerContextKey" value="springContext" />
+		<property name="triggers">
+			<list>
+				<ref bean="deleteCronTrigger" />
+				<ref bean="fullAlbumCronTrigger" />
+			</list>
+		</property>
+	</bean>
+
+</beans>
