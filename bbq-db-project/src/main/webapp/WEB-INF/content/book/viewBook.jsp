@@ -14,7 +14,22 @@
 <meta charset="utf-8">
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
-
+    	$('#addBookToOrder').click(function() {
+            $.post("<%=basePath%>book/addBookToOrder.action",
+                    {
+                        bookId: $('#bookId').val(),
+                        quantity: $('#quantity').val(),
+                    },
+                    function(data, status){
+                        if(data['code'] == 'A00000') {
+                            $('#mypage').html(data['user']['userName'])
+                            $('#userinfo').show()
+                            $('#login-div').hide()
+                        } else {
+                            alert('login failed, please retry!');
+                        }
+                    });
+        });
     });
 </script>
 </head>
