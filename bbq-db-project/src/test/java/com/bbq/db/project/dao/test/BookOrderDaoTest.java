@@ -46,7 +46,8 @@ public class BookOrderDaoTest {
 		bookorder.setAddress(address);
 		bookorder.setStatus("bbbb");
 		bookorder.setOrderTime(new Date());
-        bookOrderDao.insert(bookorder);
+		bookOrderDao.insert(bookorder);
+        Assert.assertTrue(bookorder.getOrderId() > 0);
 	}
 
 	@Test
