@@ -34,4 +34,12 @@ public class BookService {
 	public void deleteBook (Book book) {
 		bookDao.delete(book);
 	}
+
+    public BookDao getBookDao() {
+        return bookDao;
+    }
+
+    public void setBookDao(BookDao bookDao) {
+        this.bookDao = bookDao;
+    }
 }

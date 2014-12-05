@@ -1,7 +1,5 @@
 package com.bbq.db.project.action;
 
-import com.bbq.db.project.model.BookOrder;
-import com.bbq.db.project.service.BookOrderService;
 import com.bbq.db.project.service.BookService;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -21,21 +19,14 @@ public class BookAction extends BaseAction {
 	@Autowired
     private BookService bookService;
 
-    private Integer
-
-    @Action(value = "get", results = { @Result(name = "success", location = "get.jsp") })
-    public String get(){
+    @Action(value = "listMyBooks", results = { @Result(name = "success", location = "listMyBooks.jsp") })
+    public String listMyBooks(){
         try {
-            if(id == null){
-                logger.error("error：[module:BookOrderAction][action:get][][error:{empty params}]");
-            } else {
-                bookOrder = bookOrderService.getOrderById(id);
-            }
+
         } catch (Exception e) {
-            logger.error("error：[module:BookOrderAction][action:get][][error:{}]", e);
+            logger.error("error：[module:BookAction][action:listMyBooks][][error:{}]", e);
         }
         return SUCCESS;
     }
-
 
 }
