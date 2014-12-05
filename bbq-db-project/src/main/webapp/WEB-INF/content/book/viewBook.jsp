@@ -23,7 +23,13 @@
 </header>
 	<h1>Buy Book In Queue - BBQ</h1>	
 	<div>
-       ${book.title}
+       <div>${book.title}</div>
+       <div>${book.author}</div>
+       <div>${book.isbn}</div>
+       <div>${book.quantity}</div>
+       <div>${book.price}</div>
+       <div>${book.publisher}</div>
+       <div>${book.user.userName}</div>
 	</div>
 </body>
 </html>

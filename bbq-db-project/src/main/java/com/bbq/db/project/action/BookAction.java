@@ -23,8 +23,8 @@ public class BookAction extends BaseAction {
     private int bookId;
     private Book book;
 
-    @Action(value = "ViewBook", results = { @Result(name = "success", location = "viewBook.jsp") })
-    public String ViewBook(){
+    @Action(value = "viewBook", results = { @Result(name = "success", location = "viewBook.jsp") })
+    public String viewBook(){
         try {
             book = bookService.getBookById(bookId);
         } catch (Exception e) {

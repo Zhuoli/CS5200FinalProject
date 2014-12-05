@@ -58,6 +58,7 @@ public class BookDaoTest {
 	public void getBookById() {
 		Book book = bookDao.getBookById(1);
 		Assert.assertTrue(book != null);
+        Assert.assertTrue(book.getUser() != null);
 	}
 	
 	@Test

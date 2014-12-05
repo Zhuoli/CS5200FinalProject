@@ -3,7 +3,6 @@
 <mapper namespace="Book" >
 	<resultMap id="BaseResultMap" type="Book" >
 		<id column="BOOK_ID" property="bookId" jdbcType="INTEGER" />
-		<result column="USER_ID" property="user" jdbcType="INTEGER" />
 		<result column="TITLE" property="title" jdbcType="VARCHAR" />
 		<result column="AUTHOR" property="author" jdbcType="VARCHAR" />
 		<result column="ISBN" property="bookIsbn" jdbcType="VARCHAR" />
@@ -11,6 +10,7 @@
 		<result column="PRICE" property="price" jdbcType="DOUBLE" />
 		<result column="PUBLISHER" property="publisher" jdbcType="VARCHAR" />
 		<result column="PUBLISH_TIME" property="publishTime" jdbcType="DATE" />
+        <association property="user" column="USER_ID" select="User.getUserById" />
 	</resultMap>
 	
 	<sql id="Base_Column_List" >
