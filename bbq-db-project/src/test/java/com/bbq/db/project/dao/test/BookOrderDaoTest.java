@@ -63,8 +63,7 @@ public class BookOrderDaoTest {
 	
 	@Test
 	public void getOrderByUserId() {
-		User user = userDao.getUserById(1);
-		List<BookOrder> bookOrders = bookOrderDao.getOrderByUserId(user);
+		List<BookOrder> bookOrders = bookOrderDao.getOrderByUserId(1);
 		Assert.assertTrue(bookOrders.size() > 0);
 	}
 	

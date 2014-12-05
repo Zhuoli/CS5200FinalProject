@@ -23,7 +23,7 @@ public class BookService {
 		return bookDao.getBookById(bookId);
 	}
 	
-	public List<Book> getBookByUserId(User user) {
+	public List<Book> getBookByUserId(Integer ) {
 		return bookDao.getBookByUserId(user);
 	}
 	

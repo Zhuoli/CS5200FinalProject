@@ -24,7 +24,7 @@ public class BookAction extends BaseAction {
         try {
 
         } catch (Exception e) {
-            logger.error("error：[module:BookAction][action:listMyBooks][][error:{}]", e);
+            logger.error("error: [module:BookAction][action:listMyBooks][][error:{}]", e);
         }
         return SUCCESS;
     }
