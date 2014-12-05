@@ -31,7 +31,7 @@ public class UserDaoTest {
 		
 		User user = new User();
 		user.setUserName("Jack");
-		user.setPassword("123");
+		user.setPassword("aswewejk");
 		user.setGender(2);
 		user.setEmail("jack@gmail.com");
 		user.setTelephone("20688666688");
@@ -56,7 +56,7 @@ public class UserDaoTest {
 	@Test
 	public void getUserByUserNameAndPassword() {
 		
-		User user = userDao.getUserByUserNameAndPassword("John2", "asdfghjk");
+		User user = userDao.getUserByUserNameAndPassword("John2", "123");
 		Assert.assertTrue(user != null);
 	}
 	

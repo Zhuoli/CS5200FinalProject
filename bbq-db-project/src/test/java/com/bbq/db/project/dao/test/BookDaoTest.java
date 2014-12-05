@@ -4,6 +4,7 @@ package com.bbq.db.project.dao.test;
 import java.util.Date;
 import java.util.List;
 
+import bbq.db.project.dao.utils.PageInfo;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,7 +56,6 @@ public class BookDaoTest {
 	
 	@Test
 	public void getBookById() {
-		
 		Book book = bookDao.getBookById(1);
 		Assert.assertTrue(book != null);
 	}
@@ -81,5 +81,20 @@ public class BookDaoTest {
 		int effectCount = bookDao.update(book);
 		Assert.assertTrue(effectCount > 0);
 	}
+
+    @Test
+    public void getEffectiveBooksCount() {
+
+        int effectCount = bookDao.getEffectiveBooksCount();
+        Assert.assertTrue(effectCount > 0);
+    }
+
+    @Test
+    public void getBooksByPage() {
+
+        PageInfo pageInfo = new PageInfo();
+        List<Book> books = bookDao.getBooksByPage(pageInfo);
+        Assert.assertTrue(books.size() > 0);
+    }
 
 }

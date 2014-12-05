@@ -34,13 +34,21 @@
 	<select id="select_all" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List" /> from Book
 	</select>
+
+    <select id="getBooksByPage" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from Book where quantity>0 limit #{start}, #{size}
+    </select>
+
+    <select id="getEffectiveBooksCount" resultType="java.lang.Integer">
+        select count(*) from Book where quantity>0
+    </select>
 	
 	<select id="getBookById" parameterType="java.util.Map" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List" /> from Book where book_id = #{bookId}
 	</select>
 	
 	<select id="getBookByUserID" parameterType="java.util.Map" resultMap="BaseResultMap">
-		select <include refid="Base_Column_List" /> from Book where user_id = #{user.userId}
+		select <include refid="Base_Column_List" /> from Book where user_id = #{userId}
 	</select>
 	
 	<select id="update" parameterType="java.util.Map">

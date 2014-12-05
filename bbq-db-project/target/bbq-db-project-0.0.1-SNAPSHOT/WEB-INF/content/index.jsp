@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -48,6 +49,12 @@
            <button id='logout'>logout</button>
         </div>
 	</div>
+
+    <div>
+        <c:forEach var="book" items="${books}">
+            ID <c:out value="${book.bookId}"/>
+        </c:forEach>
+    </div>
 </body>
 </html>
 

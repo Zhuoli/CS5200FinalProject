@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="BookInOrder" >
+	<resultMap id="BaseResultMap" type="BookInOrder" >
+		<id column="BOOK_ORDER_ID" property="bookorder" jdbcType="INTEGER" />
+		<result column="BOOK_ID" property="book" jdbcType="INTEGER" />
+		<result column="QUANTITY" property="quantity" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="Base_Column_List" >
+		BOOK_ORDER_ID, BOOK_ID, QUANTITY
+	</sql>
+	
+	<insert id="insert" parameterType="BookInOrder">
+		insert into BookInOrder (BOOK_ORDER_ID, BOOK_ID, QUANTITY)
+		values (#{bookorder.orderId,jdbcType=INTEGER},
+		#{book.bookId,jdbcType=INTEGER},
+		#{quantity,jdbcType=INTEGER})
+	</insert>
+	
+	<select id="select_all" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from BookInOrder
+	</select>
+	
+	<select id="getBookInOrderByOrderID" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from BookInOrder where book_order_id = #{bookorder.orderId,jdbcType=INTEGER}
+	</select>
+	
+	<select id="getBookInOrderByOrderIDandBookID" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from BookInOrder where book_order_id = #{bookorderId,jdbcType=INTEGER}
+		and book_id=#{bookId,jdbcType=INTEGER}
+	</select>
+	
+	
+	<select id="updateByOrderIDandBookID" parameterType="java.util.Map">
+		update BookInOrder set quantity=#{quantity,jdbcType=INTEGER} where book_order_id=#{bookorderId,jdbcType=INTEGER}
+		and book_id=#{bookId,jdbcType=INTEGER}
+	</select>
+	
+	<select id="deleteByOrderIDandBookID" parameterType="java.util.Map">
+		delete from BookInOrder where book_order_id=#{bookorderId,jdbcType=INTEGER}
+		and book_id=#{bookId,jdbcType=INTEGER}
+	</select>
+	
+</mapper>

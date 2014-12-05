@@ -2,8 +2,7 @@ package bbq.db.project.dao.utils;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
-public class PageInfo implements Serializable {
+public class PageInfo {
 
 	@Override
 	public int hashCode() {
@@ -33,9 +32,8 @@ public class PageInfo implements Serializable {
 		return true;
 	}
 
-	public static final String CURRENT_PAGE_NAME = "_pn"; 
 	public static final int FIRST_PAGE_NO = 1;
-	public static final int DEFAULT_PAGE_SIZE = 20;
+	public static final int DEFAULT_PAGE_SIZE = 50;
 
 	private int pageSize = DEFAULT_PAGE_SIZE;
 
