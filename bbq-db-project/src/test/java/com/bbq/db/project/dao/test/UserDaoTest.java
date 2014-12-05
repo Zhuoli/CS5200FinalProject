@@ -31,7 +31,7 @@ public class UserDaoTest {
 		
 		User user = new User();
 		user.setUserName("Jack");
-		user.setPassword("aswewejk");
+		user.setPassword("123");
 		user.setGender(2);
 		user.setEmail("jack@gmail.com");
 		user.setTelephone("20688666688");
