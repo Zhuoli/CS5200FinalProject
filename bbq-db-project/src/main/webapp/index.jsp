@@ -4,15 +4,19 @@
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>BBQ</title>
+<title>By Book In Queue - BBQ</title>
 <meta charset="utf-8">
 </head>
 <body>
 <header>
 </header>
-<h1>
-Welcome To BBQ
-</h1>
+	<h1>Buy Book In Queue - BBQ</h1>	
+	<div>
+		Buy Book In Queue - BBQ
+		<button>sign up</button>
+		<button>sign in</button>
+	</div>
+	
 
 </body>
 </html>
