@@ -23,8 +23,8 @@ public class BookService {
 		return bookDao.getBookById(bookId);
 	}
 	
-	public List<Book> getBookByUserId(Intg) {
-		return bookDao.getBookByUserId(user);
+	public List<Book> getBookByUserId(Integer userId) {
+		return bookDao.getBookByUserId(userId);
 	}
 	
 	public void updateBook(Book book) {

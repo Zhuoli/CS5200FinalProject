@@ -22,8 +22,8 @@ public class BookOrderService {
 		return bookorderDao.getOrderById(orderId);
 	}
 	
-	public List<BookOrder> getOrderByUserId(User user) {
-		return bookorderDao.getOrderByUserId(user);
+	public List<BookOrder> getOrderByUserId(Integer userId) {
+		return bookorderDao.getOrderByUserId(userId);
 	}
 	
 	public void updateBookOrder(BookOrder bookorder) {

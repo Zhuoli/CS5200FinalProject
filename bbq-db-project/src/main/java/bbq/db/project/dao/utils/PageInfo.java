@@ -103,9 +103,6 @@ public class PageInfo implements Serializable {
 		return this.getCurrentPageNo() == FIRST_PAGE_NO ? true : false;
 	}
 
-	/**
-	 * è¯¥é¡µ?????????ä¸?ä¸?é¡?.
-	 */
 	public boolean hasNextPage() {
 		return this.getCurrentPageNo() < getTotalPage() - 1;
 	}
