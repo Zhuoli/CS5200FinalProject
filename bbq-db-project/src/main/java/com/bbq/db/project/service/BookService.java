@@ -11,6 +11,7 @@ import com.bbq.db.project.model.User;
 
 @Service("bookService")
 public class BookService {
+
 	@Autowired
 	private BookDao bookDao;
 	

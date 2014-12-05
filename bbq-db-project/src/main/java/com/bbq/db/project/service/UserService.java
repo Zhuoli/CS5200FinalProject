@@ -8,6 +8,7 @@ import com.bbq.db.project.model.User;
 
 @Service("userService")
 public class UserService {
+
 	@Autowired
 	private UserDao userDao;
 	
@@ -26,5 +27,12 @@ public class UserService {
 	public void updateUser(User user){
 		userDao.update(user);
 	}
-	
+
+    public UserDao getUserDao() {
+        return userDao;
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 }
