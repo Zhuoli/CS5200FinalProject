@@ -24,4 +24,11 @@ public class BookOrderDao extends BatisEntityDao<BookOrder>{
 		sqlMap.put("userId", userId);
 		return super.getSqlSession().selectList("BookOrder.getOrderByUserID", sqlMap);
 	}
+	
+	public BookOrder getOrderByUserIDandOrderStatus(Integer userId, String status) {
+		Map<String, Object> sqlMap = new HashMap<String, Object>();
+		sqlMap.put("userId", userId);
+		sqlMap.put("status", status);
+		return super.getSqlSession().selectOne("BookOrder.getOrderByUserIDandOrderStatus", sqlMap);
+	}
 }
