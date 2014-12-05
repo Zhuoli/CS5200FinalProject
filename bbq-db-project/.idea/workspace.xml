@@ -4,7 +4,7 @@
     <list default="true" id="31b90086-17fa-43a2-9e2c-ca4b00ae9037" name="Default" comment="" />
     <ignored path="bbq-db-project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417654017513" ignored="false" />
+    <file path="/Dummy.txt" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417751457126" ignored="false" />
     <file path="/pom.xml" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417654632185" ignored="false" />
     <file path="/*.regexp" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417648239115" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../../inii-legao/lego-datamodule/pom.xml" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417651039538" ignored="false" />
@@ -115,7 +115,7 @@
       <file leaf-file-name="BookService.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/service/BookService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="46" selection-start="575" selection-end="575" vertical-scroll-proportion="0.3982808">
+            <state line="26" column="40" selection-start="609" selection-end="609" vertical-scroll-proportion="0.48424068">
               <folding />
             </state>
           </provider>
@@ -676,7 +676,7 @@
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="MavenSettings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../inii-legao/lego-wechart2.1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -1161,7 +1161,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/service/BookService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="46" selection-start="575" selection-end="575" vertical-scroll-proportion="0.3982808">
+        <state line="26" column="40" selection-start="609" selection-end="609" vertical-scroll-proportion="0.48424068">
           <folding />
         </state>
       </provider>
