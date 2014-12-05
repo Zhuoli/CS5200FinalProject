@@ -54,7 +54,7 @@
         <c:forEach var="book" items="${books}">
             <div>
                 bookId: <c:out value="${book.bookId}"/>
-                bookTitle: <a href="<%=basePath%>book/viewBook.action?id=${book.bookId}" target="_blank"> <c:out value="${book.title}"/> </a>
+                bookTitle: <a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank"> <c:out value="${book.title}"/> </a>
                 author: <c:out value="${book.author}"/>
                 isbn: <c:out value="${book.isbn}"/>
                 quantity: <c:out value="${book.quantity}"/>
