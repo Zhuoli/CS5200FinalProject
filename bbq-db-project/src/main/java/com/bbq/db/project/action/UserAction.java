@@ -5,6 +5,7 @@ import java.util.Map;
 
 import bbq.db.project.dao.utils.Constants;
 import bbq.db.project.dao.utils.StrutsUtil;
+import com.opensymphony.xwork2.ActionContext;
 import net.sf.json.JSONObject;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -33,6 +34,8 @@ public class UserAction extends BaseAction{
                 map.put("code", Constants.INVALID_PARAMS);
             } else {
                 user = userService.getUserByUserNameAndPassword(userName, password);
+                Map<String, Object> session = ActionContext.getContext().getSession();
+                session.put("user", user);
                 map.put("user", user);
                 map.put("code", Constants.CODE_SUCCESS);
             }

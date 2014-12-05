@@ -62,8 +62,7 @@ public class BookDaoTest {
 	
 	@Test
 	public void getBookByUserId() {
-		User user = userDao.getUserById(1);
-		List<Book> bookes = bookDao.getBookByUserId(user);
+		List<Book> bookes = bookDao.getBookByUserId(1);
 		Assert.assertTrue(bookes.size() > 0);
 	}
 	
