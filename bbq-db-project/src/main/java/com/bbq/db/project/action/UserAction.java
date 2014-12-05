@@ -34,10 +34,14 @@ public class UserAction extends BaseAction{
                 map.put("code", Constants.INVALID_PARAMS);
             } else {
                 user = userService.getUserByUserNameAndPassword(userName, password);
-                Map<String, Object> session = ActionContext.getContext().getSession();
-                session.put("user", user);
-                map.put("user", user);
-                map.put("code", Constants.CODE_SUCCESS);
+                if(user != null) {
+                    Map<String, Object> session = ActionContext.getContext().getSession();
+                    session.put("user", user);
+                    map.put("user", user);
+                    map.put("code", Constants.CODE_SUCCESS);
+                } else {
+                    map.put("code", Constants.NO_DATA);
+                }
             }
         } catch (Exception e) {
             logger.error("error::module:UserAction][action:login][][error:{}]", e);

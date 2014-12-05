@@ -12,4 +12,5 @@ public class Constants {
     public static final String CODE_SUCCESS = "A00000";
     public static final String INNER_ERROR = "E00001";
     public static final String INVALID_PARAMS = "E00002";
+    public static final String NO_DATA = "E00003";
 }
