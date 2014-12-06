@@ -18,7 +18,7 @@
             $.post("<%=basePath%>book/addBookToOrder.action",
                     {
                         bookId: $('#bookId').val(),
-                        quantity: $('#quantity').val(),
+                        quantity: $('#quantity').val()
                     },
                     function(data, status){
                         if(data['code'] == 'A00000') {

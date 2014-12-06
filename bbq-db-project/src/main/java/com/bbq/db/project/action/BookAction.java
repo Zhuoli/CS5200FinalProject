@@ -80,7 +80,6 @@ public class BookAction extends BaseAction {
     @Action(value = "uploadImg")
     public String uploadImg(){
         try {
-            Map<String, Object> map = new HashMap<String, Object>();
             String extName = "";
             String newFileName = "";
             String nowTimeStr = "";
@@ -103,15 +102,27 @@ public class BookAction extends BaseAction {
             newFileName = nowTimeStr + rannum + extName;
             uploadify.renameTo(new File(savePath + newFileName));
 
-            map.put("fileName", newFileName);
-            map.put("code", Constants.CODE_SUCCESS);
-            //StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
             response.getWriter().print(newFileName);
             return null;
         } catch (Exception e) {
             logger.error("error: [module:BookAction][action:uploadImg][][error:{}]", e);
         }
 
+        return null;
+    }
+
+    @Action(value = "addBook")
+    public String addBook(){
+
+        Map<String, String> map = new HashMap<String, String>();
+        try {
+            bookService.insertBook(book);
+            map.put("code", Constants.CODE_SUCCESS);
+        } catch (Exception e) {
+            logger.error("error: [module:BookAction][action:addBook][][error:{}]", e);
+        }
+
+        StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
         return null;
     }
 

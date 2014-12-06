@@ -8,11 +8,12 @@ public class Book {
 	private User user;
 	private String title;
 	private String author;
-	private String bookIsbn;
+	private String isbn;
 	private int quantity;
 	private double price;
 	private String publisher;
 	private Date publishTime;
+    private String pic;
 	public int getBookId() {
 		return bookId;
 	}
@@ -26,7 +27,7 @@ public class Book {
 		return author;
 	}
 	public String getIsbn() {
-		return bookIsbn;
+		return isbn;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -53,7 +54,7 @@ public class Book {
 		this.author = author;
 	}
 	public void setIsbn(String isbn) {
-		this.bookIsbn = isbn;
+		this.isbn = isbn;
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
@@ -75,13 +76,22 @@ public class Book {
 		this.user = user;
 		this.title = title;
 		this.author = author;
-		this.bookIsbn = isbn;
+		this.isbn = isbn;
 		this.quantity = quantity;
 		this.price = price;
 		this.publisher = publisher;
 		this.publishTime = publishTime;
 	}
-	public Book() {
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
+
+    public Book() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

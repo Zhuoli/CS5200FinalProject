@@ -43,6 +43,7 @@ public class BookDaoTest {
 		book.setQuantity(4);
 		book.setPrice(66.7);
 		book.setPublisher("bbb");
+        book.setPic("abc");
 		book.setPublishTime(new Date());
 		bookDao.insert(book);
 	}
