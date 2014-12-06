@@ -50,7 +50,7 @@ public class BookOrderAction extends BaseAction {
 
 	
     private int bookId;
-    private String quantity;
+    private int quantity;
 	private BookOrder bookOrder;
     
 
@@ -82,6 +82,7 @@ public class BookOrderAction extends BaseAction {
     	    	System.out.println(user.getUserName().toString());
     			bookOrder = bookOrderService.getOrderByUserIDandOrderStatus(user.getUserId(), "unprocess");
     			if (bookOrder == null) {
+                    bookOrder = new BookOrder();
     				bookOrder.setUser(user);
     				bookOrder.setOrderStatus("unprocess");
     				bookOrder.setOrderTime(new Date());
@@ -90,7 +91,6 @@ public class BookOrderAction extends BaseAction {
     			}
 
 				map.put("code", Constants.CODE_SUCCESS);
-    			
     		}
     	}catch (Exception e){
     		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
@@ -102,79 +102,59 @@ public class BookOrderAction extends BaseAction {
     	
     }
 
-
 	public void setBookOrder(BookOrder bookOrder) {
 		this.bookOrder = bookOrder;
 	}
-
 
 	public BookOrder getBookOrder() {
 		return bookOrder;
 	}
 
-
 	public BookOrderService getBookOrderService() {
 		return bookOrderService;
 	}
-
 
 	public BookService getBookService() {
 		return bookService;
 	}
 
-
 	public BookInOrderService getBookInOrderService() {
 		return bookInOrderService;
 	}
-
 
 	public UserService getUserService() {
 		return userService;
 	}
 
-
-	
-
-	public int getBookId() {
-		return bookId;
-	}
-
-
-	public String getQuantity() {
-		return quantity;
-	}
-
-
 	public void setBookOrderService(BookOrderService bookOrderService) {
 		this.bookOrderService = bookOrderService;
 	}
-
 
 	public void setBookService(BookService bookService) {
 		this.bookService = bookService;
 	}
 
-
 	public void setBookInOrderService(BookInOrderService bookInOrderService) {
 		this.bookInOrderService = bookInOrderService;
 	}
-
 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
 
+    public int getBookId() {
+        return bookId;
+    }
 
-	
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
 
-	public void setBookId(int bookId) {
-		this.bookId = bookId;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
-	}
-
-    
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
