@@ -1,5 +1,6 @@
 package com.bbq.db.project.action;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import net.sf.json.JSONObject;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +57,36 @@ public class UserAction extends BaseAction{
         StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
         return null;
 	}
+
+    @Action(value = "preRegister", results = { @Result(name = "success", location = "register.jsp") })
+    public String preRegister(){
+
+        return SUCCESS;
+    }
+
+    @Action(value = "addUser")
+    public String addUser(){
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+            User dbUser = userService.getUserByUserNameAndPassword(user.getUserName(), null);
+            if(dbUser == null) {
+                user.setRegisterTime(new Date());
+                userService.insertUser(user);
+                Map<String, Object> session = ActionContext.getContext().getSession();
+                session.put("user", user);
+                map.put("code", Constants.CODE_SUCCESS);
+            } else {
+                map.put("code", Constants.USER_EXISTS);
+            }
+        } catch (Exception e) {
+            logger.error("error::module:UserAction][action:addUser][][error:{}]", e);
+            map.put("code", Constants.INNER_ERROR);
+        }
+
+        StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
+        return null;
+    }
 	 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
@@ -78,5 +110,13 @@ public class UserAction extends BaseAction{
 
     public String getPassword() {
         return password;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

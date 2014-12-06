@@ -34,7 +34,10 @@
 	</select>
 	
 	<select id="getUserByUserNameAndPassword" parameterType="java.util.Map" resultMap="BaseResultMap">
-		select <include refid="Base_Column_List" /> from User where user_name = #{userName} and password = #{password}
+        select <include refid="Base_Column_List" /> from User where user_name = #{userName}
+        <if test="password != null">
+            AND password = #{password}
+        </if>
 	</select>
 	
 	<select id="update" parameterType="java.util.Map">

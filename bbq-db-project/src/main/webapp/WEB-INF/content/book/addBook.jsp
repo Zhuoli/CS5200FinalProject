@@ -15,6 +15,13 @@
 <script type="text/javascript" src="<%=basePath%>js/jquery.validate.js"></script>
 <script type="text/javascript" src="<%=basePath%>uploadify/jquery.uploadify.min.js"></script>
 <script type="text/javascript">
+
+    $.validator.setDefaults({
+        submitHandler: function() {
+            alert("submitted!");
+        }
+    });
+
     $(document).ready(function() {
 
         $("#fileupload").uploadify({
@@ -36,25 +43,41 @@
             }
         });
 
-        $(':button').click(function() {
+        $("#form").validate({
 
-            $("#form").validate({
-                rules: {
-                    title: "required",
-                    author: "required",
-                    isbn: "require",
-                    quantity: "required",
-                    price: "required",
-                    publisher: "required",
-                    pic:"required"
+            rules: {
+                title: {
+                    required: true,
+                    minlength: 2
                 },
-                messages: {
-                    pic: "Please upload your book pic"
+                author: {
+                    required: true,
+                    minlength: 2
+                },
+                isbn: {
+                    required: true,
+                    minlength: 2
+                },
+                quantity: {
+                    required: true,
+                    number: true
+                },
+                price: {
+                    required: true,
+                    number: true
+                },
+                publisher: {
+                    required: true,
+                    minlength: 2
+                },
+                pic: {
+                    required: true,
+                    minlength: 2
                 }
-            });
+            },
 
-            $.post("<%=basePath%>book/addBook.action",
-
+            submitHandler: function() {
+                $.post("<%=basePath%>book/addBook.action",
                     {
                         "book.title": $('#title').val(),
                         "book.author": $('#author').val(),
@@ -71,24 +94,35 @@
                             alert('please login in first!');
                         }
                     });
+            }
         });
+
     });
 </script>
+<style>
+    input.error { border: 1px solid red; }
+    label.error {
+        padding-left: 16px;
+        padding-bottom: 2px;
+        font-weight: bold;
+        color: #EA5200;
+    }
+</style>
 </head>
 <body>
 <header>
 </header>
 	<h1>Buy Book In Queue - BBQ</h1>
 <tr>
-    <form id="form" action="book/addBook.action">
+    <form id="form">
         <fieldset>
             <p>
                 <label for="title">book title:</label>
-                <input type="text" name="title" id="title" class="input required"/>
+                <input id="title" name="title" minlength="2" type="text" required/>
             </p>
             <p>
                 <label for="author">book author:</label>
-                <input type="text" name="author" id="author" class="input required"/>
+                <input type="text" name="author" id="author" required/>
             </p>
             <p>
                 <label for="isbn">book isbn:</label>
@@ -96,23 +130,23 @@
             </p>
             <p>
                 <label for="quantity">book quantity:</label>
-                <input type="text" name="quantity" id="quantity" class="input required"/>
+                <input type="text" name="quantity" id="quantity" required/>
             </p>
             <p>
                 <label for="price">book price:</label>
-                <input type="text" name="price" id="price" class="input required"/>
+                <input type="text" name="price" id="price" required/>
             </p>
             <p>
                 <label for="publisher">book publisher:</label>
-                <input type="text" name="publisher" id="publisher" class="input required"/>
+                <input type="text" name="publisher" id="publisher" required/>
             </p>
             <p>upload book pic：
                 <input type="file" name="fileupload" id="fileupload" />
                 <div id="fileQueue"></div>
                 <ol class="files"></ol>
             </p>
-            <input type="hidden" name="pic" id="pic" class="input required"/>
-            <input type="button" value="add book" />
+            <input type="hidden" name="pic" id="pic" required/>
+            <input type="submit" value="add book" />
         </fieldset>
     </form>
 </tr>

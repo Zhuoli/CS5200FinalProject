@@ -56,7 +56,7 @@ public class UserDaoTest {
 	@Test
 	public void getUserByUserNameAndPassword() {
 		
-		User user = userDao.getUserByUserNameAndPassword("John2", "123");
+		User user = userDao.getUserByUserNameAndPassword("John2", null);
 		Assert.assertTrue(user != null);
 	}
 	
