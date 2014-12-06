@@ -3,7 +3,9 @@ package com.bbq.db.project.action;
 import bbq.db.project.dao.utils.Constants;
 import bbq.db.project.dao.utils.StrutsUtil;
 import com.bbq.db.project.model.Book;
+import com.bbq.db.project.model.User;
 import com.bbq.db.project.service.BookService;
+import com.opensymphony.xwork2.ActionContext;
 import net.sf.json.JSONObject;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -16,6 +18,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -116,8 +119,17 @@ public class BookAction extends BaseAction {
 
         Map<String, String> map = new HashMap<String, String>();
         try {
-            bookService.insertBook(book);
-            map.put("code", Constants.CODE_SUCCESS);
+            Map<String, Object> session = ActionContext.getContext().getSession();
+            User user = (User)session.get("user");
+            if(user == null) {
+                map.put("code", Constants.NO_DATA);
+            } else {
+                book.setUser(user);
+                book.setPublishTime(new Date());
+                bookService.insertBook(book);
+                map.put("code", Constants.CODE_SUCCESS);
+            }
+
         } catch (Exception e) {
             logger.error("error: [module:BookAction][action:addBook][][error:{}]", e);
         }
