@@ -32,7 +32,7 @@
             'fileDesc'       : 'support file type:jpg/gif/jpeg/png/bmp.',
             'fileExt'        : '*.jpg;*.gif;*.jpeg;*.png;*.bmp',
             'onUploadSuccess':function(file, data, response){
-                  alert(data);
+                  $("#pic").val(data);
             }
         });
 
@@ -54,6 +54,7 @@
             });
 
             $.post("<%=basePath%>book/addBook.action",
+
                     {
                         "book.title": $('#title').val(),
                         "book.author": $('#author').val(),
@@ -65,11 +66,9 @@
                     },
                     function(data, status){
                         if(data['code'] == 'A00000') {
-                            $('#mypage').html(data['user']['userName'])
-                            $('#userinfo').show()
-                            $('#login-div').hide()
+                            location.href="<%=basePath%>/index.action";
                         } else {
-                            alert('login failed, please retry!');
+                            alert('please login in first!');
                         }
                     });
         });
@@ -112,7 +111,7 @@
                 <div id="fileQueue"></div>
                 <ol class="files"></ol>
             </p>
-            <input type="hidden" name="pic" class="input required"/>
+            <input type="hidden" name="pic" id="pic" class="input required"/>
             <input type="button" value="add book" />
         </fieldset>
     </form>
