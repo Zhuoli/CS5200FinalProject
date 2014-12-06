@@ -12,18 +12,18 @@
 	<sql id="Base_Column_List" >
 		ORDER_ID, USER_ID, ADDRESS_ID, STATUS, ORDER_TIME
 	</sql>
-	
-	<insert id="insert" parameterType="BookOrder">
-	    <selectKey resultType=“int” keyProperty=“orderId” order=“BEFORE”>
-			 <![CDATA[SELECT LAST_INSERT_ID() AS ID from BookOrder limit 1]]>   
-      	</selectKey>
-		insert into BookOrder (ORDER_ID, USER_ID, ADDRESS_ID, STATUS, ORDER_TIME)
-		values (#{orderId,jdbcType=INTEGER},
-		#{user.userId,jdbcType=INTEGER},
-		#{address.addressId,jdbcType=INTEGER},
-		#{status,jdbcType=VARCHAR}, 
-		#{orderTime,jdbcType=DATE})
-	</insert>
+
+    <insert id="insert" parameterType="BookOrder">
+        <selectKey resultType="int" keyProperty="orderId" order="AFTER">
+            <![CDATA[SELECT LAST_INSERT_ID() AS ID from BookOrder limit 1]]>
+        </selectKey>
+        insert into BookOrder (ORDER_ID, USER_ID, ADDRESS_ID, STATUS, ORDER_TIME)
+        values (#{orderId,jdbcType=INTEGER},
+        #{user.userId,jdbcType=INTEGER},
+        #{address.addressId,jdbcType=INTEGER},
+        #{status,jdbcType=VARCHAR},
+        #{orderTime,jdbcType=DATE})
+    </insert>
 	
 	<select id="select_all" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List" /> from BookOrder
