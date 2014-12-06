@@ -12,26 +12,33 @@
 	<sql id="Base_Column_List" >
 		ORDER_ID, USER_ID, ADDRESS_ID, STATUS, ORDER_TIME
 	</sql>
-	
-	<insert id="insert" parameterType="BookOrder">
-		insert into BookOrder (ORDER_ID, USER_ID, ADDRESS_ID, STATUS, ORDER_TIME)
-		values (#{orderId,jdbcType=INTEGER},
-		#{user.userId,jdbcType=INTEGER},
-		#{address.addressId,jdbcType=INTEGER},
-		#{status,jdbcType=VARCHAR}, 
-		#{orderTime,jdbcType=DATE})
-	</insert>
+
+    <insert id="insert" parameterType="BookOrder">
+        <selectKey resultType="int" keyProperty="orderId" order="AFTER">
+            <![CDATA[SELECT LAST_INSERT_ID() AS ID from BookOrder limit 1]]>
+        </selectKey>
+        insert into BookOrder (ORDER_ID, USER_ID, ADDRESS_ID, STATUS, ORDER_TIME)
+        values (#{orderId,jdbcType=INTEGER},
+        #{user.userId,jdbcType=INTEGER},
+        #{address.addressId,jdbcType=INTEGER},
+        #{status,jdbcType=VARCHAR},
+        #{orderTime,jdbcType=DATE})
+    </insert>
 	
 	<select id="select_all" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List" /> from BookOrder
 	</select>
 	
 	<select id="getOrderById" parameterType="java.util.Map" resultMap="BaseResultMap">
-		select <include refid="Base_Column_List" /> from BookOrder where order_id = #{orderId}
+		select <include refid="Base_Column_List" /> from BookOrder where order_id = #{orderId,jdbcType=INTEGER}
 	</select>
 	
 	<select id="getOrderByUserID" parameterType="java.util.Map" resultMap="BaseResultMap">
-		select <include refid="Base_Column_List" /> from BookOrder where user_id = #{user.userId}
+		select <include refid="Base_Column_List" /> from BookOrder where user_id = #{user.userId,jdbcType=INTEGER}
+	</select>
+	
+	<select id="getOrderByUserIDandOrderStatus" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from BookOrder where user_id = #{user.userId} and status = #{status}
 	</select>
 	
 	<select id="update" parameterType="java.util.Map">
