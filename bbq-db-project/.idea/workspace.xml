@@ -6,9 +6,9 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417775008248" ignored="false" />
     <file path="/pom.xml" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417654632185" ignored="false" />
-    <file path="/*.regexp" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417648239115" ignored="false" />
+    <file path="/*.regexp" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417846628326" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../../inii-legao/lego-datamodule/pom.xml" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417651039538" ignored="false" />
-    <file path="/index.jsp" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417776377902" ignored="false" />
+    <file path="/index.jsp" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417818436676" ignored="false" />
     <file path="/403.jsp" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417651315591" ignored="false" />
     <file path="/BaseAction.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417651567317" ignored="false" />
     <file path="/BookOrderAction.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417681605171" ignored="false" />
@@ -16,19 +16,25 @@
     <file path="/fragment.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417775008248" ignored="false" />
     <file path="/web.xml" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417681954640" ignored="false" />
     <file path="/BookOrderService.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417762822414" ignored="false" />
-    <file path="/BookOrderDaoTest.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417680857771" ignored="false" />
+    <file path="/BookOrderDaoTest.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417824080205" ignored="false" />
     <file path="/spring.xml" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417681343254" ignored="false" />
     <file path="/MyBooks.jsp" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417746235577" ignored="false" />
-    <file path="/BookAction.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417749213443" ignored="false" />
+    <file path="/BookAction.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417860103490" ignored="false" />
     <file path="/BookDao.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417774424872" ignored="false" />
     <file path="/BookOrderDao.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417750566059" ignored="false" />
     <file path="/BookService.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417773991089" ignored="false" />
-    <file path="/UserAction.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417770229394" ignored="false" />
+    <file path="/UserAction.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417818362334" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../../inii-legao/lego-wechart2.1/lego-api/src/main/java/com/iqiyi/lego/api/webapp/action/datamodule/DataRuleAction.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417763368472" ignored="false" />
     <file path="/Constants.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417770213507" ignored="false" />
     <file path="/IndexAction.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417776143199" ignored="false" />
-    <file path="/BookDaoTest.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417774667760" ignored="false" />
-    <file path="/Book.xml" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417774562406" ignored="false" />
+    <file path="/BookDaoTest.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417858781431" ignored="false" />
+    <file path="/Book.xml" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417858853388" ignored="false" />
+    <file path="/ViewBook.jsp" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417777249636" ignored="false" />
+    <file path="/viewBook.jsp" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417819584816" ignored="false" />
+    <file path="/config.properties" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417777932544" ignored="false" />
+    <file path="/BookOrder.xml" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417824036167" ignored="false" />
+    <file path="/addBook.jsp" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417860391570" ignored="false" />
+    <file path="/Book.java" changelist="31b90086-17fa-43a2-9e2c-ca4b00ae9037" time="1417858580025" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +98,52 @@
       <file leaf-file-name="UserAction.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/UserAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="53" selection-start="1508" selection-end="1525" vertical-scroll-proportion="0.0">
+            <state line="38" column="47" selection-start="1225" selection-end="1342" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewBook.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/content/book/viewBook.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="8" selection-start="586" selection-end="1272" vertical-scroll-proportion="-6.4166665">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addBook.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/content/book/addBook.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="27" selection-start="2839" selection-end="2839" vertical-scroll-proportion="-7.4166665">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Book.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/mybatis/mapper/Book.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="45" selection-start="0" selection-end="2825" vertical-scroll-proportion="-3.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageDaoTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/bbq/db/project/dao/test/MessageDaoTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="13" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookOrderDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/dao/BookOrderDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="16" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,18 +152,9 @@
       <file leaf-file-name="BookAction.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/BookAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="17" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexAction.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/IndexAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="45" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
+            <state line="130" column="53" selection-start="3837" selection-end="4264" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3791#3807#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,52 +163,25 @@
       <file leaf-file-name="BookService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/service/BookService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="22" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
+            <state line="13" column="13" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageInfo.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/bbq/db/project/dao/utils/PageInfo.java">
+      <file leaf-file-name="Constants.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bbq/db/project/dao/utils/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="49" selection-start="890" selection-end="890" vertical-scroll-proportion="0.0">
+            <state line="15" column="32" selection-start="436" selection-end="436" vertical-scroll-proportion="0.6779141">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookDaoTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/bbq/db/project/dao/test/BookDaoTest.java">
+      <file leaf-file-name="BookOrder.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/BookOrder.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="26" selection-start="2093" selection-end="2107" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookDao.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/dao/BookDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="36" selection-start="859" selection-end="873" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Book.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Book.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="69" selection-start="1773" selection-end="1773" vertical-scroll-proportion="-5.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/content/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="49" selection-start="2170" selection-end="2170" vertical-scroll-proportion="0.7169811">
+            <state line="26" column="48" selection-start="1198" selection-end="1198" vertical-scroll-proportion="-9.375">
               <folding />
             </state>
           </provider>
@@ -190,22 +205,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/bbq/db/project/dao/BookOrderDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bbq/db/project/service/BookOrderService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bbq/db/project/dao/utils/StrutsUtil.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/mybatis/mapper/BookOrder.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/bbq/db/project/dao/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml" />
+        <option value="$PROJECT_DIR$/src/test/resources/spring/spring-mybatis.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
+        <option value="$PROJECT_DIR$/src/test/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/UserAction.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/bbq/db/project/dao/test/UserDaoTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bbq/db/project/dao/utils/PageInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bbq/db/project/service/BookService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bbq/db/project/dao/BookDao.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/content/index.jsp" />
+        <option value="$PROJECT_DIR$/src/test/resources/mybatis/mapper/BookOrder.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/bbq/db/project/dao/test/BookOrderDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/BookOrder.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/content/book/viewBook.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bbq/db/project/model/Book.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/bbq/db/project/dao/test/BookDaoTest.java" />
         <option value="$PROJECT_DIR$/src/test/resources/mybatis/mapper/Book.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/Book.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/bbq/db/project/dao/test/BookDaoTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/IndexAction.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/content/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/BookAction.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/content/book/addBook.jsp" />
       </list>
     </option>
   </component>
@@ -346,6 +361,96 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbq-db-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbq-db-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mybatis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbq-db-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbq-db-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mybatis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbq-db-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbq-db-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -400,40 +505,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbq-db-project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbq-db-project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bookorder" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -511,7 +582,63 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploadify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbq-db-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbq-db-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbq-db-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbq-db-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -534,10 +661,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -703,47 +826,20 @@
       <recent name="com.bbq.db.project.action" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/mybatis/mapper" />
-      <recent name="$PROJECT_DIR$/src/test/resources/mybatis/mapper" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/content/js" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
-      <recent name="$PROJECT_DIR$/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/uploadify" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/img" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/content/css" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/content/book" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/content" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/uploadify" />
       <recent name="$PROJECT_DIR$/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/content" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BookDaoTest.getBooksByPage">
-    <configuration default="false" name="AdminInfoDaoTest.selectAllAdmin" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.bbq.db.project.dao.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="bbq-db-project" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.bbq.db.project.dao.test" />
-      <option name="MAIN_CLASS_NAME" value="com.bbq.db.project.dao.test.AdminInfoDaoTest" />
-      <option name="METHOD_NAME" value="selectAllAdmin" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.BookDaoTest.insertBook">
     <configuration default="false" name="BookDaoTest.selectAllBook" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -772,7 +868,7 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="BookDaoTest.updateBook" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="BookDaoTest.getBookById" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.bbq.db.project.dao.test.*" />
@@ -784,7 +880,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.bbq.db.project.dao.test" />
       <option name="MAIN_CLASS_NAME" value="com.bbq.db.project.dao.test.BookDaoTest" />
-      <option name="METHOD_NAME" value="updateBook" />
+      <option name="METHOD_NAME" value="getBookById" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -800,7 +896,7 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="BookDaoTest.getEffectiveBooksCount" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="BookOrderDaoTest.insertOrder" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.bbq.db.project.dao.test.*" />
@@ -811,8 +907,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.bbq.db.project.dao.test" />
-      <option name="MAIN_CLASS_NAME" value="com.bbq.db.project.dao.test.BookDaoTest" />
-      <option name="METHOD_NAME" value="getEffectiveBooksCount" />
+      <option name="MAIN_CLASS_NAME" value="com.bbq.db.project.dao.test.BookOrderDaoTest" />
+      <option name="METHOD_NAME" value="insertOrder" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -828,7 +924,37 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="BookDaoTest.getBooksByPage" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="bbq-db-project [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="org.mortbay.jetty:maven-jetty-plugin:6.1.26:run" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="BookDaoTest.insertBook" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.bbq.db.project.dao.test.*" />
@@ -840,7 +966,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.bbq.db.project.dao.test" />
       <option name="MAIN_CLASS_NAME" value="com.bbq.db.project.dao.test.BookDaoTest" />
-      <option name="METHOD_NAME" value="getBooksByPage" />
+      <option name="METHOD_NAME" value="insertBook" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -970,19 +1096,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.AdminInfoDaoTest.selectAllAdmin" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.BookDaoTest.selectAllBook" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.BookDaoTest.updateBook" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.BookDaoTest.getEffectiveBooksCount" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.BookDaoTest.getBooksByPage" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.BookDaoTest.selectAllBook" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.BookDaoTest.getBookById" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.BookOrderDaoTest.insertOrder" />
+      <item index="3" class="java.lang.String" itemvalue="Maven.bbq-db-project [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.BookDaoTest.insertBook" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.BookDaoTest.getBooksByPage" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.BookDaoTest.getEffectiveBooksCount" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.BookDaoTest.selectAllBook" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.BookDaoTest.updateBook" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AdminInfoDaoTest.selectAllAdmin" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.BookDaoTest.insertBook" />
+        <item index="1" class="java.lang.String" itemvalue="Maven.bbq-db-project [org.mortbay.jetty:maven-jetty-plugin:6.1.26:run]" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.BookOrderDaoTest.insertOrder" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.BookDaoTest.getBookById" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.BookDaoTest.selectAllBook" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1017,6 +1143,26 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1280" height="717" extended-state="0" />
     <editor active="true" />
@@ -1024,9 +1170,10 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39865997" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -1035,7 +1182,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32663316" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26217532" sideWeight="0.67504185" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1045,7 +1192,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1114,116 +1260,116 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/dao/base/BatisEntityDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/jquery.validate.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="43" selection-start="224" selection-end="224" vertical-scroll-proportion="0.19169329">
+        <state line="3" column="48" selection-start="186" selection-end="186" vertical-scroll-proportion="0.028248588">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/dao/BookOrderDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/jquery.validate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="41" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0">
+        <state line="18" column="70" selection-start="406" selection-end="406" vertical-scroll-proportion="0.31073445">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/content/book/listMyBooks.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/content/book/viewBook.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="16" column="8" selection-start="586" selection-end="1272" vertical-scroll-proportion="-6.4166665">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/bbq/db/project/dao/test/UserDaoTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/BookOrderAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="18" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.42906573">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/mybatis/mapper/Book.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="49" selection-start="1702" selection-end="1702" vertical-scroll-proportion="0.46712804">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/BookAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="17" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0">
+        <state line="65" column="34" selection-start="2011" selection-end="2011" vertical-scroll-proportion="0.19117647">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/model/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="22" selection-start="93" selection-end="99" vertical-scroll-proportion="0.2760736">
+        <state line="77" column="35" selection-start="1612" selection-end="1612" vertical-scroll-proportion="0.36809817">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/UserAction.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/bbq/db/project/dao/test/BookOrderDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="53" selection-start="1508" selection-end="1525" vertical-scroll-proportion="0.0">
+        <state line="33" column="17" selection-start="832" selection-end="832" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/dao/BookDao.java">
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mybatis/mapper/Book.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="36" selection-start="859" selection-end="873" vertical-scroll-proportion="0.0">
+        <state line="5" column="45" selection-start="0" selection-end="2825" vertical-scroll-proportion="-3.125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/Book.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="69" selection-start="1773" selection-end="1773" vertical-scroll-proportion="-5.625">
+        <state line="35" column="49" selection-start="1629" selection-end="1629" vertical-scroll-proportion="0.17159763">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/bbq/db/project/dao/test/BookDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="26" selection-start="2093" selection-end="2107" vertical-scroll-proportion="0.0">
+        <state line="34" column="34" selection-start="831" selection-end="831" vertical-scroll-proportion="0.41717792">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/content/bookorder/get.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/UserAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="45" selection-start="72" selection-end="72" vertical-scroll-proportion="0.04601227">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bbq/db/project/dao/utils/PageInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="49" selection-start="890" selection-end="890" vertical-scroll-proportion="0.0">
+        <state line="38" column="47" selection-start="1225" selection-end="1342" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/service/BookService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="22" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
+        <state line="13" column="13" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/IndexAction.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/bbq/db/project/dao/test/MessageDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="45" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
+        <state line="26" column="13" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/dao/BookOrderDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="16" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bbq/db/project/action/BookAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="53" selection-start="3837" selection-end="4264" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3791#3807#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/content/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/content/book/addBook.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="49" selection-start="2170" selection-end="2170" vertical-scroll-proportion="0.7169811">
+        <state line="69" column="27" selection-start="2839" selection-end="2839" vertical-scroll-proportion="-7.4166665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bbq/db/project/dao/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="32" selection-start="436" selection-end="436" vertical-scroll-proportion="0.6779141">
           <folding />
         </state>
       </provider>
