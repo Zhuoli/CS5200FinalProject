@@ -48,79 +48,133 @@ public class BookOrderAction extends BaseAction {
 	@Autowired
     private UserService userService;
 
-    private Integer id;
-    private BookOrder bookOrder;
-    private BookInOrder bookInOrder;
-    //private Book book;
-    private User user;
-    private Integer bookId;
-    private Number quantity;
-    private HttpServletRequest req;
+	
+    private int bookId;
+    private String quantity;
+	private BookOrder bookOrder;
     
 
-    @Action(value = "get", results = { @Result(name = "success", location = "get.jsp") })
+/*    @Action(value = "get", results = { @Result(name = "success", location = "get.jsp") })
     public String get(){
         try {
             if(id == null){
                 logger.error("error: [module:BookOrderAction][action:get][][error:{empty params}]");
             } else {
-                bookOrder = bookOrderService.getOrderById(id);
+            	BookOrder bookOrder = bookOrderService.getOrderById(id);
             }
         } catch (Exception e) {
             logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
         }
         return SUCCESS;
-    }
+    }*/
     
     @Action(value = "addBookToOrder")
     public String addBookToOrder(){
+    	//BookOrder bookOrder= new BookOrder();
     	Map<String, Object> map = new HashMap<String, Object>();
     	Map<String, Object> session = ActionContext.getContext().getSession();
-    	user = (User)session.get("user");
-    	//try{
-    		if (user == null || bookId == null || quantity == null){
+    	User user = (User)session.get("user");
+    	try{
+    		if (user == null){
+    			logger.error("error::module:UserAction][action:login][][error:{empty params}]");
     			map.put("code", Constants.NO_DATA);
     		} else {
-    			//bookOrder = bookOrderService.getOrderByUserIDandOrderStatus(user.getUserId(), "unprocess");
-    			//if (bookOrder == null) {
+    	    	System.out.println(user.getUserName().toString());
+    			bookOrder = bookOrderService.getOrderByUserIDandOrderStatus(user.getUserId(), "unprocess");
+    			if (bookOrder == null) {
     				bookOrder.setUser(user);
     				bookOrder.setOrderStatus("unprocess");
     				bookOrder.setOrderTime(new Date());
     				bookOrder.setAddress(null);
     				bookOrderService.insertBookOrder(bookOrder);
-    				map.put("code", Constants.CODE_SUCCESS);
-    			//}
+    			}
+
+				map.put("code", Constants.CODE_SUCCESS);
     			
     		}
-    	/*}catch (Exception e){
+    	}catch (Exception e){
     		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
             map.put("code", Constants.INNER_ERROR);
-    	}*/
+    	}
+    	
+    	StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
     	return null;
     	
     }
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setBookOrder(BookOrder bookOrder) {
+		this.bookOrder = bookOrder;
+	}
 
-    public BookOrder getBookOrder() {
-        return bookOrder;
-    }
 
-    public void setBookOrder(BookOrder bookOrder) {
-        this.bookOrder = bookOrder;
-    }
+	public BookOrder getBookOrder() {
+		return bookOrder;
+	}
 
-    public BookOrderService getBookOrderService() {
-        return bookOrderService;
-    }
 
-    public void setBookOrderService(BookOrderService bookOrderService) {
-        this.bookOrderService = bookOrderService;
-    }
+	public BookOrderService getBookOrderService() {
+		return bookOrderService;
+	}
+
+
+	public BookService getBookService() {
+		return bookService;
+	}
+
+
+	public BookInOrderService getBookInOrderService() {
+		return bookInOrderService;
+	}
+
+
+	public UserService getUserService() {
+		return userService;
+	}
+
+
+	
+
+	public int getBookId() {
+		return bookId;
+	}
+
+
+	public String getQuantity() {
+		return quantity;
+	}
+
+
+	public void setBookOrderService(BookOrderService bookOrderService) {
+		this.bookOrderService = bookOrderService;
+	}
+
+
+	public void setBookService(BookService bookService) {
+		this.bookService = bookService;
+	}
+
+
+	public void setBookInOrderService(BookInOrderService bookInOrderService) {
+		this.bookInOrderService = bookInOrderService;
+	}
+
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+
+	
+
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+
+    
 }

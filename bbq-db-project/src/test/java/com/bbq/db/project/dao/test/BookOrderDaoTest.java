@@ -42,9 +42,10 @@ public class BookOrderDaoTest {
 	public void insertOrder() {		
 /*		BookOrder bookorder = new BookOrder();
 		User user = userDao.getUserById(1);
-		Address address = addressDao.getAddressById(3);
+		//Address address = addressDao.getAddressById(3);
+		//ddress address = null;
 		bookorder.setUser(user);
-		bookorder.setAddress(address);
+		bookorder.setAddress(null);
 		bookorder.setOrderStatus("bbbb");
 		bookorder.setOrderTime(new Date());
 		bookOrderDao.insert(bookorder);

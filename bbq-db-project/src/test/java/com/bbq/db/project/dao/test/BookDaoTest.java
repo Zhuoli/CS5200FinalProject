@@ -80,6 +80,7 @@ public class BookDaoTest {
 		book.setPrice(66.7);
 		book.setPublisher("bbb");
 		book.setPublishTime(new Date());
+		book.setPic("aaa");
 		int effectCount = bookDao.update(book);
 		Assert.assertTrue(effectCount > 0);
 	}

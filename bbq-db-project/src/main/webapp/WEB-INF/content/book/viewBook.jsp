@@ -43,7 +43,7 @@
        <div>${book.price}</div>
        <div>${book.publisher}</div>
        <div>${book.user.userName}</div>
-       <div>quantity <input name='quantity' id='quantity' type='number'/></div>
+       <div>quantity <input name='quantity' id='quantity' type='text'/></div>
        <button id='addBookToOrder'>AddToCart</button>
 	</div>
 </body>
