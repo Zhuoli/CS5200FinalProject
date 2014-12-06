@@ -14,7 +14,7 @@
 	</sql>
 	
 	<insert id="insert" parameterType="BookOrder">
-	    <selectKey resultClass=“int” keyProperty=“orderId” type=“post”>
+	    <selectKey resultType="int" keyProperty="orderId" order="AFTER">
 			 <![CDATA[SELECT LAST_INSERT_ID() AS ID from BookOrder limit 1]]>   
       	</selectKey>
 		insert into BookOrder (ORDER_ID, USER_ID, ADDRESS_ID, STATUS, ORDER_TIME)
