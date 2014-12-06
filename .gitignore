@@ -1,1 +1,1 @@
-*.class
+bbq-db-project/target/test-classes/com/bbq/db/project/dao/test/*.class
