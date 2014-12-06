@@ -6,7 +6,7 @@ public class BookOrder {
 	private int orderId;
 	private User user;
 	private Address address;
-	private String status;
+	private String orderStatus;
 	private Date orderTime;
 	public int getOrderId() {
 		return orderId;
@@ -17,8 +17,8 @@ public class BookOrder {
 	public Address getAddress() {
 		return address;
 	}
-	public String getStatus() {
-		return status;
+	public String getOrderStatus() {
+		return orderStatus;
 	}
 	public Date getOrderTime() {
 		return orderTime;
@@ -32,23 +32,24 @@ public class BookOrder {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 	public void setOrderTime(Date orderTime) {
 		this.orderTime = orderTime;
 	}
-	public BookOrder(int orderId, User user, Address address, String status, 
-			Date orderTime) {
+	public BookOrder(int orderId, User user, Address address,
+			String orderStatus, Date orderTime) {
 		super();
 		this.orderId = orderId;
 		this.user = user;
 		this.address = address;
-		this.status = status;
+		this.orderStatus = orderStatus;
 		this.orderTime = orderTime;
 	}
 	public BookOrder() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 }

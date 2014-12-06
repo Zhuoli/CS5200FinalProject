@@ -34,7 +34,7 @@ public class BookDaoTest {
 	
 	@Test
 	public void insertBook() {		
-		Book book = new Book();
+/*		Book book = new Book();
 		User user = userDao.getUserById(2);
 		book.setUser(user);
 		book.setTitle("bbb");
@@ -44,7 +44,7 @@ public class BookDaoTest {
 		book.setPrice(66.7);
 		book.setPublisher("bbb");
 		book.setPublishTime(new Date());
-		bookDao.insert(book);
+		bookDao.insert(book);*/
 	}
 	
 	@Test
@@ -82,6 +82,7 @@ public class BookDaoTest {
 		int effectCount = bookDao.update(book);
 		Assert.assertTrue(effectCount > 0);
 	}
+	
 
     @Test
     public void getEffectiveBooksCount() {
@@ -89,6 +90,7 @@ public class BookDaoTest {
         int effectCount = bookDao.getEffectiveBooksCount();
         Assert.assertTrue(effectCount > 0);
     }
+    
 
     @Test
     public void getBooksByPage() {

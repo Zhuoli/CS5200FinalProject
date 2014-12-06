@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import bbq.db.project.dao.utils.Constants;
 import bbq.db.project.dao.utils.StrutsUtil;
 
@@ -14,14 +16,18 @@ import com.bbq.db.project.model.User;
 import com.bbq.db.project.service.BookInOrderService;
 import com.bbq.db.project.service.BookOrderService;
 import com.bbq.db.project.service.BookService;
+import com.bbq.db.project.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
+import com.sun.net.httpserver.HttpContext;
 
 import net.sf.json.JSONObject;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created with IntelliJ IDEA.
@@ -39,12 +45,17 @@ public class BookOrderAction extends BaseAction {
     private BookService bookService;
 	@Autowired
     private BookInOrderService bookInOrderService;
+	@Autowired
+    private UserService userService;
 
     private Integer id;
     private BookOrder bookOrder;
     private BookInOrder bookInOrder;
+    //private Book book;
+    private User user;
     private Integer bookId;
-    private Integer quantity;
+    private Number quantity;
+    private HttpServletRequest req;
     
 
     @Action(value = "get", results = { @Result(name = "success", location = "get.jsp") })
@@ -64,37 +75,29 @@ public class BookOrderAction extends BaseAction {
     @Action(value = "addBookToOrder")
     public String addBookToOrder(){
     	Map<String, Object> map = new HashMap<String, Object>();
-        try {
-        	User user = (User) ActionContext.getContext().getSession().get("user");
-            if(user == null){
-            	map.put("code", Constants.NO_DATA);
-            } else if (bookId == null){
-            		logger.error("error::module:UserAction][action:login][][error:{empty params}]");
-                    map.put("code", Constants.INVALID_PARAMS);
-            	}else
-            	{
-                Book book = bookService.getBookById(bookId);
-                bookOrder = bookOrderService.getOrderByUserIDandOrderStatus(user.getUserId(), "unprocess");
-                if (bookOrder == null) {
-                	bookOrder.setUser(user);
-                	bookOrder.setAddress(null);
-                	bookOrder.setStatus("unprocess");
-                	bookOrder.setOrderTime(new Date());
-                	//Integer bookorderID = bookOrderService.insertBookOrder(bookOrder);
-                	bookOrderService.insertBookOrder(bookOrder);
-                	bookInOrder.setBook(book);
-                	bookInOrder.setBookorder(bookOrder);
-                	bookInOrder.setQuantity(quantity);
-                	bookInOrderService.insertBookInOrder(bookInOrder);
-                	map.put("code", Constants.CODE_SUCCESS);
-                	}
-            }
-        } catch (Exception e) {
-            logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
+    	Map<String, Object> session = ActionContext.getContext().getSession();
+    	user = (User)session.get("user");
+    	//try{
+    		if (user == null || bookId == null || quantity == null){
+    			map.put("code", Constants.NO_DATA);
+    		} else {
+    			//bookOrder = bookOrderService.getOrderByUserIDandOrderStatus(user.getUserId(), "unprocess");
+    			//if (bookOrder == null) {
+    				bookOrder.setUser(user);
+    				bookOrder.setOrderStatus("unprocess");
+    				bookOrder.setOrderTime(new Date());
+    				bookOrder.setAddress(null);
+    				bookOrderService.insertBookOrder(bookOrder);
+    				map.put("code", Constants.CODE_SUCCESS);
+    			//}
+    			
+    		}
+    	/*}catch (Exception e){
+    		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
             map.put("code", Constants.INNER_ERROR);
-        }
-        StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
-        return null;
+    	}*/
+    	return null;
+    	
     }
 
     public Integer getId() {

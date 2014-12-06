@@ -15,18 +15,16 @@
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
     	$('#addBookToOrder').click(function() {
-            $.post("<%=basePath%>book/addBookToOrder.action",
+            $.post("<%=basePath%>bookorder/addBookToOrder.action",
                     {
-                        bookId: $('#bookId').val(),
-                        quantity: $('#quantity').val(),
+                        bookId: ${book.bookId},
+                        quantity: $("#quantity").val()
                     },
                     function(data, status){
                         if(data['code'] == 'A00000') {
-                            $('#mypage').html(data['user']['userName'])
-                            $('#userinfo').show()
-                            $('#login-div').hide()
+                        	alert('add order success!!!!');
                         } else {
-                            alert('login failed, please retry!');
+                            alert('add order failed!');
                         }
                     });
         });
@@ -45,6 +43,8 @@
        <div>${book.price}</div>
        <div>${book.publisher}</div>
        <div>${book.user.userName}</div>
+       <div>quantity <input name='quantity' id='quantity' type='number'/></div>
+       <button id='addBookToOrder'>AddToCart</button>
 	</div>
 </body>
 </html>

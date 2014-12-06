@@ -29,14 +29,14 @@ public class UserDaoTest {
 	@Test
 	public void insertUser() {
 		
-		User user = new User();
+/*		User user = new User();
 		user.setUserName("Jack");
 		user.setPassword("aswewejk");
 		user.setGender(2);
 		user.setEmail("jack@gmail.com");
 		user.setTelephone("20688666688");
 		user.setRegisterTime(new Date());
-		userDao.insert(user);
+		userDao.insert(user);*/
 	}
 	
 	@Test

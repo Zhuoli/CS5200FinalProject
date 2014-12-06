@@ -26,14 +26,14 @@ public class AdminInfoDaoTest {
 	@Autowired
 	public AdminInfoDao admininfoDao;
 	
-	@Test
-	public void insertAdmin() {		
+//	@Test
+//	public void insertAdmin() {		
 //		AdminInfo admininfo = new AdminInfo();
 //		admininfo.setAdminName("bbb");
 //		admininfo.setPassword("bbbbbb");
 //		admininfo.setRegisterTime(new Date());
 //		admininfoDao.insert(admininfo);
-	}
+//	}
 	
 	@Test
 	public void selectAllAdmin() {		
@@ -57,10 +57,10 @@ public class AdminInfoDaoTest {
 		Assert.assertTrue(effectCount > 0);
 	}
 	
-	@Test
-	public void deleteByAdminName(){
+//	@Test
+//	public void deleteByAdminName(){
 //		AdminInfo admininfo = admininfoDao.getBydminName("bbb");
 //		int effectCount = admininfoDao.delete(admininfo);
 //		Assert.assertTrue(effectCount > 0);
-	}
+//	}
 }

@@ -75,11 +75,11 @@ public class BookInOrderDaoTest {
 		Assert.assertTrue(effectCount == 1);
 	}
 	
-	@Test
-	public void deleteByOrderIDandBookID() {
+//	@Test
+//	public void deleteByOrderIDandBookID() {
 //		BookOrder bookorder = bookorderDao.getOrderById(1);
 //		Book book = bookDao.getBookById(2);
 //		int effectCount = bookinorderDao.deleteByOrderIDandBookID(bookorder, book);
 //		Assert.assertTrue(effectCount == 1);
-	}
+//	}
 }

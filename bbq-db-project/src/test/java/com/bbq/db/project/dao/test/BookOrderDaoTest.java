@@ -15,6 +15,7 @@ import com.bbq.db.project.dao.AddressDao;
 import com.bbq.db.project.dao.BookOrderDao;
 import com.bbq.db.project.dao.UserDao;
 import com.bbq.db.project.model.Address;
+import com.bbq.db.project.model.Book;
 import com.bbq.db.project.model.BookOrder;
 import com.bbq.db.project.model.User;
 
@@ -39,15 +40,15 @@ public class BookOrderDaoTest {
 	
 	@Test
 	public void insertOrder() {		
-		BookOrder bookorder = new BookOrder();
+/*		BookOrder bookorder = new BookOrder();
 		User user = userDao.getUserById(1);
 		Address address = addressDao.getAddressById(3);
 		bookorder.setUser(user);
 		bookorder.setAddress(address);
-		bookorder.setStatus("bbbb");
+		bookorder.setOrderStatus("bbbb");
 		bookorder.setOrderTime(new Date());
 		bookOrderDao.insert(bookorder);
-        Assert.assertTrue(bookorder.getOrderId() > 0);
+        Assert.assertTrue(bookorder.getOrderId() > 0);*/
 	}
 
 	@Test
@@ -68,11 +69,20 @@ public class BookOrderDaoTest {
 		Assert.assertTrue(bookOrders.size() > 0);
 	}
 	
+
+    @Test
+	public void getOrderByUserIDandOrderStatus() {
+		
+    	BookOrder bookOrder = bookOrderDao.getOrderByUserIDandOrderStatus(1, "unprocess");
+    	Assert.assertTrue(bookOrder != null);
+	}
+
+	
 	@Test
 	public void updateBookOrder() {
 		BookOrder bookorder = new BookOrder();
 		bookorder.setOrderId(1);
-		bookorder.setStatus("update");
+		bookorder.setOrderStatus("update");
 		int effectCount = bookOrderDao.update(bookorder);
 		Assert.assertTrue(effectCount > 0);
 	}

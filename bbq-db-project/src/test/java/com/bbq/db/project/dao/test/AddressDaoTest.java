@@ -32,14 +32,14 @@ public class AddressDaoTest {
 	@Test
 	public void insertAddress() {
 		
-		Address address = new Address();
+	/*	Address address = new Address();
 		User user = userDao.getUserById(1);
 		address.setUser(user);
 		address.setStreet("bbbb");
 		address.setCity("bbb");
 		address.setCountry("bbb");
 		address.setZipcode(222);
-		addressDao.insert(address);
+		addressDao.insert(address);*/
 	}
 
 	@Test

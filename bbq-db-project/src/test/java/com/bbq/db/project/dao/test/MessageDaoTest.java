@@ -32,7 +32,7 @@ public class MessageDaoTest {
 	
 	@Test
 	public void insertMessage() {		
-		Message message = new Message();
+/*		Message message = new Message();
 		User sender = userDao.getUserById(2);
 		User receiver = userDao.getUserById(1);
 		message.setSender(sender);
@@ -40,7 +40,7 @@ public class MessageDaoTest {
 		message.setTitle("bbbb");
 		message.setContent("bbbbbbbbbbb");
 		message.setTime(new Date());
-		messageDao.insert(message);
+		messageDao.insert(message);*/
 	}
 	
 	@Test
@@ -82,12 +82,12 @@ public class MessageDaoTest {
 		Assert.assertTrue(effectCount > 0);
 	}
 	
-	@Test
-	public void deleteMessage() {
+//	@Test
+//	public void deleteMessage() {
 //		Message message = new Message();
 //		message.setMessageId(2);
 //		int effectCount = messageDao.delete(message);
 //		Assert.assertTrue(effectCount > 0);
-	}
+//	}
 
 }
