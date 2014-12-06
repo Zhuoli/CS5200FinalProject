@@ -17,7 +17,7 @@
     	$('#addBookToOrder').click(function() {
             $.post("<%=basePath%>bookorder/addBookToOrder.action",
                     {
-                        bookId: $('#bookId').val(),
+                        bookId: ${book.bookId},
                         quantity: $('#quantity').val()
                     },
                     function(data, status){
