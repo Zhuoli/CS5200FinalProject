@@ -7,6 +7,7 @@ import net.sf.json.JSONObject;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import bbq.db.project.dao.utils.Constants;
@@ -74,6 +75,19 @@ public class BookInOrderAction extends BaseAction{
     	
     	StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
     	return null;
+    	
+    }
+	
+	@Action(value = "deleteBookInOrder" , results = { @Result(name = "success", location = "viewUnProcessOrderDetail.jsp")})
+    public String deleteBookInOrder(){
+    	try{
+    		bookInOrderService.deleteByOrderIDandBookID(bookOrderService.getOrderById(bookOrderId), bookService.getBookById(book));
+    	}catch (Exception e){
+    		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
+    	}
+    	
+    	
+    	return SUCCESS;
     	
     }
 }

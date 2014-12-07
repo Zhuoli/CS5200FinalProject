@@ -30,7 +30,7 @@
     	<td>${bookInOrder.book.user.userName}</td>  
     	<td><input name='quantity' id='${status.index+1}' type='text' value= "${bookInOrder.quantity}"/></td>
     	<td><button onclick="function onclick(){window.location.href='<%=basePath%>bookinorder/updateQuantity.action?bookOrderId=${bookInOrder.bookorder.orderId}&book=${bookInOrder.book.bookId}&quantity=document.getElementById('${status.index+1}').value'}">Update</button></td>
-    	
+    	<td><button onclick="function onclick(){window.location.href='<%=basePath%>bookinorder/deleteBookInOrder.action?bookOrderId=${bookInOrder.bookorder.orderId}&book=${bookInOrder.book.bookId}">delete</button></td>
 	</tr>  
 	</c:forEach>  
 </table>  
