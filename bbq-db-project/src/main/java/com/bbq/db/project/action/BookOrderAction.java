@@ -136,7 +136,8 @@ public class BookOrderAction extends BaseAction {
     	
     }
     
-    @Action(value = "orderDetail", results = { @Result(name = "success_unprocess", location = "viewUnProcessOrderDetail.jsp"),@Result(name = "success_view", location = "viewOrderDetail.jsp")})
+    @Action(value = "orderDetail", results = { @Result(name = "success_unprocess", location = "viewUnProcessOrderDetail.jsp"),
+                                               @Result(name = "success_view", location = "viewOrderDetail.jsp")})
     public String orderDetail(){
     	try{
     		bookInOrders = bookInOrderService.getBookInOrderByOrderID(bookOrderService.getOrderById(bookOrderId));
