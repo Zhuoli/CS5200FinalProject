@@ -70,6 +70,7 @@ public class UserDaoTest {
 		user.setGender(1);
 		user.setEmail("johnUpdate@gmail.com");
 		user.setTelephone("2068888888");
+        user.setAccount(23);
 		user.setRegisterTime(new Date());
 		int effectCount = userDao.update(user);
 		Assert.assertTrue(effectCount > 0);

@@ -2,11 +2,14 @@ package com.bbq.db.project.action;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import bbq.db.project.dao.utils.Constants;
 import bbq.db.project.dao.utils.StrutsUtil;
 
+import com.bbq.db.project.model.Book;
+import com.bbq.db.project.service.BookService;
 import com.opensymphony.xwork2.ActionContext;
 
 import net.sf.json.JSONObject;
@@ -25,10 +28,14 @@ public class UserAction extends BaseAction{
 
 	@Autowired
 	private UserService userService;
+    @Autowired
+    private BookService bookService;
 
 	private String userName;
 	private String password;
 	private User user;
+    private Integer userId;
+    private List<Book> myBooks;
 	
 	@Action(value = "login")
 	public String getUserByUserAndPassword(){
@@ -99,7 +106,6 @@ public class UserAction extends BaseAction{
 
         Map<String, Object> map = new HashMap<String, Object>();
         try {
-
             Map<String, Object> session = ActionContext.getContext().getSession();
             session.remove("user");
             map.put("code", Constants.CODE_SUCCESS);
@@ -110,6 +116,23 @@ public class UserAction extends BaseAction{
 
         StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
         return null;
+    }
+
+    @Action(value = "userInfo", results = { @Result(name = "success", location = "userInfo.jsp") })
+    public String userInfo(){
+
+        try {
+            if(userId == null) {
+                return ERROR;
+            } else {
+                user = userService.getUserById(userId);
+                myBooks = bookService.getBookByUserId(userId);
+            }
+        } catch (Exception e) {
+            logger.error("error::module:UserAction][action:userInfo][][error:{}]", e);
+        }
+
+        return SUCCESS;
     }
 
 	public void setUserService(UserService userService) {
@@ -142,5 +165,21 @@ public class UserAction extends BaseAction{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public List<Book> getMyBooks() {
+        return myBooks;
+    }
+
+    public void setMyBooks(List<Book> myBooks) {
+        this.myBooks = myBooks;
     }
 }

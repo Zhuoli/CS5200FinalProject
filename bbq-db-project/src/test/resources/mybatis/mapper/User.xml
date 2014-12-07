@@ -8,21 +8,23 @@
 		<result column="GENDER" property="gender" jdbcType="INTEGER" />
 		<result column="EMAIL" property="email" jdbcType="VARCHAR" />
 		<result column="TELEPHONE" property="telephone" jdbcType="VARCHAR" />
+        <result column="ACCOUNT" property="account" jdbcType="INTEGER" />
 		<result column="REGISTERTIME" property="registerTime" jdbcType="DATE" />
 	</resultMap>
 	
 	<sql id="Base_Column_List" >
-		USER_ID, USER_NAME, PASSWORD, GENDER, EMAIL, TELEPHONE, REGISTER_TIME
+		USER_ID, USER_NAME, PASSWORD, GENDER, EMAIL, TELEPHONE, ACCOUNT, REGISTER_TIME
 	</sql>
 	
 	<insert id="insert" parameterType="User">
 		insert into User (USER_ID, USER_NAME, PASSWORD, GENDER,
-		EMAIL, TELEPHONE, REGISTER_TIME)
+		EMAIL, TELEPHONE, ACCOUNT, REGISTER_TIME)
 		values (#{userId,jdbcType=INTEGER},
 		#{userName,jdbcType=VARCHAR},
 		#{password,jdbcType=VARCHAR},
 		#{gender,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR},
-		#{telephone,jdbcType=VARCHAR}, #{registerTime, jdbcType=DATE})
+		#{telephone,jdbcType=VARCHAR}, #{account,jdbcType=INTEGER},
+		#{registerTime, jdbcType=DATE})
 	</insert>
 	
 	<select id="select_all" resultMap="BaseResultMap">
@@ -42,7 +44,8 @@
 	
 	<select id="update" parameterType="java.util.Map">
 		update User set USER_NAME=#{userName,jdbcType=VARCHAR},PASSWORD=#{password,jdbcType=VARCHAR},GENDER=#{gender,jdbcType=INTEGER},
-		EMAIL=#{email,jdbcType=VARCHAR},TELEPHONE=#{telephone,jdbcType=VARCHAR} where USER_ID=#{userId,jdbcType=INTEGER}
+		EMAIL=#{email,jdbcType=VARCHAR},ACCOUNT=#{account, jdbcType=INTEGER},
+		TELEPHONE=#{telephone,jdbcType=VARCHAR} where USER_ID=#{userId,jdbcType=INTEGER}
 	</select>
 	
 </mapper>

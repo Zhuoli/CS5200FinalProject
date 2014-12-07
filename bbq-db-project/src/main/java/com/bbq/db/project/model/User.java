@@ -10,6 +10,7 @@ public class User {
 	private String email;
 	private String telephone;
 	private Date registerTime;
+    private int account;   //the money user holds in account unit is cent
 	public int getUserId() {
 		return userId;
 	}
@@ -52,8 +53,17 @@ public class User {
 	public void setRegisterTime(Date registerTime) {
 		this.registerTime = registerTime;
 	}
-	public User(int userId, String userName, String password, Integer gender,
-			String email, String telephone, Date registerTime) {
+
+    public int getAccount() {
+        return account;
+    }
+
+    public void setAccount(int account) {
+        this.account = account;
+    }
+
+    public User(int userId, String userName, String password, Integer gender,
+			String email, String telephone, Integer account, Date registerTime) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -61,6 +71,7 @@ public class User {
 		this.gender = gender;
 		this.email = email;
 		this.telephone = telephone;
+        this.account = account;
 		this.registerTime = registerTime;
 	}
 	public User() {
