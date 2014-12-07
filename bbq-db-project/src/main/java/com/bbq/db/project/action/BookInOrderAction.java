@@ -3,17 +3,19 @@ package com.bbq.db.project.action;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 import net.sf.json.JSONObject;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
-import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import bbq.db.project.dao.utils.Constants;
 import bbq.db.project.dao.utils.StrutsUtil;
 
 import com.bbq.db.project.model.Book;
+import com.bbq.db.project.model.BookOrder;
 import com.bbq.db.project.service.BookInOrderService;
 import com.bbq.db.project.service.BookOrderService;
 import com.bbq.db.project.service.BookService;
@@ -28,7 +30,7 @@ public class BookInOrderAction extends BaseAction{
     private BookService bookService;
 	
 	private int bookOrderId;
-	private int book;
+	private int bookId;
 	private int quantity;
 	public BookInOrderService getBookInOrderService() {
 		return bookInOrderService;
@@ -49,12 +51,7 @@ public class BookInOrderAction extends BaseAction{
 	public void setBookOrderService(BookOrderService bookOrderService) {
 		this.bookOrderService = bookOrderService;
 	}
-	public int getBook() {
-		return book;
-	}
-	public void setBook(int book) {
-		this.book = book;
-	}
+	
 	public int getQuantity() {
 		return quantity;
 	}
@@ -62,15 +59,29 @@ public class BookInOrderAction extends BaseAction{
 		this.quantity = quantity;
 	}
 	
+
+	public BookService getBookService() {
+		return bookService;
+	}
+	public void setBookService(BookService bookService) {
+		this.bookService = bookService;
+	}
+	public int getBookId() {
+		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+	
 	@Action(value = "updateQuantity")
     public String updateQuantity(){
-    	Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> map = new HashMap<String, Object>();
     	try{
-    		bookInOrderService.updateByOrderIDandBookID(bookOrderService.getOrderById(bookOrderId), bookService.getBookById(book), quantity);
+    		bookInOrderService.updateByOrderIDandBookID(bookOrderService.getOrderById(bookOrderId), bookService.getBookById(bookId), quantity);
     		map.put("code", Constants.CODE_SUCCESS);
     	}catch (Exception e){
     		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
-            map.put("code", Constants.INNER_ERROR);
+    		map.put("code", Constants.INNER_ERROR);
     	}
     	
     	StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
@@ -78,16 +89,20 @@ public class BookInOrderAction extends BaseAction{
     	
     }
 	
-	@Action(value = "deleteBookInOrder" , results = { @Result(name = "success", location = "viewUnProcessOrderDetail.jsp")})
+	@Action(value = "deleteBookInOrder")
     public String deleteBookInOrder(){
+		Map<String, Object> map = new HashMap<String, Object>();
     	try{
-    		bookInOrderService.deleteByOrderIDandBookID(bookOrderService.getOrderById(bookOrderId), bookService.getBookById(book));
+    		bookInOrderService.deleteByOrderIDandBookID(bookOrderService.getOrderById(bookOrderId), bookService.getBookById(bookId));
+    		map.put("code", Constants.CODE_SUCCESS);
     	}catch (Exception e){
     		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
+    		map.put("code", Constants.INNER_ERROR);
     	}
     	
     	
-    	return SUCCESS;
+    	StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
+    	return null;
     	
     }
 }

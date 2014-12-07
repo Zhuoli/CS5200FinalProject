@@ -5,12 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 
+
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import bbq.db.project.dao.utils.Constants;
 import bbq.db.project.dao.utils.StrutsUtil;
 
-import com.bbq.db.project.model.Book;
+
 import com.bbq.db.project.model.BookInOrder;
 import com.bbq.db.project.model.BookOrder;
 import com.bbq.db.project.model.User;
@@ -19,16 +23,9 @@ import com.bbq.db.project.service.BookOrderService;
 import com.bbq.db.project.service.BookService;
 import com.bbq.db.project.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
-import com.sun.net.httpserver.HttpContext;
 
 import net.sf.json.JSONObject;
 
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
-import org.apache.struts2.convention.annotation.Result;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * Created with IntelliJ IDEA.
@@ -52,9 +49,11 @@ public class BookOrderAction extends BaseAction {
 	
     private int bookId;
     private int quantity;
+    private int bookOrderId;
 	private BookOrder bookOrder;
 	private List<BookOrder> bookOrders;
 	private List<BookInOrder> bookInOrders;
+	
 	public List<BookInOrder> getBookInOrders() {
 		return bookInOrders;
 	}
@@ -63,7 +62,7 @@ public class BookOrderAction extends BaseAction {
 		this.bookInOrders = bookInOrders;
 	}
 
-	private int bookOrderId;
+	
     
 
 /*    @Action(value = "get", results = { @Result(name = "success", location = "get.jsp") })
@@ -142,7 +141,7 @@ public class BookOrderAction extends BaseAction {
     	try{
     		bookInOrders = bookInOrderService.getBookInOrderByOrderID(bookOrderService.getOrderById(bookOrderId));
     	}catch (Exception e){
-    		
+    		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
     	}
     	if (bookOrderService.getOrderById(bookOrderId).getOrderStatus().equals("unprocess"))
     		return "success_unprocess";
@@ -150,6 +149,25 @@ public class BookOrderAction extends BaseAction {
     	    return "success_view";
     	
     }
+    
+    @Action(value = "updateStatus", results = { @Result(name = "success", location = "viewBookOrder.jsp"),
+            @Result(name = "success_view", location = "viewOrderDetail.jsp")})
+    public String updateStatus(){
+    	try{
+    		bookOrder = new BookOrder();
+    		bookOrder.setOrderId(bookOrderId);
+    		bookOrder.setOrderStatus("cancled");
+    		bookOrderService.updateBookOrder(bookOrder);
+    		Map<String, Object> session = ActionContext.getContext().getSession();
+        	User user = (User)session.get("user");
+        	bookOrders = bookOrderService.getOrderByUserId(user.getUserId());
+    	}catch (Exception e){
+    		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
+    	}
+    	
+    	return SUCCESS;
+
+}
 
 	public List<BookOrder> getBookOrders() {
 		return bookOrders;

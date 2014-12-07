@@ -83,7 +83,7 @@ public class BookOrderDaoTest {
 	public void updateBookOrder() {
 		BookOrder bookorder = new BookOrder();
 		bookorder.setOrderId(1);
-		bookorder.setOrderStatus("update");
+		bookorder.setOrderStatus("test");
 		int effectCount = bookOrderDao.update(bookorder);
 		Assert.assertTrue(effectCount > 0);
 	}
