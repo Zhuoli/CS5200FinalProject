@@ -1,6 +1,8 @@
 package com.bbq.db.project.action;
 
 
+import com.bbq.db.project.model.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
@@ -8,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 /**
  * action基础类
@@ -29,13 +32,11 @@ public class BaseAction extends ActionSupport implements ServletRequestAware, Se
     protected String accessDomain;
     protected String openApi;
 
-    /**
-     * 页码  每页条数
-     */
     protected Integer pageNo;
     protected Integer pageSize;
     protected String orderBy;
     protected String order;
+    protected User sessionUser;
 
     /**
      * request getter
@@ -179,5 +180,13 @@ public class BaseAction extends ActionSupport implements ServletRequestAware, Se
 
     public void setOpenApi(String openApi) {
         this.openApi = openApi;
+    }
+
+    public User getSessionUser() {
+        return sessionUser;
+    }
+
+    public void setSessionUser(User sessionUser) {
+        this.sessionUser = sessionUser;
     }
 }

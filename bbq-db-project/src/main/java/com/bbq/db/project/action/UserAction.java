@@ -87,7 +87,31 @@ public class UserAction extends BaseAction{
         StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
         return null;
     }
-	 
+
+    @Action(value = "preLogin", results = { @Result(name = "success", location = "preLogin.jsp") })
+    public String preLogin(){
+
+        return SUCCESS;
+    }
+
+    @Action(value = "loginOut")
+    public String loginOut(){
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+
+            Map<String, Object> session = ActionContext.getContext().getSession();
+            session.remove("user");
+            map.put("code", Constants.CODE_SUCCESS);
+        } catch (Exception e) {
+            logger.error("error::module:UserAction][action:loginOut][][error:{}]", e);
+            map.put("code", Constants.INNER_ERROR);
+        }
+
+        StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
+        return null;
+    }
+
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
