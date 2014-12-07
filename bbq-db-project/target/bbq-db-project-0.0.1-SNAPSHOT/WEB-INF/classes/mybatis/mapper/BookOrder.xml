@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="BookOrder" >
+	<resultMap id="BaseResultMap" type="BookOrder" >
+		<id column="ORDER_ID" property="orderId" jdbcType="INTEGER" />
+		<result column="USER_ID" property="user" jdbcType="INTEGER" />
+		<result column="ADDRESS_ID" property="address" jdbcType="INTEGER" />
+		<result column="ORDER_STATUS" property="orderStatus" jdbcType="VARCHAR" />
+		<result column="ORDER_TIME" property="orderTime" jdbcType="DATE" />
+	</resultMap>
+	
+	<sql id="Base_Column_List" >
+		ORDER_ID, USER_ID, ADDRESS_ID, ORDER_STATUS, ORDER_TIME
+	</sql>
+
+    <insert id="insert" parameterType="BookOrder">
+        <selectKey resultType="int" keyProperty="orderId" order="AFTER">
+            <![CDATA[SELECT LAST_INSERT_ID() AS ID from BookOrder limit 1]]>
+        </selectKey>
+        insert into BookOrder (ORDER_ID, USER_ID, ADDRESS_ID, ORDER_STATUS, ORDER_TIME)
+        values (#{orderId,jdbcType=INTEGER},
+        #{user.userId,jdbcType=INTEGER},
+        #{address.addressId,jdbcType=INTEGER},
+        #{orderStatus,jdbcType=VARCHAR},
+        #{orderTime,jdbcType=DATE})
+    </insert>
+	
+	<select id="select_all" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from BookOrder
+	</select>
+	
+	<select id="getOrderById" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from BookOrder where order_id = #{orderId,jdbcType=INTEGER}
+	</select>
+	
+	<select id="getOrderByUserID" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from BookOrder where user_id = #{userId,jdbcType=INTEGER}
+	</select>
+	
+	<select id="getOrderByUserIDandOrderStatus" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from BookOrder where user_id = #{userId} and order_status = #{orderStatus}
+	</select>
+	
+	<select id="update" parameterType="java.util.Map">
+		update BookOrder set ORDER_STATUS=#{orderStatus,jdbcType=VARCHAR} where ORDER_ID=#{orderId,jdbcType=INTEGER}
+	</select>
+	
+	
+	
+</mapper>

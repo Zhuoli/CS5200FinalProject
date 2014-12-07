@@ -11,7 +11,11 @@ import com.bbq.db.project.model.Message;
 import com.bbq.db.project.model.User;
 import com.bbq.db.project.service.MessageService;
 
-
+/**
+ * 
+ * @author zhuoli
+ *
+ */
 
 @Namespace("/message")
 public class MessageAction extends BaseAction {
@@ -34,7 +38,7 @@ public class MessageAction extends BaseAction {
         return SUCCESS;
     }
     
-    @Action(value = "view", results ={ @Result(name = "success", location = "view.jsp") })
+    @Action(value = "view", results ={ @Result(name = "success", location = "message.jsp") })
     public String view(User user){
     	 msgs=messageService.getMessageByReceiverID(user);
     	 return SUCCESS;
