@@ -63,6 +63,18 @@
         }
         window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=' + pageNo;
     }
+
+    function jumpToPage() {
+
+        var pageNo = $('#pageNo').val();
+        if(pageNo <= 0 || isNaN(pageNo)) {
+            pageNo = 1;
+        } else if(pageNo > ${pageInfo.totalPage}) {
+            pageNo = ${pageInfo.totalPage};
+        }
+
+        window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=' + pageNo;
+    }
 </script>
 
 </head>
@@ -102,6 +114,7 @@
         <span onclick="previousPage()" style="cursor:pointer;">previousPage</span>   &nbsp;
         <span onclick="nextPage()" style="cursor:pointer;">nextPage</span>  &nbsp;
         <span onclick="javascript:window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=${pageInfo.totalPage}'" style="cursor:pointer;">lastPage</span>  &nbsp;&nbsp;
+        <input type='text' name="pageNo" id="pageNo"/> <a onclick="jumpToPage()">go</a>
         total : ${pageInfo.totalPage}
     </p>
 
