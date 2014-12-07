@@ -2,6 +2,7 @@ package com.bbq.db.project.action;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -52,6 +53,17 @@ public class BookOrderAction extends BaseAction {
     private int bookId;
     private int quantity;
 	private BookOrder bookOrder;
+	private List<BookOrder> bookOrders;
+	private List<BookInOrder> bookInOrders;
+	public List<BookInOrder> getBookInOrders() {
+		return bookInOrders;
+	}
+
+	public void setBookInOrders(List<BookInOrder> bookInOrders) {
+		this.bookInOrders = bookInOrders;
+	}
+
+	private int bookOrderId;
     
 
 /*    @Action(value = "get", results = { @Result(name = "success", location = "get.jsp") })
@@ -68,7 +80,15 @@ public class BookOrderAction extends BaseAction {
         return SUCCESS;
     }*/
     
-    @Action(value = "addBookToOrder")
+    public int getBookOrderId() {
+		return bookOrderId;
+	}
+
+	public void setBookOrderId(int bookOrderId) {
+		this.bookOrderId = bookOrderId;
+	}
+
+	@Action(value = "addBookToOrder")
     public String addBookToOrder(){
     	//BookOrder bookOrder= new BookOrder();
     	Map<String, Object> map = new HashMap<String, Object>();
@@ -101,6 +121,42 @@ public class BookOrderAction extends BaseAction {
     	return null;
     	
     }
+    
+    @Action(value = "getAllOrders", results = { @Result(name = "success", location = "viewBookOrder.jsp")})
+    public String getAllOrders(){
+    	Map<String, Object> session = ActionContext.getContext().getSession();
+    	User user = (User)session.get("user");
+    	try{
+    		bookOrders = bookOrderService.getOrderByUserId(user.getUserId());
+    	}catch (Exception e){
+    		
+    	}
+    	
+    	return SUCCESS;
+    	
+    }
+    
+    @Action(value = "orderDetail", results = { @Result(name = "success_unprocess", location = "viewUnProcessOrderDetail.jsp"),@Result(name = "success_view", location = "viewOrderDetail.jsp")})
+    public String orderDetail(){
+    	try{
+    		bookInOrders = bookInOrderService.getBookInOrderByOrderID(bookOrderService.getOrderById(bookOrderId));
+    	}catch (Exception e){
+    		
+    	}
+    	if (bookOrderService.getOrderById(bookOrderId).getOrderStatus().equals("unprocess"))
+    		return "success_unprocess";
+    	else
+    	    return "success_view";
+    	
+    }
+
+	public List<BookOrder> getBookOrders() {
+		return bookOrders;
+	}
+
+	public void setBookOrders(List<BookOrder> bookOrders) {
+		this.bookOrders = bookOrders;
+	}
 
 	public void setBookOrder(BookOrder bookOrder) {
 		this.bookOrder = bookOrder;

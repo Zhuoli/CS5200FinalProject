@@ -74,7 +74,7 @@ public class BookOrderDaoTest {
     @Test
 	public void getOrderByUserIDandOrderStatus() {
 		
-    	BookOrder bookOrder = bookOrderDao.getOrderByUserIDandOrderStatus(2, "bbbb");
+    	BookOrder bookOrder = bookOrderDao.getOrderByUserIDandOrderStatus(2, "unprocess");
     	Assert.assertTrue(bookOrder != null);
 	}
 

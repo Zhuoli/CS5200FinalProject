@@ -61,7 +61,7 @@
            <button id='login'>login</button>
         </div>
         <div ${sessionScope.user == null ? 'hidden=true' : ''} id="userinfo">
-           <a id='mypage'>${sessionScope.user.userName}</a>
+           <a href="<%=basePath%>bookorder/getAllOrders.action" id='mypage'>${sessionScope.user.userName}</a>
            <button id='logout'>logout</button>
         </div>
 	</div>
