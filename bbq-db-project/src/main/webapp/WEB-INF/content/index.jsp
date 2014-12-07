@@ -114,7 +114,7 @@
         <span onclick="previousPage()" style="cursor:pointer;">previousPage</span>   &nbsp;
         <span onclick="nextPage()" style="cursor:pointer;">nextPage</span>  &nbsp;
         <span onclick="javascript:window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=${pageInfo.totalPage}'" style="cursor:pointer;">lastPage</span>  &nbsp;&nbsp;
-        <input type='text' name="pageNo" id="pageNo"/> <a onclick="jumpToPage()">go</a>
+        <input type='text' name="pageNo" id="pageNo" style="width:15px;"/> <a onclick="jumpToPage()">go</a>
         total : ${pageInfo.totalPage}
     </p>
 
