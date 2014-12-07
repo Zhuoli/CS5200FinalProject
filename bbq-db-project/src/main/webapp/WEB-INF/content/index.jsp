@@ -47,7 +47,24 @@
                     });
         });
     });
+
+    function previousPage(){
+        var pageNo = ${pageInfo.currentPageNo - 1};
+        if(pageNo <= 0) {
+            pageNo = 1;
+        }
+        window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=' + pageNo;
+    }
+
+    function nextPage(){
+        var pageNo = ${pageInfo.currentPageNo + 1};
+        if(pageNo > ${pageInfo.totalPage}) {
+            pageNo = ${pageInfo.totalPage};
+        }
+        window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=' + pageNo;
+    }
 </script>
+
 </head>
 <body>
 <header>
@@ -69,7 +86,7 @@
     <div>
         <c:forEach var="book" items="${books}">
             <div>
-                bookId: <c:out value="${book.bookId}"/>
+                <input type="hidden" name='bookId' value=${book.bookId}/>
                 bookTitle: <a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank"> <c:out value="${book.title}"/> </a>
                 author: <c:out value="${book.author}"/>
                 isbn: <c:out value="${book.isbn}"/>
@@ -78,6 +95,16 @@
             </div>
         </c:forEach>
     </div>
+
+    <p style="margin-left:180px;">
+        currentPage: ${pageInfo.currentPageNo}     &nbsp;&nbsp;
+        <span onclick="javascript:window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=1'" style="cursor:pointer;">firstPage</span>      &nbsp;
+        <span onclick="previousPage()" style="cursor:pointer;">previousPage</span>   &nbsp;
+        <span onclick="nextPage()" style="cursor:pointer;">nextPage</span>  &nbsp;
+        <span onclick="javascript:window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=${pageInfo.totalPage}'" style="cursor:pointer;">lastPage</span>  &nbsp;&nbsp;
+        total : ${pageInfo.totalPage}
+    </p>
+
 </body>
 </html>
 
