@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Buy Book in Queue: LOG IN</title>
+<title>Message Box</title>
 </head>
 <body>
-<h1>sign in fail!!</h1>
+	<h1>  ${user.getMessage} </h1>
 </body>
 </html>
