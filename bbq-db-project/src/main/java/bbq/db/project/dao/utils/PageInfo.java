@@ -33,7 +33,7 @@ public class PageInfo {
 	}
 
 	public static final int FIRST_PAGE_NO = 1;
-	public static final int DEFAULT_PAGE_SIZE = 50;
+	public static final int DEFAULT_PAGE_SIZE = 30;
 
 	private int pageSize = DEFAULT_PAGE_SIZE;
 
