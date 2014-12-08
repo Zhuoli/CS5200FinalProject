@@ -77,7 +77,7 @@ public class BookDaoTest {
 		book.setAuthor("bbbupdate");
 		book.setIsbn("bbbupdate");
 		book.setQuantity(4);
-		book.setPrice(1);
+		book.setPrice(6600);
 		book.setPublisher("bbb");
 		book.setPublishTime(new Date());
 		book.setPic("aaa");
