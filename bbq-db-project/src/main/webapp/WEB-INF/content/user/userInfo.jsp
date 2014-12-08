@@ -18,7 +18,7 @@
 </header>
 	<h1>Buy Book In Queue - User Info</h1>
     <c:if test="${sessionScope.user.userId == user.userId}">
-        <a>message</a>          &nbsp;
+        <a href="<%=basePath%>message/view.action"> message</a>          &nbsp;
         <a href="<%=basePath%>bookorder/getAllOrders.action">My Orders</a>
     </c:if>
     <jsp:include page="../user-login.jsp"/>

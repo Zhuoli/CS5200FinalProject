@@ -16,25 +16,48 @@ body{
  }
  </style>
 <title>Message: Send message</title>
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
     $(document).ready(function() {
-        $('#send').click(function() {
+        $("#comment_form").validate({
+            rules: {
+            	receiver: {
+                    required: true,
+                    minlength: 2
+                },
+                title: {
+                    required: true,
+                    minlength: 2
+                },
+                content: {
+                    required: true,
+                    minlength: 2,
+                }
+            },
 
-            $.post("<%=basePath%>user/login.action",
+            submitHandler: function() {
+                $.post("<%=basePath%>user/addUser.action",
                     {
-                        userName: $('#username').val(),
-                        password: $('#password').val()
+                        "msg.receiver": $('#receiver').val(),
+                        "msg.title": $('#title').val(),
+                        "msg.content": $('#content').val(),
+                        "msg.time": new Date().toString();
                     },
                     function(data, status){
                         if(data['code'] == 'A00000') {
-                            $('#mypage').html(data['user']['userName'])
-                            $('#userinfo').show()
-                            $('#login-div').hide()
+                            alert('register success!');
+                            var jumpPage = <%=request.getParameter("lastPage")%>
+                            if(jumpPage == null) {
+                                jumpPage = '<%=basePath%>index.action';
+                            }
+                            window.location.href=jumpPage;
                         } else {
-                            alert('login failed, please retry!');
+                            alert('username has already exist!');
                         }
                     });
+            }
         });
+
+    });
 </script>
 </head>
 <body>
@@ -45,13 +68,13 @@ body{
 <div id="comment_form">
 	
 	<div>
-		<input type="text" name="name" id="name" value="" placeholder="Name">
+		<input type="text" name="receiver" id="receiver" value="" placeholder="receiver">
 	</div>
 	<div>
-		<input type="text" name="title" id="title" value="" placeholder=Title>
+		<input type="text" name="title" id="title" value="" placeholder=title>
 	</div>
 	<div>
-		<textarea rows="10" name="comment" id="comment" placeholder="Comment"></textarea>
+		<textarea rows="10" name="content" id="content" placeholder="content"></textarea>
 	</div>
 	<div>
 		<!-- <input type="submit" name="submit" value="Add Comment"> -->

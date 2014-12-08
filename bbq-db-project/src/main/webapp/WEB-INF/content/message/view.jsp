@@ -30,7 +30,7 @@
 			<div id="date">
 				time: <c:out value="${message.time}"/>
 			</div>
-			<input type="submit" name="submit" value="reply">
+			<button id='reply'>reply</button>  &nbsp;
 
 	</c:forEach>
 
