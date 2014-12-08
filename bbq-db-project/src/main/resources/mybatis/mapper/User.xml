@@ -22,7 +22,7 @@
 		EMAIL, TELEPHONE, ACCOUNT, REGISTER_TIME)
 		values (#{userId,jdbcType=INTEGER},
 		#{userName,jdbcType=VARCHAR},
-		#{password,jdbcType=VARCHAR}, #{userType,jdbcType=Integer},
+		#{password,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER},
 		#{gender,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR},
 		#{telephone,jdbcType=VARCHAR}, #{account,jdbcType=INTEGER},
 		#{registerTime, jdbcType=DATE})
@@ -30,6 +30,10 @@
 
     <select id="select_all" resultMap="BaseResultMap">
         select <include refid="Base_Column_List" /> from User
+    </select>
+
+    <select id="getUsersByType" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from User where user_type=#{userType}
     </select>
 
     <select id="getUserById" parameterType="java.util.Map" resultMap="BaseResultMap">
@@ -48,12 +52,9 @@
 		GENDER=#{gender,jdbcType=INTEGER},EMAIL=#{email,jdbcType=VARCHAR},ACCOUNT=#{account, jdbcType=INTEGER},
 		TELEPHONE=#{telephone,jdbcType=VARCHAR} where USER_ID=#{userId,jdbcType=INTEGER}
 	</select>
-	
-	<select id="updateAccount" parameterType="java.util.Map">
+
+    <select id="updateAccount" parameterType="java.util.Map">
 		update User set ACCOUNT=#{user.account, jdbcType=INTEGER} where USER_ID=#{user.userId,jdbcType=INTEGER}
 	</select>
 
-    <select id="getUsersByType" resultMap="BaseResultMap">
-        select <include refid="Base_Column_List" /> from User where user_type=#{userType}
-    </select>
 </mapper>

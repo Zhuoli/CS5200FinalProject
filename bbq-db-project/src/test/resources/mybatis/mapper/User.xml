@@ -22,7 +22,7 @@
 		EMAIL, TELEPHONE, ACCOUNT, REGISTER_TIME)
 		values (#{userId,jdbcType=INTEGER},
 		#{userName,jdbcType=VARCHAR},
-		#{password,jdbcType=VARCHAR}, #{userType,jdbcType=Integer},
+		#{password,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER},
 		#{gender,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR},
 		#{telephone,jdbcType=VARCHAR}, #{account,jdbcType=INTEGER},
 		#{registerTime, jdbcType=DATE})

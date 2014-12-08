@@ -85,6 +85,9 @@ public class UserAction extends BaseAction{
                 Map<String, Object> session = ActionContext.getContext().getSession();
                 session.put("user", user);
                 map.put("code", Constants.CODE_SUCCESS);
+            } else if(user.getUserId() > 0){
+                userService.updateUser(user);
+                map.put("code", Constants.CODE_SUCCESS);
             } else {
                 map.put("code", Constants.USER_EXISTS);
             }
@@ -155,6 +158,27 @@ public class UserAction extends BaseAction{
         }
 
         return SUCCESS;
+    }
+
+    @Action(value = "getUserById")
+    public String getUserById(){
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+            user = userService.getUserById(userId);
+            if(user != null) {
+                map.put("user", user);
+                map.put("code", Constants.CODE_SUCCESS);
+            } else {
+                map.put("code", Constants.NO_DATA);
+            }
+        } catch (Exception e) {
+            logger.error("error::module:UserAction][action:addUser][][error:{}]", e);
+            map.put("code", Constants.INNER_ERROR);
+        }
+
+        StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
+        return null;
     }
 
 	public void setUserService(UserService userService) {
