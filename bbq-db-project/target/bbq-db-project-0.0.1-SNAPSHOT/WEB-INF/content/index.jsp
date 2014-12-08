@@ -96,15 +96,22 @@
 	</div>
 
     <div>
+        <tr>
+          <td>bookTitle</td>  &nbsp;&nbsp;
+          <td>author</td>     &nbsp;&nbsp;
+          <td>isbn</td>       &nbsp;&nbsp;
+          <td>quantity</td>   &nbsp;&nbsp;
+          <td>price</td>      &nbsp;&nbsp;<br/>
+        </tr>
         <c:forEach var="book" items="${books}">
-            <div>
+            <tr>
                 <input type="hidden" name='bookId' value=${book.bookId}/>
-                bookTitle: <a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank"> <c:out value="${book.title}"/> </a>
-                author: <c:out value="${book.author}"/>
-                isbn: <c:out value="${book.isbn}"/>
-                quantity: <c:out value="${book.quantity}"/>
-                price: <c:out value="${book.price}"/>
-            </div>
+                <td><a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank">${book.title}</a>
+                <td>${book.author}</td>
+                <td>${book.isbn}</td>
+                <td>${book.quantity}</td>
+                <td>${book.price}</td>   <br/>
+            </tr>
         </c:forEach>
     </div>
 
