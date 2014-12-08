@@ -9,6 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>css/bootstrap.css" rel="stylesheet" type="text/css" />
 <meta charset="utf-8">
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
@@ -18,7 +20,7 @@
                         street: $('#street').val(),
                         city: $('#city').val(),
                         country: $('#country').val(),
-                        zipcode: $('#zipcode').val()
+                        zipcode: $('#zipcode').val()                      
                     },
                     function(data, status){
                         if(data['code'] == 'A00000') {
@@ -35,14 +37,21 @@
     	var bookOrderId = $('#orderId1').val();
     	var amount = $('#amount').val();
     	var index = $('input:radio[name="address"]:checked').val();
-    	var addressId = $('#addressId'+ index).val();
-    	window.location.href='<%=basePath%>bookorder/checkOut.action?bookOrderId=' + bookOrderId+'&amount='+amount+'&addressId=' + addressId;
+    	if (index == null){
+    		alert("please select an address!")
+    	}else{
+    		var addressId = $('#addressId'+ index).val();   	
+    		window.location.href='<%=basePath%>bookorder/checkOut.action?bookOrderId=' + bookOrderId+'&amount='+amount+'&addressId=' + addressId;
+    	}
     }
 </script>
 </head>
 <body>
-check out
-<table width="500" border="0" cellspacing="0" cellpadding="0">  
+<h1 class="h1">check out</h1>
+<div>
+Order Information
+</div>
+<table width="500" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator">  
 	<tr>  
    	 	<th>Book Title</th>  
     	<th>Seller</th>
@@ -56,14 +65,14 @@ check out
     	<td>${bookInOrder.book.user.userName}</td>  
     	<td>${bookInOrder.quantity}</td>
 	</tr>  
-	</c:forEach>  
-	<tr>
-	<td>Amount:</td>
-	<td>${amount}</td>
-	</tr>
+	</c:forEach>
 </table> 
-
-<table width="500" border="0" cellspacing="0" cellpadding="0">  
+<p />
+<div>
+Amount:${amount}
+</div>
+<p />
+<table width="500" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator">  
 	<tr>  
    	 	<th>Address</th> 
 	</tr>  
@@ -76,13 +85,15 @@ check out
 	</tr>
 	</c:forEach> 	
 </table> 
-<button id="addAddress">add new address</button>
-<table width="500" border="0" cellspacing="0" cellpadding="0">  
+<p />
+
+<table width="500" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator">  
 	<tr>  
    	 	<th>Street</th> 
    	 	<th>City</th>
    	 	<th>Country</th>
    	 	<th>Zipcode</th>
+   	 	<th></th>
 	</tr>  
 	<tr>
 		<td>
@@ -96,9 +107,11 @@ check out
 		</td>
 		<td>
 			<input name='zipcode' id='zipcode' type='text'/>
+			<button id="addAddress" class="btn btn-primary">add new address</button>
 		</td>
 	</tr>
 </table>
-<button onclick="checkout()">Check Out</button> 
+<p />
+<button onclick="checkout()" class="btn btn-danger">Check Out</button> 
 </body>
 </html>

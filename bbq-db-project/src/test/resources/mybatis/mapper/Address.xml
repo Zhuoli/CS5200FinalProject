@@ -3,11 +3,11 @@
 <mapper namespace="Address" >
 	<resultMap id="BaseResultMap" type="Address" >
 		<id column="ADDRESS_ID" property="addressId" jdbcType="INTEGER" />
-		<result column="USER_ID" property="user" jdbcType="INTEGER" />
 		<result column="STREET" property="street" jdbcType="VARCHAR" />
 		<result column="CITY" property="city" jdbcType="VARCHAR" />
 		<result column="COUNTRY" property="country" jdbcType="VARCHAR" />
 		<result column="ZIPCODE" property="zip_code" jdbcType="INTEGER" />
+        <association property="user" column="USER_ID" select="User.getUserById" />
 	</resultMap>
 	
 	<sql id="Base_Column_List" >

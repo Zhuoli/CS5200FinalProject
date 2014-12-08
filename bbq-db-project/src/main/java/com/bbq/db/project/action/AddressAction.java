@@ -34,14 +34,18 @@ public class AddressAction extends BaseAction{
 		Map<String, Object> session = ActionContext.getContext().getSession();
     	User user = (User)session.get("user");
     	try{
-    		Address address = new Address();
-    		address.setStreet(street);
-    		address.setCity(city);
-    		address.setCountry(country);
-    		address.setZipcode(zipcode);
-    		address.setUser(user);
-    		addressService.insertAddress(address);
-    		map.put("code", Constants.CODE_SUCCESS);
+    		if(street.length()<=0||city.length()<=0||country.length()<=0){
+    			map.put("code", Constants.NO_DATA);
+    		}else{
+	    		Address address = new Address();
+	    		address.setStreet(street);
+	    		address.setCity(city);
+	    		address.setCountry(country);
+	    		address.setZipcode(zipcode);
+	    		address.setUser(user);
+	    		addressService.insertAddress(address);
+	    		map.put("code", Constants.CODE_SUCCESS);
+	    	}
     	}catch (Exception e){
     		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
     		map.put("code", Constants.INNER_ERROR);

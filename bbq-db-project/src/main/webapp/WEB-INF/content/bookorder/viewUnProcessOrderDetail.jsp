@@ -82,13 +82,12 @@
 <body>
  <h1 class="h1">Order Details</h1>
  <jsp:include page="../user-login.jsp"/>
- <table width="500" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator">  
+ <div align='center'>
+ <table width="200" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator" >  
 	<tr>  
-		<th style="display:none;">orderId</th>
    	 	<th>Book Title</th>  
     	<th>Seller</th>
     	<th>Quantity</th>
-    	<th></th> 
 	</tr>  
 	<c:forEach var="bookInOrder" items="${bookInOrders}" varStatus="status">
     <input type="hidden" id='orderId${status.index+1}' value='${bookInOrder.bookorder.orderId}' />
@@ -96,16 +95,19 @@
 	<tr>
     	<td>${bookInOrder.book.title}</td>
     	<td>${bookInOrder.book.user.userName}</td>  
-    	<td><input id='quantity${status.index+1}' type='text' value= "${bookInOrder.quantity}"/></td>
     	<td>
+    		<input id='quantity${status.index+1}' type='text' value= "${bookInOrder.quantity}"/>
     		<button onclick="updateBookQuantity(${status.index+1})" class="btn btn-primary">Update</button>
     		<button onclick="deleteBookInOrder(${status.index+1})" class="btn btn-danger">Delete</button>
     	</td>
 	</tr>
 	</c:forEach> 
-</table>  
-	
-	<button onclick="cancleOrder()">Cancle</button>
-	<button onclick="checkOut()">Check Out</button>
+</table> 
+</div>
+<div align='right'>
+	<button onclick="cancleOrder()" class="btn btn-warning">Cancle</button>
+	<button onclick="checkOut()" class="btn btn-success">Check Out</button>
+</div>
+	 
 </body>
 </html>

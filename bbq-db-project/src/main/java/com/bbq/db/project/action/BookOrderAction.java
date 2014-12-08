@@ -179,7 +179,7 @@ public class BookOrderAction extends BaseAction {
     
     @Action(value = "checkOut", results = { @Result(name = "success", location = "viewBookOrder.jsp"),
     		                                @Result(name = "amount_not_enough", location = "amountNotEnough.jsp"),
-    		                                @Result(name = "error", location = "errorTest.jsp")})
+    		                                @Result(name = "no_enough_book", location = "errorTest.jsp")})
     public String checkOut(){
     	Map<String, Object> session = ActionContext.getContext().getSession();
     	User user = (User)session.get("user");
@@ -191,8 +191,12 @@ public class BookOrderAction extends BaseAction {
     		bookOrder = bookOrderService.getOrderById(bookOrderId);
     		bookInOrders = bookInOrderService.getBookInOrderByOrderID(bookOrderService.getOrderById(bookOrderId));
     		for(BookInOrder obj : bookInOrders){
+    			if(obj.getBook().getQuantity() >= obj.getQuantity()){
     			bookInOrderService.updateBookQuantityByBookandQuantity(obj.getBook(),obj.getQuantity());
     			bookInOrderService.updateUserAmountByBookandQuantity(obj.getBook(),obj.getQuantity());
+    			}else{
+    				return "no_enough_book";
+    			}
     		}
     		BookOrder neworder = new BookOrder();
     		Address address = addressService.getAddressById(addressId);
