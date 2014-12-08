@@ -23,8 +23,10 @@
 <header>
 </header>
 	<h1>Buy Book In Queue - User Info</h1>
-	<a>message</a>
-	<a href="<%=basePath%>bookorder/getAllOrders.action">order</a>
+    <c:if test="${sessionScope.user.userId == user.userId}">
+        <a>message</a>          &nbsp;
+        <a href="<%=basePath%>bookorder/getAllOrders.action">My Orders</a>
+    </c:if>
     <jsp:include page="../user-login.jsp"/>
 <fieldset>
     <p>
@@ -39,9 +41,9 @@
     <p>
         telephone: ${user.telephone}
     </p>
-    <p>
+    <c:if test="${sessionScope.user.userId == user.userId}">
         account: ${user.account}
-    </p>
+    </c:if>
 </fieldset>
 
 <div class="CSSTableGenerator" >
