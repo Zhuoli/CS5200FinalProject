@@ -1,6 +1,7 @@
 package com.bbq.db.project.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -29,4 +30,11 @@ public class UserDao extends BatisEntityDao<User>{
 		sqlMap.put("user", user);
 		return super.getSqlSession().update("User.updateAccount", sqlMap);
 	}
+
+    public List<User> getUsersByType(Integer type) {
+        Map<String, Integer> sqlMap = new HashMap<String, Integer>();
+        sqlMap.put("userType", type);
+        return super.getSqlSession().selectList("User.getUsersByType", sqlMap);
+    }
+
 }

@@ -12,13 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
-/**
- * action基础类
- *
- * @author : lishunlong
- *         Date: 11-2-3
- *         Time: 下午3:13
- */
 public class BaseAction extends ActionSupport implements ServletRequestAware, ServletResponseAware {
 
     public static final Logger logger = LoggerFactory.getLogger(BaseAction.class);

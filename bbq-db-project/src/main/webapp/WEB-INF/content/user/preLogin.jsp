@@ -55,12 +55,17 @@
         font-weight: bold;
         color: #EA5200;
     }
+    .error-msg{padding-left: 16px;
+            padding-bottom: 2px;
+            font-weight: bold;
+            color: #EA5200;}
 </style>
 </head>
 <body>
 <header>
 </header>
-	<h1>Buy Book In Queue - BBQ</h1>
+	<h1 class="h1">Buy Book In Queue - Login</h1>
+    <h4 class="error-msg">${message}</h4>
 <tr>
     <form id="form">
         <fieldset>

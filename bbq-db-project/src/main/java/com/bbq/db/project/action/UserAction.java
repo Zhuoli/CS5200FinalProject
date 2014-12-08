@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import bbq.db.project.dao.utils.Constants;
+import bbq.db.project.dao.utils.ResultMessageConstants;
 import bbq.db.project.dao.utils.StrutsUtil;
 
 import com.bbq.db.project.model.Book;
@@ -36,6 +37,7 @@ public class UserAction extends BaseAction{
 	private User user;
     private Integer userId;
     private List<Book> books;
+    private List<User> users;
 	
 	@Action(value = "login")
 	public String getUserByUserAndPassword(){
@@ -135,6 +137,26 @@ public class UserAction extends BaseAction{
         return SUCCESS;
     }
 
+    @Action(value = "showAllUsers", results = { @Result(name = "success", location = "showAllUsers.jsp"),
+                                                @Result(name = "error", location = "preLogin.jsp")})
+    public String showAllUsers(){
+
+        try {
+            Map<String, Object> session = ActionContext.getContext().getSession();
+            User user = (User)session.get("user");
+            if(user != null && user.getUserType() == Constants.ADMIN) {
+                 users = userService.getUsersByType(Constants.NORMAL_USER);
+            } else {
+                 this.message = ResultMessageConstants.NOT_ADMIN;
+                 return ERROR;
+            }
+        } catch (Exception e) {
+            logger.error("error::module:UserAction][action:userInfo][][error:{}]", e);
+        }
+
+        return SUCCESS;
+    }
+
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
@@ -181,5 +203,13 @@ public class UserAction extends BaseAction{
 
     public void setBooks(List<Book> books) {
         this.books = books;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

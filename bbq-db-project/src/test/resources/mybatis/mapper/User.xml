@@ -32,6 +32,10 @@
         select <include refid="Base_Column_List" /> from User
     </select>
 
+    <select id="getUsersByType" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from User where user_type=#{userType}
+    </select>
+
     <select id="getUserById" parameterType="java.util.Map" resultMap="BaseResultMap">
         select <include refid="Base_Column_List" /> from User where user_id = #{userId}
     </select>

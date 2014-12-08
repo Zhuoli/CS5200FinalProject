@@ -86,4 +86,11 @@ public class UserDaoTest {
 		int effectCount = userDao.updateUserAccount(user);
 		Assert.assertTrue(effectCount > 0);
 	}
+
+    @Test
+    public void getUsersByType() {
+
+        List<User> users = userDao.getUsersByType(1);
+        Assert.assertTrue(users.size() > 0);
+    }
 }
