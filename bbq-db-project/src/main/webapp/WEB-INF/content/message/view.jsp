@@ -18,19 +18,21 @@
 <body>
 	<h1>User Message Box</h1>
     <jsp:include page="../user-login.jsp"/>
-	<div>
-		<h3>View Alll Messages</h3>
-		<c:forEach var="message" items="${msgs}">
-			<div>
-				<%-- sender:<a href="<%=basePath%>bookorder/orderDetail.action?bookOrderId=${bookOrder.orderId}" target="_blank"> <c:out value="${bookOrder.orderId}"/></a> --%>
-				title: <c:out value="${message.title}"/>
-				content:<c:out value = "${message.content}"/>
+	<h3>View Alll Messages</h3>
+	<c:forEach var="message" items="${msgs}">
+			<%-- sender:<a href="<%=basePath%>bookorder/orderDetail.action?bookOrderId=${bookOrder.orderId}" target="_blank"> <c:out value="${bookOrder.orderId}"/></a> --%>
+			<div id="title"> 
+				<p>title: <c:out value="${message.title}"/></p>
+			</div>
+			<div id="content"> 
+				"content:<c:out value = "${message.content}"/>
+			</div>
+			<div id="date">
 				time: <c:out value="${message.time}"/>
 			</div>
-			
+			<input type="submit" name="submit" value="reply">
 
-		</c:forEach>
-	</div> 
+	</c:forEach>
 
 
 

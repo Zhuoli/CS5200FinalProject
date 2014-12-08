@@ -9,6 +9,10 @@ p {
     font-size: 20px;
 }
 
+#title {
+    border: 5px solid black;
+}
+
 body {
 	
     background-color: #d0e4fe;

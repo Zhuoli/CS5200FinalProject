@@ -16,12 +16,29 @@ body{
  }
  </style>
 <title>Message: Send message</title>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        $('#send').click(function() {
 
-
-
+            $.post("<%=basePath%>user/login.action",
+                    {
+                        userName: $('#username').val(),
+                        password: $('#password').val()
+                    },
+                    function(data, status){
+                        if(data['code'] == 'A00000') {
+                            $('#mypage').html(data['user']['userName'])
+                            $('#userinfo').show()
+                            $('#login-div').hide()
+                        } else {
+                            alert('login failed, please retry!');
+                        }
+                    });
+        });
+</script>
 </head>
 <body>
-Send messages
+	<h3>Send messages</h3>
 
     <jsp:include page="../user-login.jsp"/>
 
@@ -31,13 +48,14 @@ Send messages
 		<input type="text" name="name" id="name" value="" placeholder="Name">
 	</div>
 	<div>
-		<input type="email" name="email" id="email" value="" placeholder="Email">
+		<input type="text" name="title" id="title" value="" placeholder=Title>
 	</div>
 	<div>
 		<textarea rows="10" name="comment" id="comment" placeholder="Comment"></textarea>
 	</div>
 	<div>
-		<input type="submit" name="submit" value="Add Comment">
+		<!-- <input type="submit" name="submit" value="Add Comment"> -->
+		<button id='send'>send</button>  &nbsp;
 	</div>
 	
 </div>
