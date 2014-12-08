@@ -16,10 +16,20 @@
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
     	$('#addBookToOrder').click(function() {
+
+            var quantity = $('#quantity').val();
+            if(isNaN(quantity)) {
+                alert('please enter a number!');
+                return false;
+            } else if(quantity > ${book.quantity}) {
+                alert('please enter a number not greater than the book total quantity!');
+                return false;
+            }
+
             $.post("<%=basePath%>bookorder/addBookToOrder.action",
                     {
                         bookId: ${book.bookId},
-                        quantity: $('#quantity').val()
+                        quantity: quantity
                     },
                     function(data, status){
                         if(data['code'] == 'A00000') {
@@ -36,6 +46,7 @@
 <header>
 </header>
 	<h1 class="h1">Buy Book In Queue - ViewBook</h1>
+    <jsp:include page="../user-login.jsp"/>
 	<div>
         <div class="pic">
            <img src="<%=basePath%>uploads/${book.pic}" width="500" height="400">

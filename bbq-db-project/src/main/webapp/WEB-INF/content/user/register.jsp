@@ -15,7 +15,6 @@
 <script type="text/javascript" src="<%=basePath%>js/jquery.validate.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-
         $("#form").validate({
             rules: {
                 username: {
@@ -53,7 +52,11 @@
                     function(data, status){
                         if(data['code'] == 'A00000') {
                             alert('register success!');
-                            location.href="<%=basePath%>index.action";
+                            var jumpPage = <%=request.getParameter("lastPage")%>
+                            if(jumpPage == null) {
+                                jumpPage = '<%=basePath%>index.action';
+                            }
+                            window.location.href=jumpPage;
                         } else {
                             alert('username has already exist!');
                         }

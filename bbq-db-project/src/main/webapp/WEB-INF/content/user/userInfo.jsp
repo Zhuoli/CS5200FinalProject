@@ -23,6 +23,7 @@
 <header>
 </header>
 	<h1>Buy Book In Queue - User Info</h1>
+    <jsp:include page="../user-login.jsp"/>
 <fieldset>
     <p>
         username:${user.userName}
