@@ -1,4 +1,3 @@
-<%@ page import="com.bbq.db.project.model.User" %>
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
@@ -10,44 +9,11 @@
 <html>
 <head>
 <base href="<%=basePath%>">
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
 <title>By Book In Queue - BBQ</title>
 <script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
 <meta charset="utf-8">
 <script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-
-        $('#login').click(function() {
-
-            $.post("<%=basePath%>user/login.action",
-                    {
-                        userName: $('#username').val(),
-                        password: $('#password').val()
-                    },
-                    function(data, status){
-                        if(data['code'] == 'A00000') {
-                            $('#mypage').html(data['user']['userName'])
-                            $('#userinfo').show()
-                            $('#login-div').hide()
-                        } else {
-                            alert('login failed, please retry!');
-                        }
-                    });
-        });
-
-        $('#logout').click(function() {
-
-            $.get("<%=basePath%>user/loginOut.action",
-                    function(data, status){
-                        if(data['code'] == 'A00000') {
-                            $('#userinfo').hide()
-                            $('#login-div').show()
-                        } else {
-                            alert('logout failed, please retry!');
-                        }
-                    });
-        });
-    });
-
     function previousPage(){
         var pageNo = ${pageInfo.currentPageNo - 1};
         if(pageNo <= 0) {
@@ -81,31 +47,29 @@
 <body>
 <header>
 </header>
-	<h1>Buy Book In Queue - BBQ</h1>
-	<div>
-		Buy Book In Queue - BBQ
-        <div ${sessionScope.user == null ? '' : 'hidden=true'}  id="login-div">
-           username: <input name='username' id='username' type='text'/>
-           password: <input name='password' id='password' type='password'/>
-           <button id='login'>login</button>
-        </div>
-        <div ${sessionScope.user == null ? 'hidden=true' : ''} id="userinfo">
-           <a href="<%=basePath%>bookorder/getAllOrders.action" id='mypage'>${sessionScope.user.userName}</a>
-           <button id='logout'>logout</button>
-        </div>
-	</div>
+	<h1 class="h1">Buy Book In Queue - Welcome</h1>
+	<jsp:include page="user-login.jsp"/>
 
-    <div>
-        <c:forEach var="book" items="${books}">
-            <div>
-                <input type="hidden" name='bookId' value=${book.bookId}/>
-                bookTitle: <a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank"> <c:out value="${book.title}"/> </a>
-                author: <c:out value="${book.author}"/>
-                isbn: <c:out value="${book.isbn}"/>
-                quantity: <c:out value="${book.quantity}"/>
-                price: <c:out value="${book.price}"/>
-            </div>
-        </c:forEach>
+    <div class="CSSTableGenerator" >
+        <table >
+            <tr>
+                <td>bookTitle</td>
+                <td>author</td>
+                <td>isbn</td>
+                <td>quantity</td>
+                <td>price</td>
+            </tr>
+            <c:forEach var="book" items="${books}">
+                <tr>
+                    <input type="hidden" name='bookId' value=${book.bookId}/>
+                    <td><a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank">${book.title}</a>
+                    <td>${book.author}</td>
+                    <td>${book.isbn}</td>
+                    <td>${book.quantity}</td>
+                    <td>${book.price}</td>
+                </tr>
+            </c:forEach>
+        </table>
     </div>
 
     <p style="margin-left:180px;">

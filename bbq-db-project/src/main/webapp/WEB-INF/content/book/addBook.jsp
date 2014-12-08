@@ -112,7 +112,8 @@
 <body>
 <header>
 </header>
-	<h1>Buy Book In Queue - BBQ</h1>
+	<h1>Buy Book In Queue - Add Book</h1>
+    <jsp:include page="../user-login.jsp"/>
 <tr>
     <form id="form">
         <fieldset>
