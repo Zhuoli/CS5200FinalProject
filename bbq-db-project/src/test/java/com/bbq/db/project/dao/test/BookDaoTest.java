@@ -41,7 +41,7 @@ public class BookDaoTest {
 		book.setAuthor("bbb");
 		book.setIsbn("bbb");
 		book.setQuantity(4);
-		book.setPrice(66.7);
+		book.setPrice(6600);
 		book.setPublisher("bbb");
         book.setPic("abc");
 		book.setPublishTime(new Date());
@@ -77,11 +77,22 @@ public class BookDaoTest {
 		book.setAuthor("bbbupdate");
 		book.setIsbn("bbbupdate");
 		book.setQuantity(4);
-		book.setPrice(66.7);
+		book.setPrice(1);
 		book.setPublisher("bbb");
 		book.setPublishTime(new Date());
 		book.setPic("aaa");
 		int effectCount = bookDao.update(book);
+		Assert.assertTrue(effectCount > 0);
+	}
+	
+	
+	@Test
+	public void updateBookQuantity() {
+		
+		Book book  = new Book();
+		book.setBookId(7);
+		book.setQuantity(10);
+		int effectCount = bookDao.updateQuantity(book);
 		Assert.assertTrue(effectCount > 0);
 	}
 	

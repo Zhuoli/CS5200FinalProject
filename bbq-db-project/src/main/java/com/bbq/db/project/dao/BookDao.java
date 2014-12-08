@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import bbq.db.project.dao.utils.PageInfo;
+
 import org.springframework.stereotype.Service;
 
 import com.bbq.db.project.dao.base.BatisEntityDao;
@@ -35,5 +36,11 @@ public class BookDao extends BatisEntityDao<Book>{
 
     public Integer getEffectiveBooksCount() {
         return super.getSqlSession().selectOne("Book.getEffectiveBooksCount");
+    }
+    
+    public int updateQuantity(Book book) {
+    	Map<String, Book> sqlMap = new HashMap<String, Book>();
+		sqlMap.put("book", book);
+		return super.getSqlSession().update("Book.updateQuantity", sqlMap);
     }
 }

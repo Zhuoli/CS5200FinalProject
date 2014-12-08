@@ -23,4 +23,10 @@ public class UserDao extends BatisEntityDao<User>{
 		sqlMap.put("password", password);
 		return super.getSqlSession().selectOne("User.getUserByUserNameAndPassword", sqlMap);
 	}
+	
+	public int updateUserAccount(User user) {
+		Map<String, User> sqlMap = new HashMap<String, User>();
+		sqlMap.put("user", user);
+		return super.getSqlSession().update("User.updateAccount", sqlMap);
+	}
 }

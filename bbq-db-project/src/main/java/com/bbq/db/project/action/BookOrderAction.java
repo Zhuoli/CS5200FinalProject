@@ -7,17 +7,24 @@ import java.util.Map;
 
 
 
+
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import bbq.db.project.dao.utils.Constants;
 import bbq.db.project.dao.utils.StrutsUtil;
 
 
+
+
+import com.bbq.db.project.model.Address;
 import com.bbq.db.project.model.BookInOrder;
 import com.bbq.db.project.model.BookOrder;
 import com.bbq.db.project.model.User;
+import com.bbq.db.project.service.AddressService;
 import com.bbq.db.project.service.BookInOrderService;
 import com.bbq.db.project.service.BookOrderService;
 import com.bbq.db.project.service.BookService;
@@ -45,12 +52,32 @@ public class BookOrderAction extends BaseAction {
     private BookInOrderService bookInOrderService;
 	@Autowired
     private UserService userService;
+	@Autowired
+    private AddressService addressService;
 
 	
     private int bookId;
     private int quantity;
     private int bookOrderId;
+    private int amount;
+    private int addressId;
 	private BookOrder bookOrder;
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	public int getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
+
 	private List<BookOrder> bookOrders;
 	private List<BookInOrder> bookInOrders;
 	
@@ -150,8 +177,52 @@ public class BookOrderAction extends BaseAction {
     	
     }
     
-    @Action(value = "updateStatus", results = { @Result(name = "success", location = "viewBookOrder.jsp"),
-            @Result(name = "success_view", location = "viewOrderDetail.jsp")})
+    @Action(value = "checkOut", results = { @Result(name = "success", location = "viewBookOrder.jsp"),
+    		                                @Result(name = "amount_not_enough", location = "amountNotEnough.jsp"),
+    		                                @Result(name = "error", location = "errorTest.jsp")})
+    public String checkOut(){
+    	Map<String, Object> session = ActionContext.getContext().getSession();
+    	User user = (User)session.get("user");
+    	try{
+    		int user_amount =  user.getAccount();
+    		if(user_amount < amount){
+    			return "amount_not_enough";
+    		}
+    		bookOrder = bookOrderService.getOrderById(bookOrderId);
+    		bookInOrders = bookInOrderService.getBookInOrderByOrderID(bookOrderService.getOrderById(bookOrderId));
+    		for(BookInOrder obj : bookInOrders){
+    			bookInOrderService.updateBookQuantityByBookandQuantity(obj.getBook(),obj.getQuantity());
+    			bookInOrderService.updateUserAmountByBookandQuantity(obj.getBook(),obj.getQuantity());
+    		}
+    		BookOrder neworder = new BookOrder();
+    		Address address = addressService.getAddressById(addressId);
+    		neworder.setAddress(address);
+    		neworder.setOrderStatus("check out");
+    		neworder.setOrderId(bookOrderId);
+    		bookOrderService.updateBookOrder(neworder);
+    		User newuser = new User();
+    		newuser.setUserId(user.getUserId());
+    		newuser.setAccount(user_amount-amount);
+    		userService.updateUserAccount(newuser);
+    		bookOrders = bookOrderService.getOrderByUserId(user.getUserId());
+    	}catch (Exception e){
+    		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
+    		return "error";
+    	}
+    	
+    	return SUCCESS;
+
+}
+    
+    public AddressService getAddressService() {
+		return addressService;
+	}
+
+	public void setAddressService(AddressService addressService) {
+		this.addressService = addressService;
+	}
+
+	@Action(value = "updateStatus", results = { @Result(name = "success", location = "viewBookOrder.jsp")})
     public String updateStatus(){
     	try{
     		bookOrder = new BookOrder();

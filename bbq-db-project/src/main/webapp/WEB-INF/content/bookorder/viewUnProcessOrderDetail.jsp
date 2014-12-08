@@ -13,6 +13,22 @@
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
     });
+    
+    function checkout() {  
+    	$.post("<%=basePath%>bookinorder/orderAmount.action",
+                {
+       	         bookOrderId: $('#orderId1').val()
+                },
+                function(data, status){
+                    if(data['code'] == 'A00000') {
+                    	alert("amount"+data['amount']);
+                    	var myDiv=document.getElementById("test");
+                    	myDiv.innerText=data['amount'];
+                    } else {
+                    	alert("get amount failed!");
+                    }
+                });       
+    }  
 
     function updateBookQuantity(index) {
          $.post("<%=basePath%>bookinorder/updateQuantity.action",
@@ -24,6 +40,7 @@
                  function(data, status){
                      if(data['code'] == 'A00000') {
                          alert('update success!');
+                         location.reload();
                      } else {
                          alert('update fail!');
                      }
@@ -40,7 +57,7 @@
                 function(data, status){
                     if(data['code'] == 'A00000') {
                         alert('delete success!');
-                        location.reload()
+                        location.reload();
                     } else {
                         alert('delete fail!');
                     }
@@ -49,12 +66,17 @@
     
     function cancleOrder() {        
     	var bookOrderId = $('#orderId1').val();
-    	alert(bookOrderId);
     	window.location.href='<%=basePath%>bookorder/updateStatus.action?bookOrderId=' + bookOrderId;
     	
     }
+    
+    function checkOut() {        
+    	var bookOrderId = $('#orderId1').val();
+    	window.location.href='<%=basePath%>bookinorder/orderAmount.action?bookOrderId=' + bookOrderId;
+    	
+    }
 </script>
-</head>
+</head>s
 <body>
  Order Details
  <table width="500" border="0" cellspacing="0" cellpadding="0">  
@@ -76,10 +98,10 @@
     	<td><button onclick="updateBookQuantity(${status.index+1})">Update</button></td>
     	<td><button onclick="deleteBookInOrder(${status.index+1})">Delete</button></td>
 	</tr>
-	</c:forEach>  
+	</c:forEach> 
 </table>  
 	
 	<button onclick="cancleOrder()">Cancle</button>
-	<button id="checkout">Check Out</button>
+	<button onclick="checkOut()">Check Out</button>
 </body>
 </html>

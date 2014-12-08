@@ -75,4 +75,14 @@ public class UserDaoTest {
 		int effectCount = userDao.update(user);
 		Assert.assertTrue(effectCount > 0);
 	}
+	
+	@Test
+	public void updateUserAccount() {
+		
+		User user = new User();
+		user.setUserId(4);
+        user.setAccount(55);
+		int effectCount = userDao.updateUserAccount(user);
+		Assert.assertTrue(effectCount > 0);
+	}
 }

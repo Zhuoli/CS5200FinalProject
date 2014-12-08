@@ -24,6 +24,10 @@ public class UserService {
 		return userDao.getUserByUserNameAndPassword(userName, password);
 	}
 	
+	public void updateUserAccount(User user) {
+		userDao.updateUserAccount(user);
+	}
+	
 	public void updateUser(User user){
 		userDao.update(user);
 	}

@@ -41,4 +41,6 @@ public class BookInOrderDao extends BatisEntityDao<BookInOrder>{
 		return super.getSqlSession().delete("BookInOrder.deleteByOrderIDandBookID", sqlMap);
 	}
 	
+	
+	
 }

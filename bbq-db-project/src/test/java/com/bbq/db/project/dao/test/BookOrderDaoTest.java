@@ -40,16 +40,15 @@ public class BookOrderDaoTest {
 	
 	@Test
 	public void insertOrder() {		
-/*		BookOrder bookorder = new BookOrder();
+		BookOrder bookorder = new BookOrder();
 		User user = userDao.getUserById(1);
-		//Address address = addressDao.getAddressById(3);
-		//ddress address = null;
+		Address address = addressDao.getAddressById(3);
 		bookorder.setUser(user);
-		bookorder.setAddress(null);
+		bookorder.setAddress(address);
 		bookorder.setOrderStatus("bbbb");
 		bookorder.setOrderTime(new Date());
 		bookOrderDao.insert(bookorder);
-        Assert.assertTrue(bookorder.getOrderId() > 0);*/
+        Assert.assertTrue(bookorder.getOrderId() > 0);
 	}
 
 	@Test
@@ -81,10 +80,13 @@ public class BookOrderDaoTest {
 	
 	@Test
 	public void updateBookOrder() {
-		BookOrder bookorder = new BookOrder();
-		bookorder.setOrderId(1);
-		bookorder.setOrderStatus("test");
-		int effectCount = bookOrderDao.update(bookorder);
+		BookOrder bookorder = bookOrderDao.getOrderById(1);
+		BookOrder neworder =  new BookOrder();
+		Address address = addressDao.getAddressById(3);
+		neworder.setOrderStatus("test11");
+		neworder.setOrderId(bookorder.getOrderId());
+		neworder.setAddress(address);
+		int effectCount = bookOrderDao.update(neworder);
 		Assert.assertTrue(effectCount > 0);
 	}
 }

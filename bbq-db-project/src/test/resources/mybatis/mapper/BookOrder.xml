@@ -3,10 +3,10 @@
 <mapper namespace="BookOrder" >
 	<resultMap id="BaseResultMap" type="BookOrder" >
 		<id column="ORDER_ID" property="orderId" jdbcType="INTEGER" />
-		<result column="USER_ID" property="user" jdbcType="INTEGER" />
-		<result column="ADDRESS_ID" property="address" jdbcType="INTEGER" />
 		<result column="ORDER_STATUS" property="orderStatus" jdbcType="VARCHAR" />
 		<result column="ORDER_TIME" property="orderTime" jdbcType="DATE" />
+        <association property="user" column="USER_ID" select="User.getUserById" />
+        <association property="address" column="ADDRESS_ID" select="Address.getAddressById" />
 	</resultMap>
 	
 	<sql id="Base_Column_List" >
@@ -42,7 +42,7 @@
 	</select>
 	
 	<select id="update" parameterType="java.util.Map">
-		update BookOrder set ORDER_STATUS=#{orderStatus,jdbcType=VARCHAR} where ORDER_ID=#{orderId,jdbcType=INTEGER}
+		update BookOrder set ORDER_STATUS=#{orderStatus,jdbcType=VARCHAR}, ADDRESS_ID=#{address.addressId} where ORDER_ID=#{orderId,jdbcType=INTEGER}
 	</select>
 	
 	
