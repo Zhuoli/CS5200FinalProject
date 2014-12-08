@@ -24,8 +24,6 @@ public class MessageAction extends BaseAction {
 	@Autowired
     private MessageService messageService;
 	List<Message> msgs;
-
-       
     
     @Action(value = "view", results ={ @Result(name = "success", location = "view.jsp") })
     public String view(){
