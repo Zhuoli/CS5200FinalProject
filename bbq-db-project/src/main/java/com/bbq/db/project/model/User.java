@@ -6,6 +6,7 @@ public class User {
 	private int userId;
 	private String userName;
 	private String password;
+    private int userType;
 	private Integer gender;
 	private String email;
 	private String telephone;
@@ -62,12 +63,21 @@ public class User {
         this.account = account;
     }
 
-    public User(int userId, String userName, String password, Integer gender,
+    public int getUserType() {
+        return userType;
+    }
+
+    public void setUserType(int userType) {
+        this.userType = userType;
+    }
+
+    public User(int userId, String userName, String password, Integer userType, Integer gender,
 			String email, String telephone, Integer account, Date registerTime) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.password = password;
+        this.userType = userType;
 		this.gender = gender;
 		this.email = email;
 		this.telephone = telephone;

@@ -69,10 +69,21 @@ public class BookAction extends BaseAction {
         return SUCCESS;
     }
 
-    @Action(value = "preAddBook", results = { @Result(name = "success", location = "addBook.jsp") })
+    @Action(value = "preAddBook", results = { @Result(name = "success", location = "addBook.jsp"),
+                                              @Result(name = "error", type = "redirectAction",
+                                                      params = {"namespace", "/book", "bookId", "${bookId}", "actionName", "viewBook"})
+                                                })
     public String preAddBook(){
         try {
-
+            if(bookId > 0) {
+                book = bookService.getBookById(bookId);
+                Map<String, Object> session = ActionContext.getContext().getSession();
+                User user = (User)session.get("user");
+                if(user == null || (user.getUserId() != book.getUser().getUserId()
+                                    && user.getUserType() != Constants.ADMIN)) {
+                    return ERROR;
+                }
+            }
         } catch (Exception e) {
             logger.error("error: [module:BookAction][action:preAddBook][][error:{}]", e);
         }
@@ -117,19 +128,17 @@ public class BookAction extends BaseAction {
     @Action(value = "addBook")
     public String addBook(){
 
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, Object> map = new HashMap<String, Object>();
         try {
             Map<String, Object> session = ActionContext.getContext().getSession();
             User user = (User)session.get("user");
             if(user == null) {
                 map.put("code", Constants.NO_DATA);
             } else {
-                book.setUser(user);
-                book.setPublishTime(new Date());
-                bookService.insertBook(book);
-                map.put("code", Constants.CODE_SUCCESS);
+                String code = bookService.insertOrUpdateBook(book, user);
+                map.put("code", code);
+                map.put("bookId", book.getBookId());
             }
-
         } catch (Exception e) {
             logger.error("error: [module:BookAction][action:addBook][][error:{}]", e);
         }

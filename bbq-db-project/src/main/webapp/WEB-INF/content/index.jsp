@@ -58,6 +58,7 @@
                 <td>isbn</td>
                 <td>quantity</td>
                 <td>price</td>
+                <td>Operation</td>
             </tr>
             <c:forEach var="book" items="${books}">
                 <tr>
@@ -67,20 +68,34 @@
                     <td>${book.isbn}</td>
                     <td>${book.quantity}</td>
                     <td>${book.price}</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${sessionScope.user.userType == 2 || sessionScope.user.userId == book.user.userId}">
+                                <a href="<%=basePath%>book/preAddBook.action?bookId=${book.bookId}">Update</a>
+                            </c:when>
+                            <c:otherwise>
+                                Can't update
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
     </div>
 
-    <p style="margin-left:180px;">
-        currentPage: ${pageInfo.currentPageNo}     &nbsp;&nbsp;
-        <span onclick="javascript:window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=1'" style="cursor:pointer;">firstPage</span>      &nbsp;
-        <span onclick="previousPage()" style="cursor:pointer;">previousPage</span>   &nbsp;
-        <span onclick="nextPage()" style="cursor:pointer;">nextPage</span>  &nbsp;
-        <span onclick="javascript:window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=${pageInfo.totalPage}'" style="cursor:pointer;">lastPage</span>  &nbsp;&nbsp;
-        <input type='text' name="pageNo" id="pageNo" style="width:15px;"/> <a onclick="jumpToPage()">go</a>
-        total : ${pageInfo.totalPage}
-    </p>
+    <div style="margin-top: 20px; text-align: center">
+        CurrentPage: ${pageInfo.currentPageNo}     &nbsp;&nbsp;  Total : ${pageInfo.totalPage}
+    </div>
+    <div style="margin-top: 15px; text-align: center">
+        <a onclick="javascript:window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=1'" href="javascript:void(0)">firstPage</a>      &nbsp;
+        <a onclick="previousPage()" href="javascript:void(0)">previousPage</a>   &nbsp;
+        <a onclick="nextPage()" href="javascript:void(0)">nextPage</a>  &nbsp;
+        <a onclick="javascript:window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=${pageInfo.totalPage}'" href="javascript:void(0)">lastPage</a>  &nbsp;&nbsp;
+    </div>
+    <div style="margin-top: 10px; text-align: center">
+        <a onclick="jumpToPage()" href="javascript:void(0)">go</a>
+        <input type='text' name="pageNo" id="pageNo" style="width:15px;"/>
+    </div>
 
 </body>
 </html>

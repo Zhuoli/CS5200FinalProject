@@ -14,4 +14,7 @@ public class Constants {
     public static final String INVALID_PARAMS = "E00002";
     public static final String NO_DATA = "E00003";
     public static final String USER_EXISTS = "E00004";
+    public static final String CAN_NOT_ACCESS = "E00005";
+
+    public static final Integer ADMIN = 2;
 }

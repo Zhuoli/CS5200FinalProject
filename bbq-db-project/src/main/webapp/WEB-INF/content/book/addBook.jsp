@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,6 +12,7 @@
 <title>By Book In Queue - add book</title>
 <meta charset="utf-8">
 <link href="<%=basePath%>css/uploadify.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.validate.js"></script>
 <script type="text/javascript" src="<%=basePath%>uploadify/jquery.uploadify.min.js"></script>
@@ -79,6 +81,7 @@
             submitHandler: function() {
                 $.post("<%=basePath%>book/addBook.action",
                     {
+                        "book.bookId":$('#id').val(),
                         "book.title": $('#title').val(),
                         "book.author": $('#author').val(),
                         "book.isbn": $('#isbn').val(),
@@ -89,9 +92,12 @@
                     },
                     function(data, status){
                         if(data['code'] == 'A00000') {
-                            location.href="<%=basePath%>/index.action";
+                            alert('success!');
+                            location.href="<%=basePath%>book/viewBook.action?bookId=" + data['bookId'];
+                        } else if(data['code'] == 'E00005') {
+                            alert('Can not change the book!');
                         } else {
-                            alert('please login in first!');
+                            alert('Please login in first!');
                         }
                     });
             }
@@ -112,42 +118,60 @@
 <body>
 <header>
 </header>
-	<h1>Buy Book In Queue - Add Book</h1>
+	<h1>Buy Book In Queue -
+        <s:if test="book.bookId != null">
+            Update Book
+        </s:if>
+        <s:else>
+            Add Book
+        </s:else>
+    </h1>
     <jsp:include page="../user-login.jsp"/>
 <tr>
     <form id="form">
         <fieldset>
+          <div class="add-book">
             <p>
                 <label for="title">book title:</label>
-                <input id="title" name="title" minlength="2" type="text" required/>
+                <input id="title" name="title" minlength="2" type="text" value="${book.title}" required/>
             </p>
             <p>
                 <label for="author">book author:</label>
-                <input type="text" name="author" id="author" required/>
+                <input type="text" name="author" id="author" value="${book.author}" required/>
             </p>
             <p>
                 <label for="isbn">book isbn:</label>
-                <input type="text" name="isbn" id="isbn" required/>
+                <input type="text" name="isbn" id="isbn" value="${book.isbn}" required/>
             </p>
             <p>
                 <label for="quantity">book quantity:</label>
-                <input type="text" name="quantity" id="quantity" required/>
+                <input type="text" name="quantity" id="quantity" value="${book.quantity}" required/>
             </p>
             <p>
-                <label for="price">book price:</label>
-                <input type="text" name="price" id="price" required/>
+                <label for="price">book price(cent):</label>
+                <input type="text" name="price" id="price" value="${book.price}" required/>
             </p>
             <p>
                 <label for="publisher">book publisher:</label>
-                <input type="text" name="publisher" id="publisher" required/>
+                <input type="text" name="publisher" id="publisher" value="${book.publisher}" required/>
             </p>
             <p>upload book pic：
                 <input type="file" name="fileupload" id="fileupload" />
                 <div id="fileQueue"></div>
                 <ol class="files"></ol>
             </p>
-            <input type="hidden" name="pic" id="pic" required/>
+            <input type="hidden" id="id" name="id" value="${book.bookId}"/>
+            <input type="hidden" name="pic" id="pic" value="${book.pic}" required/>
             <input type="submit" value="add book" />
+          </div>
+
+        <s:if test="book.pic != null">
+        <div class="update-pic">
+          <img src="<%=basePath%>uploads/${book.pic}" width="300" height="200">
+          <div style="text-align: center">Current Pic</div>
+        </div>
+        </s:if>
+
         </fieldset>
     </form>
 </tr>
