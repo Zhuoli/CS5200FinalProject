@@ -23,7 +23,7 @@ import com.opensymphony.xwork2.ActionContext;
 public class MessageAction extends BaseAction {
 	@Autowired
     private MessageService messageService;
-	List<Message> msgs;
+	List<Message> msgs=null;
     
     @Action(value = "view", results ={ @Result(name = "success", location = "view.jsp") })
     public String view(){

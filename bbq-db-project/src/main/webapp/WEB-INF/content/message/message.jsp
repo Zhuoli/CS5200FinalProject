@@ -6,24 +6,41 @@
 %>
 <html>
 <head>
+<base href="<%=basePath%>">
+<link href="<%=basePath%>css/view.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
-<title>Insert title here</title>
+<style>
+body{
+    background-color: #d0e4fe;
+ }
+ </style>
+<title>Message: Send message</title>
 
 
 
 </head>
 <body>
 Send messages
+
+    <jsp:include page="../user-login.jsp"/>
+
+<div id="comment_form">
+	
 	<div>
-		<c:forEach var="bookOrder" items="${bookOrders}">
-			<div>
-				orderId:<a href="<%=basePath%>bookorder/orderDetail.action?bookOrderId=${bookOrder.orderId}" target="_blank"> <c:out value="${bookOrder.orderId}"/></a>
-				status: <c:out value="${bookOrder.orderStatus}"/>
-				time: <c:out value="${bookOrder.orderTime}"/>
-			</div>
-		</c:forEach>
-	</div> 
+		<input type="text" name="name" id="name" value="" placeholder="Name">
+	</div>
+	<div>
+		<input type="email" name="email" id="email" value="" placeholder="Email">
+	</div>
+	<div>
+		<textarea rows="10" name="comment" id="comment" placeholder="Comment"></textarea>
+	</div>
+	<div>
+		<input type="submit" name="submit" value="Add Comment">
+	</div>
+	
+</div>
 
 
 

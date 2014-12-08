@@ -6,6 +6,8 @@
 %>
 <html>
 <head>
+<base href="<%=basePath%>">
+<link href="<%=basePath%>css/view.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
 <title>User's Message Box</title>
@@ -14,6 +16,8 @@
 
 </head>
 <body>
+	<h1>User Message Box</h1>
+    <jsp:include page="../user-login.jsp"/>
 	<div>
 		<h3>View Alll Messages</h3>
 		<c:forEach var="message" items="${msgs}">
@@ -23,6 +27,8 @@
 				content:<c:out value = "${message.content}"/>
 				time: <c:out value="${message.time}"/>
 			</div>
+			
+
 		</c:forEach>
 	</div> 
 
