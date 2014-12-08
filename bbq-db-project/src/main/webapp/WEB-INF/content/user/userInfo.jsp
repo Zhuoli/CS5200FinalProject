@@ -29,20 +29,12 @@
     </c:if>
     <jsp:include page="../user-login.jsp"/>
 <fieldset>
-    <p>
-        username:${user.userName}
-    </p>
-    <p>
-        gender: ${user.gender == 1 ? 'male' : 'female'}
-    </p>
-    <p>
-        email: ${user.email}
-    </p>
-    <p>
-        telephone: ${user.telephone}
-    </p>
+    <p>username:${user.userName}</p>
+    <p>gender: ${user.gender == 1 ? 'male' : 'female'}</p>
+    <p>email: ${user.email}</p>
+    <p>telephone: ${user.telephone}</p>
     <c:if test="${sessionScope.user.userId == user.userId}">
-        account: ${user.account}
+        <p>account: ${user.account}</p>
     </c:if>
 </fieldset>
 
