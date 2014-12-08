@@ -15,6 +15,8 @@ public class Constants {
     public static final String NO_DATA = "E00003";
     public static final String USER_EXISTS = "E00004";
     public static final String CAN_NOT_ACCESS = "E00005";
+    public static final String NO_ENOUGH_AMOUNT = "E00006";
+    public static final String NO_ENOUGH_BOOK = "E00007";
 
     public static final Integer NORMAL_USER = 1;
     public static final Integer ADMIN = 2;

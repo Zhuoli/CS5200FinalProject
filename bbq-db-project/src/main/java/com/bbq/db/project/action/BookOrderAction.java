@@ -88,23 +88,6 @@ public class BookOrderAction extends BaseAction {
 	public void setBookInOrders(List<BookInOrder> bookInOrders) {
 		this.bookInOrders = bookInOrders;
 	}
-
-	
-    
-
-/*    @Action(value = "get", results = { @Result(name = "success", location = "get.jsp") })
-    public String get(){
-        try {
-            if(id == null){
-                logger.error("error: [module:BookOrderAction][action:get][][error:{empty params}]");
-            } else {
-            	BookOrder bookOrder = bookOrderService.getOrderById(id);
-            }
-        } catch (Exception e) {
-            logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
-        }
-        return SUCCESS;
-    }*/
     
     public int getBookOrderId() {
 		return bookOrderId;
@@ -177,26 +160,17 @@ public class BookOrderAction extends BaseAction {
     	
     }
     
-    @Action(value = "checkOut", results = { @Result(name = "success", location = "viewBookOrder.jsp"),
-    		                                @Result(name = "amount_not_enough", location = "amountNotEnough.jsp"),
-    		                                @Result(name = "no_enough_book", location = "errorTest.jsp")})
+    @Action(value = "checkOut", results = { @Result(name = "success", location = "viewBookOrder.jsp")})
     public String checkOut(){
     	Map<String, Object> session = ActionContext.getContext().getSession();
     	User user = (User)session.get("user");
     	try{
     		int user_amount =  user.getAccount();
-    		if(user_amount < amount){
-    			return "amount_not_enough";
-    		}
     		bookOrder = bookOrderService.getOrderById(bookOrderId);
     		bookInOrders = bookInOrderService.getBookInOrderByOrderID(bookOrderService.getOrderById(bookOrderId));
     		for(BookInOrder obj : bookInOrders){
-    			if(obj.getBook().getQuantity() >= obj.getQuantity()){
     			bookInOrderService.updateBookQuantityByBookandQuantity(obj.getBook(),obj.getQuantity());
     			bookInOrderService.updateUserAmountByBookandQuantity(obj.getBook(),obj.getQuantity());
-    			}else{
-    				return "no_enough_book";
-    			}
     		}
     		BookOrder neworder = new BookOrder();
     		Address address = addressService.getAddressById(addressId);
@@ -217,6 +191,38 @@ public class BookOrderAction extends BaseAction {
     	return SUCCESS;
 
 }
+    
+    @Action(value = "checkQuantityandAmount")
+    public String checkQuantityandAmount(){
+    	Map<String, Object> map = new HashMap<String, Object>();
+    	Map<String, Object> session = ActionContext.getContext().getSession();
+    	User user = (User)session.get("user");
+		try{
+			int user_amount =  user.getAccount();
+			if(user_amount < amount){
+				map.put("code", Constants.NO_ENOUGH_AMOUNT);
+				StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
+				return null;
+		    }else{
+				bookInOrders = bookInOrderService.getBookInOrderByOrderID(bookOrderService.getOrderById(bookOrderId));
+				for(BookInOrder obj : bookInOrders){
+					if(obj.getBook().getQuantity() < obj.getQuantity()){
+						map.put("code", Constants.NO_ENOUGH_BOOK);
+						StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
+						return null;
+					}
+				}
+		    }
+			map.put("code", Constants.CODE_SUCCESS);
+		}catch (Exception e){
+			logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
+			map.put("code", Constants.INNER_ERROR);
+		}	
+		
+
+    	StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
+		return null;
+	}
     
     public AddressService getAddressService() {
 		return addressService;

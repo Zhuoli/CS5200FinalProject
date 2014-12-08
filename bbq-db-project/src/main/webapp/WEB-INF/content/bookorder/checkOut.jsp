@@ -40,8 +40,24 @@
     	if (index == null){
     		alert("please select an address!")
     	}else{
-    		var addressId = $('#addressId'+ index).val();   	
-    		window.location.href='<%=basePath%>bookorder/checkOut.action?bookOrderId=' + bookOrderId+'&amount='+amount+'&addressId=' + addressId;
+    		$.post("<%=basePath%>bookorder/checkQuantityandAmount.action",
+                    {
+    			     bookOrderId: $('#orderId1').val(),
+    			     amount: $('#amount').val()
+                    },
+                    function(data, status){
+                        if(data['code'] == 'A00000') {
+                        	var addressId = $('#addressId'+ index).val();   	
+                    		window.location.href='<%=basePath%>bookorder/checkOut.action?bookOrderId=' + bookOrderId+'&amount='+amount+'&addressId=' + addressId;
+                        } else if (data['code'] == 'E00006'){
+                            alert('no enough account!');
+                        } else if (data['code'] == 'E00007'){
+                        	alert('no enough book!');
+                        } else {
+                        	alert('check out failed!');
+                        }
+                    });
+    		
     	}
     }
 </script>
