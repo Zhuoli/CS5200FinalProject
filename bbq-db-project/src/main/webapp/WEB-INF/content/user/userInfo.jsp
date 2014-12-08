@@ -10,6 +10,7 @@
 <head>
 <title>By Book In Queue - User Info</title>
 <meta charset="utf-8">
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -39,17 +40,25 @@
         account: ${user.account}
     </p>
 </fieldset>
-<div>
-    <c:forEach var="book" items="${myBooks}">
-        <div>
-            bookId: <c:out value="${book.bookId}"/>
-            bookTitle: <a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank"> <c:out value="${book.title}"/> </a>
-            author: <c:out value="${book.author}"/>
-            isbn: <c:out value="${book.isbn}"/>
-            quantity: <c:out value="${book.quantity}"/>
-            price: <c:out value="${book.price}"/>
-        </div>
-    </c:forEach>
+<div class="CSSTableGenerator" >
+    <table >
+        <tr>
+            <td>bookTitle</td>
+            <td>author</td>
+            <td>isbn</td>
+            <td>quantity</td>
+            <td>price</td>
+        </tr>
+        <c:forEach var="book" items="${myBooks}">
+            <tr>
+                <td><a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank">${book.title}</a>
+                <td>${book.author}</td>
+                <td>${book.isbn}</td>
+                <td>${book.quantity}</td>
+                <td>${book.price}</td>
+            </tr>
+        </c:forEach>
+    </table>
 </div>
 </body>
 </html>

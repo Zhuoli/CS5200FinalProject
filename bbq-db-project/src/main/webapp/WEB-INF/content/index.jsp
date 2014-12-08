@@ -10,6 +10,7 @@
 <html>
 <head>
 <base href="<%=basePath%>">
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
 <title>By Book In Queue - BBQ</title>
 <script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
 <meta charset="utf-8">
@@ -84,35 +85,37 @@
 	<h1>Buy Book In Queue - BBQ</h1>
 	<div>
 		Buy Book In Queue - BBQ
-        <div ${sessionScope.user == null ? '' : 'hidden=true'}  id="login-div">
+        <div style="margin-right:30px;" ${sessionScope.user == null ? '' : 'hidden=true'}  id="login-div">
            username: <input name='username' id='username' type='text'/>
            password: <input name='password' id='password' type='password'/>
            <button id='login'>login</button>
         </div>
-        <div ${sessionScope.user == null ? 'hidden=true' : ''} id="userinfo">
-           <a href="<%=basePath%>bookorder/getAllOrders.action" id='mypage'>${sessionScope.user.userName}</a>
+        <div style="margin-right:30px;" ${sessionScope.user == null ? 'hidden=true' : ''} id="userinfo">
+           <a href="<%=basePath%>user/userInfo.action?userId=${sessionScope.user.userId}" id='mypage'>${sessionScope.user.userName}</a>
            <button id='logout'>logout</button>
         </div>
 	</div>
 
-    <div>
-        <tr>
-          <td>bookTitle</td>  &nbsp;&nbsp;
-          <td>author</td>     &nbsp;&nbsp;
-          <td>isbn</td>       &nbsp;&nbsp;
-          <td>quantity</td>   &nbsp;&nbsp;
-          <td>price</td>      &nbsp;&nbsp;<br/>
-        </tr>
-        <c:forEach var="book" items="${books}">
+    <div class="CSSTableGenerator" >
+        <table >
             <tr>
-                <input type="hidden" name='bookId' value=${book.bookId}/>
-                <td><a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank">${book.title}</a>
-                <td>${book.author}</td>
-                <td>${book.isbn}</td>
-                <td>${book.quantity}</td>
-                <td>${book.price}</td>   <br/>
+                <td>bookTitle</td>
+                <td>author</td>
+                <td>isbn</td>
+                <td>quantity</td>
+                <td>price</td>
             </tr>
-        </c:forEach>
+            <c:forEach var="book" items="${books}">
+                <tr>
+                    <input type="hidden" name='bookId' value=${book.bookId}/>
+                    <td><a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank">${book.title}</a>
+                    <td>${book.author}</td>
+                    <td>${book.isbn}</td>
+                    <td>${book.quantity}</td>
+                    <td>${book.price}</td>
+                </tr>
+            </c:forEach>
+        </table>
     </div>
 
     <p style="margin-left:180px;">
