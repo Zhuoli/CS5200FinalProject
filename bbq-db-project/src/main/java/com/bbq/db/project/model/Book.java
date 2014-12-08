@@ -32,9 +32,6 @@ public class Book {
 	public int getQuantity() {
 		return quantity;
 	}
-	public int getPrice() {
-		return price;
-	}
 	public String getPublisher() {
 		return publisher;
 	}
@@ -59,16 +56,19 @@ public class Book {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public void setPrice(int price) {
-		this.price = price;
-	}
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
 	public void setPublishTime(Date publishTime) {
 		this.publishTime = publishTime;
 	}
-	public Book(int bookId, User user, String title, String author,
+    public int getPrice() {
+        return price;
+    }
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    public Book(int bookId, User user, String title, String author,
 			String isbn, int quantity, int price, String publisher,
 			Date publishTime) {
 		super();
