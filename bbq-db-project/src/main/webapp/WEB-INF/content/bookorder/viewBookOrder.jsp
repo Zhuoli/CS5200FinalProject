@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -26,7 +27,7 @@
 	<tr>
     	<td><a href="<%=basePath%>bookorder/orderDetail.action?bookOrderId=${bookOrder.orderId}" target="_blank">${bookOrder.orderId}</a></td>
     	<td>${bookOrder.orderStatus}</td>
-    	<td><s:date name="datetime" format="dd/MM/yyyy"/>${bookOrder.orderTime}</td>
+    	<td><fmt:formatDate value="${bookOrder.orderTime}" pattern="yyyy-MM-dd HH:mm"/></td>
 	</tr>
 	</c:forEach> 
 </table>
