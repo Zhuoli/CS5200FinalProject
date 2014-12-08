@@ -6,13 +6,16 @@
 %>
 <html>
 <head>
+<script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
- Order Details
- <table width="500" border="0" cellspacing="0" cellpadding="0">  
+ <h1 class="h1">Order Details</h1>
+ <jsp:include page="../user-login.jsp"/>
+ <table width="500" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator">  
 	<tr>  
    	 	<th>Book Title</th>  
     	<th>Seller</th>

@@ -62,7 +62,7 @@
        <button id='login'>login</button>  &nbsp;
        <a onclick="onRegister()" href="javascript:void(0)">register</a>
     </div>
-    <div ${sessionScope.user == null ? 'hidden=true' : ''} id="userinfo">
+    <div ${sessionScope.user == null ? 'hidden=true' : ''} id="userinfo" >
        <a href="<%=basePath%>user/userInfo.action?userId=${sessionScope.user.userId}" id='mypage'>${sessionScope.user.userName}</a>
        <button id='logout'>logout</button>
     </div>

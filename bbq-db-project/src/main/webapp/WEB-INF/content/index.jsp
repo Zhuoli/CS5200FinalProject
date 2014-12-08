@@ -21,7 +21,6 @@
         }
         window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=' + pageNo;
     }
-
     function nextPage(){
         var pageNo = ${pageInfo.currentPageNo + 1};
         if(pageNo > ${pageInfo.totalPage}) {
@@ -29,16 +28,13 @@
         }
         window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=' + pageNo;
     }
-
     function jumpToPage() {
-
         var pageNo = $('#pageNo').val();
         if(pageNo <= 0 || isNaN(pageNo)) {
             pageNo = 1;
         } else if(pageNo > ${pageInfo.totalPage}) {
             pageNo = ${pageInfo.totalPage};
         }
-
         window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=' + pageNo;
     }
 </script>
@@ -99,4 +95,3 @@
 
 </body>
 </html>
-

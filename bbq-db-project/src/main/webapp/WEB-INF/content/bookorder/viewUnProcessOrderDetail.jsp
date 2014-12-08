@@ -9,6 +9,8 @@
 <base href="<%=basePath%>">
 <title>By Book In Queue - BBQ</title>
 <script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>css/bootstrap.css" rel="stylesheet" type="text/css" />
 <meta charset="utf-8">
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
@@ -76,16 +78,16 @@
     	
     }
 </script>
-</head>s
+</head>
 <body>
- Order Details
- <table width="500" border="0" cellspacing="0" cellpadding="0">  
+ <h1 class="h1">Order Details</h1>
+ <jsp:include page="../user-login.jsp"/>
+ <table width="500" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator">  
 	<tr>  
 		<th style="display:none;">orderId</th>
    	 	<th>Book Title</th>  
     	<th>Seller</th>
     	<th>Quantity</th>
-    	<th></th> 
     	<th></th> 
 	</tr>  
 	<c:forEach var="bookInOrder" items="${bookInOrders}" varStatus="status">
@@ -95,8 +97,10 @@
     	<td>${bookInOrder.book.title}</td>
     	<td>${bookInOrder.book.user.userName}</td>  
     	<td><input id='quantity${status.index+1}' type='text' value= "${bookInOrder.quantity}"/></td>
-    	<td><button onclick="updateBookQuantity(${status.index+1})">Update</button></td>
-    	<td><button onclick="deleteBookInOrder(${status.index+1})">Delete</button></td>
+    	<td>
+    		<button onclick="updateBookQuantity(${status.index+1})" class="btn btn-primary">Update</button>
+    		<button onclick="deleteBookInOrder(${status.index+1})" class="btn btn-danger">Delete</button>
+    	</td>
 	</tr>
 	</c:forEach> 
 </table>  
