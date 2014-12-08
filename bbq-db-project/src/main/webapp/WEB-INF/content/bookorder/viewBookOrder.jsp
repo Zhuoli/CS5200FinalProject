@@ -9,22 +9,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
 <title>Insert title here</title>
-
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
 
 
 </head>
 <body>
- User Orders
-	<div>
-		<c:forEach var="bookOrder" items="${bookOrders}">
-			<div>
-				orderId:<a href="<%=basePath%>bookorder/orderDetail.action?bookOrderId=${bookOrder.orderId}" target="_blank"> <c:out value="${bookOrder.orderId}"/></a>
-				status: <c:out value="${bookOrder.orderStatus}"/>
-				time: <c:out value="${bookOrder.orderTime}"/>
-			</div>
-		</c:forEach>
-	</div> 
-
+ <h1 class="h1">User Orders</h1>
+ <jsp:include page="../user-login.jsp"/>
+ <table width="500" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator">  
+	<tr>  
+   	 	<th>Order Id</th>  
+    	<th>Status</th>
+    	<th>Time</th>
+	</tr>  
+	<c:forEach var="bookOrder" items="${bookOrders}">
+	<tr>
+    	<td><a href="<%=basePath%>bookorder/orderDetail.action?bookOrderId=${bookOrder.orderId}" target="_blank">${bookOrder.orderId}</a></td>
+    	<td>${bookOrder.orderStatus}</td>
+    	<td><s:date name="datetime" format="dd/MM/yyyy"/>${bookOrder.orderTime}</td>
+	</tr>
+	</c:forEach> 
+</table>
 
 
 </body>

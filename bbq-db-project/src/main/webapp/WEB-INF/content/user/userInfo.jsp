@@ -23,6 +23,8 @@
 <header>
 </header>
 	<h1>Buy Book In Queue - User Info</h1>
+	<a>message</a>
+	<a href="<%=basePath%>bookorder/getAllOrders.action">order</a>
     <jsp:include page="../user-login.jsp"/>
 <fieldset>
     <p>
