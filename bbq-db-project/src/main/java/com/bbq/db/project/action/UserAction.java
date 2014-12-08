@@ -35,7 +35,7 @@ public class UserAction extends BaseAction{
 	private String password;
 	private User user;
     private Integer userId;
-    private List<Book> myBooks;
+    private List<Book> books;
 	
 	@Action(value = "login")
 	public String getUserByUserAndPassword(){
@@ -126,7 +126,7 @@ public class UserAction extends BaseAction{
                 return ERROR;
             } else {
                 user = userService.getUserById(userId);
-                myBooks = bookService.getBookByUserId(userId);
+                books = bookService.getBookByUserId(userId);
             }
         } catch (Exception e) {
             logger.error("error::module:UserAction][action:userInfo][][error:{}]", e);
@@ -175,11 +175,11 @@ public class UserAction extends BaseAction{
         this.userId = userId;
     }
 
-    public List<Book> getMyBooks() {
-        return myBooks;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setMyBooks(List<Book> myBooks) {
-        this.myBooks = myBooks;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }

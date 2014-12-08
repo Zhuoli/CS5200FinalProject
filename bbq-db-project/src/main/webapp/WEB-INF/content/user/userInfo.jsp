@@ -38,26 +38,7 @@
     </c:if>
 </fieldset>
 
-<div class="CSSTableGenerator" >
-    <table >
-        <tr>
-            <td>bookTitle</td>
-            <td>author</td>
-            <td>isbn</td>
-            <td>quantity</td>
-            <td>price</td>
-        </tr>
-        <c:forEach var="book" items="${myBooks}">
-            <tr>
-                <td><a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank">${book.title}</a>
-                <td>${book.author}</td>
-                <td>${book.isbn}</td>
-                <td>${book.quantity}</td>
-                <td>${book.price}</td>
-            </tr>
-        </c:forEach>
-    </table>
-</div>
+<jsp:include page="../show-books.jsp"/>
 </body>
 </html>
 
