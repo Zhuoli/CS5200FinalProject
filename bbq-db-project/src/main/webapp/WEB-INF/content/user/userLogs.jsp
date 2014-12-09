@@ -24,17 +24,17 @@
         <tr>
             <td>UserId</td>
             <td>UserName</td>
-            <td>UserType</td>
+            <td>UserRoleId</td>
             <td>ActionName</td>
             <td>ActionTime</td>
             <td>Params</td>
         </tr>
-        <c:if test="${sessionScope.user.userType == 2}">
+        <c:if test="${sessionScope.user.userRole.roleId == 2}">
             <c:forEach var="userLog" items="${userLogs}">
                 <tr>
                     <td><a href="<%=basePath%>user/userInfo.action?userId=${userLog.userId}" target="_blank">${user.userId}</a></td>
                     <td><a href="<%=basePath%>user/userInfo.action?userId=${userLog.userId}" target="_blank">${user.userName}</a></td>
-                    <td>${userLog.userType}</td>
+                    <td>${userLog.userRoleId}</td>
                     <td>${userLog.actionName}</td>
                     <td>${userLog.actionTime}</td>
                     <td>${userLog.params}</td>
