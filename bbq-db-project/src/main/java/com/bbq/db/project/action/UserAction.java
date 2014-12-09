@@ -10,6 +10,7 @@ import bbq.db.project.dao.utils.ResultMessageConstants;
 import bbq.db.project.dao.utils.StrutsUtil;
 
 import com.bbq.db.project.model.Book;
+import com.bbq.db.project.model.mongo.UserLog;
 import com.bbq.db.project.mongodb.MongoDBManager;
 import com.bbq.db.project.service.BookService;
 import com.opensymphony.xwork2.ActionContext;
@@ -39,6 +40,7 @@ public class UserAction extends BaseAction{
     private Integer userId;
     private List<Book> books;
     private List<User> users;
+    private List<UserLog> userLogs;
 	
 	@Action(value = "login")
 	public String getUserByUserAndPassword(){
@@ -184,6 +186,26 @@ public class UserAction extends BaseAction{
 
         StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
         return null;
+    }
+
+    @Action(value = "userLogs", results = { @Result(name = "success", location = "userLogs.jsp"),
+                                                @Result(name = "error", location = "preLogin.jsp")})
+    public String userLogs(){
+
+        try {
+            Map<String, Object> session = ActionContext.getContext().getSession();
+            User user = (User)session.get("user");
+            if(user != null && user.getUserType() == Constants.ADMIN) {
+                userLogs = MongoDBManager.getDBInstance().getUserLogs();
+            } else {
+                this.message = ResultMessageConstants.NOT_ADMIN;
+                return ERROR;
+            }
+        } catch (Exception e) {
+            logger.error("error::module:UserAction][action:userInfo][][error:{}]", e);
+        }
+
+        return SUCCESS;
     }
 
 	public void setUserService(UserService userService) {

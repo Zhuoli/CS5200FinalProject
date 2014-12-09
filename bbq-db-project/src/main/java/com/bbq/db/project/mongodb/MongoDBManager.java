@@ -1,11 +1,14 @@
 package com.bbq.db.project.mongodb;
 
 import bbq.db.project.dao.utils.Constants;
+import com.bbq.db.project.model.mongo.UserLog;
 import com.mongodb.*;
 import org.jboss.resteasy.util.DateUtil;
 
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -50,5 +53,27 @@ public class MongoDBManager {
             dbObject.put(Constants.MONGO_KEY_ACTIONTIME, DateUtil.formatDate(new Date(), "yyyyMMdd HH:mm:ss"));
             db.getCollection(Constants.MONGO_LOG_COLLECTION).insert(dbObject);
         }
+    }
+
+    public List<UserLog> getUserLogs() {
+
+        List<UserLog> userLogs = new ArrayList<UserLog>();
+
+        if(Boolean.valueOf(Constants.MONGO_IS_OPEN)) {
+            DBCursor cursor = db.getCollection(Constants.MONGO_LOG_COLLECTION).find();
+            while(cursor.hasNext()) {
+                UserLog userLog = new UserLog();
+                DBObject dbObject = cursor.next();
+                userLog.setUserId((Integer)dbObject.get(Constants.MONGO_KEY_USERID));
+                userLog.setUserName((String)dbObject.get(Constants.MONGO_KEY_USERNAME));
+                userLog.setUserType((Integer)dbObject.get(Constants.MONGO_KEY_USERTYPE));
+                userLog.setActionName((String)dbObject.get(Constants.MONGO_KEY_ACTIONNAME));
+                userLog.setActionTime((Date)dbObject.get(Constants.MONGO_KEY_PARAMS));
+                userLog.setParams((String)dbObject.get(Constants.MONGO_KEY_ACTIONTIME));
+                userLogs.add(userLog);
+            }
+        }
+
+        return userLogs;
     }
 }
