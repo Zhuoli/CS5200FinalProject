@@ -88,7 +88,8 @@
                         "book.quantity": $('#quantity').val(),
                         "book.price": $('#price').val(),
                         "book.publisher": $('#publisher').val(),
-                        "book.pic": $('#pic').val()
+                        "book.pic": $('#pic').val(),
+                        categoryId : $('#bookCategory').val()
                     },
                     function(data, status){
                         if(data['code'] == 'A00000') {
@@ -155,11 +156,20 @@
                 <label for="publisher">book publisher:</label>
                 <input type="text" name="publisher" id="publisher" value="${book.publisher}" required/>
             </p>
+             <p>
+             	<label for="publisher">book category:</label>
+            	<select name="bookCategory" id="bookCategory" size="1">
+            		<c:forEach var="category" items="${categories}" varStatus="status">
+            			<option <c:if test="${category.categoryId == book.category.categoryId}"> selected="selected" </c:if> value='${category.categoryId}' >${category.categoryName}</option>
+            		</c:forEach>
+            	</select>
+            </p>
             <p>upload book pic：
                 <input type="file" name="fileupload" id="fileupload" />
                 <div id="fileQueue"></div>
                 <ol class="files"></ol>
             </p>
+           
             <input type="hidden" id="id" name="id" value="${book.bookId}"/>
             <input type="hidden" name="pic" id="pic" value="${book.pic}" required/>
             <input type="submit" value="add book" />

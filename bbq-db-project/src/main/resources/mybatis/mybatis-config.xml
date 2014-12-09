@@ -19,6 +19,7 @@
 		<typeAlias alias="Message" type="com.bbq.db.project.model.Message"/>
 		<typeAlias alias="BookInOrder" type="com.bbq.db.project.model.BookInOrder"/>
 		<typeAlias alias="AdminInfo" type="com.bbq.db.project.model.AdminInfo"/>
+		<typeAlias alias="BookCategory" type="com.bbq.db.project.model.BookCategory"/>
 	</typeAliases>
 	
 	<mappers>
@@ -30,5 +31,6 @@
 		<mapper resource="mybatis/mapper/Message.xml"/>
 		<mapper resource="mybatis/mapper/BookInOrder.xml"/>
 		<mapper resource="mybatis/mapper/AdminInfo.xml"/>
+		<mapper resource="mybatis/mapper/BookCategory.xml"/>
 	</mappers> 
 </configuration>

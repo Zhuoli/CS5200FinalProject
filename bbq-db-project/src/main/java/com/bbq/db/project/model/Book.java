@@ -14,9 +14,22 @@ public class Book {
 	private String publisher;
 	private Date publishTime;
     private String pic;
+    private BookCategory category;
 	public int getBookId() {
 		return bookId;
 	}
+	
+
+	public BookCategory getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(BookCategory category) {
+		this.category = category;
+	}
+
+
 	public User getUser() {
 		return user;
 	}
@@ -68,9 +81,20 @@ public class Book {
     public void setPrice(int price) {
         this.price = price;
     }
+    
+
+	public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
+	
+
     public Book(int bookId, User user, String title, String author,
 			String isbn, int quantity, int price, String publisher,
-			Date publishTime) {
+			Date publishTime, String pic, BookCategory category) {
 		super();
 		this.bookId = bookId;
 		this.user = user;
@@ -81,17 +105,12 @@ public class Book {
 		this.price = price;
 		this.publisher = publisher;
 		this.publishTime = publishTime;
+		this.pic = pic;
+		this.category = category;
 	}
 
-    public String getPic() {
-        return pic;
-    }
 
-    public void setPic(String pic) {
-        this.pic = pic;
-    }
-
-    public Book() {
+	public Book() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.bbq.db.project.dao.base.BatisEntityDao;
 import com.bbq.db.project.model.Book;
-import com.bbq.db.project.model.User;
 
 @Service("bookDao")
 public class BookDao extends BatisEntityDao<Book>{

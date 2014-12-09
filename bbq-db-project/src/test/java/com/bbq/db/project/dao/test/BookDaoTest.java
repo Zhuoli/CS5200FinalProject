@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import bbq.db.project.dao.utils.PageInfo;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,9 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.bbq.db.project.dao.BookCategoryDao;
 import com.bbq.db.project.dao.BookDao;
 import com.bbq.db.project.dao.UserDao;
 import com.bbq.db.project.model.Book;
+import com.bbq.db.project.model.BookCategory;
 import com.bbq.db.project.model.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,21 +34,25 @@ public class BookDaoTest {
 	public BookDao bookDao;
 	@Autowired
 	public UserDao userDao;
+	@Autowired
+	public BookCategoryDao bookCategoryDao;
 	
 	@Test
 	public void insertBook() {		
-/*		Book book = new Book();
+		Book book = new Book();
 		User user = userDao.getUserById(2);
 		book.setUser(user);
-		book.setTitle("bbb");
-		book.setAuthor("bbb");
-		book.setIsbn("bbb");
+		book.setTitle("testcat");
+		book.setAuthor("testcat");
+		book.setIsbn("testcat");
 		book.setQuantity(4);
 		book.setPrice(6600);
-		book.setPublisher("bbb");
-        book.setPic("abc");
+		book.setPublisher("testcat");
+        book.setPic("testcat");
 		book.setPublishTime(new Date());
-		bookDao.insert(book);*/
+		BookCategory bookcategory =  bookCategoryDao.getCategoryById(1);
+		book.setCategory(bookcategory);
+		bookDao.insert(book);
 	}
 	
 	@Test
@@ -72,6 +79,7 @@ public class BookDaoTest {
 	public void updateBook() {
 		
 		Book book  = new Book();
+		BookCategory bookcategory =  bookCategoryDao.getCategoryById(1);
 		book.setBookId(2);
 		book.setTitle("bbbupdate");
 		book.setAuthor("bbbupdate");
@@ -81,6 +89,7 @@ public class BookDaoTest {
 		book.setPublisher("bbb");
 		book.setPublishTime(new Date());
 		book.setPic("aaa");
+		book.setCategory(bookcategory);
 		int effectCount = bookDao.update(book);
 		Assert.assertTrue(effectCount > 0);
 	}

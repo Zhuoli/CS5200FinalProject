@@ -2,11 +2,16 @@ package com.bbq.db.project.action;
 
 import bbq.db.project.dao.utils.Constants;
 import bbq.db.project.dao.utils.StrutsUtil;
+
 import com.bbq.db.project.model.Book;
+import com.bbq.db.project.model.BookCategory;
 import com.bbq.db.project.model.User;
+import com.bbq.db.project.service.BookCategoryService;
 import com.bbq.db.project.service.BookService;
 import com.opensymphony.xwork2.ActionContext;
+
 import net.sf.json.JSONObject;
+
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -19,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.Data;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -27,7 +33,7 @@ import java.util.*;
  * Created with IntelliJ IDEA.
  * User: maohao
  * Date: 14-12-4
- * Time: 上午12:01
+ * Time: 涓婂崍12:01
  * To change this template use File | Settings | File Templates.
  */
 @Namespace("/book")
@@ -35,11 +41,48 @@ public class BookAction extends BaseAction {
 
 	@Autowired
     private BookService bookService;
+	@Autowired
+    private BookCategoryService bookCategoryService;
 
     private int bookId;
+	private int categoryId;
     private Book book;
+    private List<BookCategory> categories;
 
-    private File uploadify;
+
+    public BookCategoryService getBookCategoryService() {
+		return bookCategoryService;
+	}
+
+	public void setBookCategoryService(BookCategoryService bookCategoryService) {
+		this.bookCategoryService = bookCategoryService;
+	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+    public BookService getBookService() {
+		return bookService;
+	}
+
+	public void setBookService(BookService bookService) {
+		this.bookService = bookService;
+	}
+
+	public List<BookCategory> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<BookCategory> categories) {
+		this.categories = categories;
+	}
+
+	private File uploadify;
     private String uploadifyFileName;
 
     public File getUploadify() {
@@ -84,6 +127,8 @@ public class BookAction extends BaseAction {
                     return ERROR;
                 }
             }
+            categories = bookCategoryService.getAllCategory();
+            
         } catch (Exception e) {
             logger.error("error: [module:BookAction][action:preAddBook][][error:{}]", e);
         }
@@ -100,7 +145,7 @@ public class BookAction extends BaseAction {
             SimpleDateFormat sDateFormat;
             Random r = new Random();
 
-            String savePath = ServletActionContext.getServletContext().getRealPath(""); //获取项目根路径
+            String savePath = ServletActionContext.getServletContext().getRealPath(""); //鑾峰彇椤圭洰鏍硅矾寰�
             savePath = savePath + "/uploads/";
 
             HttpServletResponse response  = ServletActionContext.getResponse();
@@ -135,7 +180,20 @@ public class BookAction extends BaseAction {
             if(user == null) {
                 map.put("code", Constants.NO_DATA);
             } else {
-                String code = bookService.insertOrUpdateBook(book, user);
+            	BookCategory category = bookCategoryService.getCategoryById(categoryId);
+            	Book newbook = new Book();
+            	newbook.setAuthor(book.getAuthor());
+            	newbook.setBookId(book.getBookId());
+            	newbook.setIsbn(book.getIsbn());
+            	newbook.setPic(book.getPic());
+            	newbook.setPrice(book.getPrice());
+            	newbook.setPublisher(book.getPublisher());
+            	newbook.setPublishTime(book.getPublishTime());
+            	newbook.setQuantity(book.getQuantity());
+            	newbook.setTitle(book.getTitle());
+            	newbook.setUser(book.getUser());
+            	newbook.setCategory(category);
+                String code = bookService.insertOrUpdateBook(newbook, user);
                 map.put("code", code);
                 map.put("bookId", book.getBookId());
             }
