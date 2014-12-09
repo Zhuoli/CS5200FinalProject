@@ -29,7 +29,7 @@
 				<p>Title: <c:out value="${message.title}"/></p>
 			</div>
 			<div id="sender">
-				From: <c:out value="${message.sender}"/>
+				From: <c:out value="${message.sender.userName}"/>
 			</div>
 			<div id="date">
 				Time: <c:out value="${message.time}"/>
@@ -38,11 +38,38 @@
 			<div id="content"> 
 				<c:out value = "${message.content}"/>
 			</div>
-			<button id='reply'>reply</button>  &nbsp;
+			<div>	
+				<c:if test="${sessionScope.user.userId == user.userId}">
+        		<a href="<%=basePath%>message/newMessage.action"> Reply</a>
+    			</c:if>
+			</div>
 		</fieldset>
 	</c:forEach>
 
-
+<script>
+function myFunction() {
+    $.post("<%=basePath%>message/send.action",
+            {
+                "receiver": $('#receiver').val(),
+                "title": $('#title').val(),
+                "content": $('#content').val(),
+            },
+            function(data, status){
+<%--                 if(data['code'] == 'A00000') {
+                    alert('register success!');
+                    var jumpPage = <%=request.getParameter("lastPage")%>
+                    if(jumpPage == null) {
+                        jumpPage = '<%=basePath%>index.action';
+                    }
+                    window.location.href=jumpPage;
+                } else {
+                    alert(data['code'] );
+                } --%>
+                alert('send success!')
+            });
+		
+	}
+</script>
 
 </body>
 </html>

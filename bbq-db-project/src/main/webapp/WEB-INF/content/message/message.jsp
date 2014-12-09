@@ -40,19 +40,17 @@ body{
 	
 </div>
 
-<p id="demo"></p>
 
 <script>
 function myFunction() {
     $.post("<%=basePath%>message/send.action",
             {
-                "msg.receiver": $('#receiver').val(),
-                "msg.title": $('#title').val(),
-                "msg.content": $('#content').val(),
-				"msg.sender": $('#user.userName').val()  
+                "receiver": $('#receiver').val(),
+                "title": $('#title').val(),
+                "content": $('#content').val(),
             },
             function(data, status){
-                if(data['code'] == 'A00000') {
+<%--                 if(data['code'] == 'A00000') {
                     alert('register success!');
                     var jumpPage = <%=request.getParameter("lastPage")%>
                     if(jumpPage == null) {
@@ -60,8 +58,9 @@ function myFunction() {
                     }
                     window.location.href=jumpPage;
                 } else {
-                    alert('username has already exist!');
-                }
+                    alert(data['code'] );
+                } --%>
+                alert('send success!')
             });
 		
 	}

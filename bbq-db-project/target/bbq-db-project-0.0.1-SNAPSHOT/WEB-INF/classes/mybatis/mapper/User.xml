@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="User" >
+    <resultMap id="BaseResultMap" type="User" >
+        <id column="USER_ID" property="userId" jdbcType="INTEGER" />
+        <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+        <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+        <result column="USER_TYPE" property="userType" jdbcType="INTEGER" />
+        <result column="GENDER" property="gender" jdbcType="INTEGER" />
+        <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+        <result column="TELEPHONE" property="telephone" jdbcType="VARCHAR" />
+        <result column="ACCOUNT" property="account" jdbcType="INTEGER" />
+        <result column="REGISTERTIME" property="registerTime" jdbcType="DATE" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+		USER_ID, USER_NAME, PASSWORD, USER_TYPE, GENDER, EMAIL, TELEPHONE, ACCOUNT, REGISTER_TIME
+	</sql>
+
+    <insert id="insert" parameterType="User">
+		insert into User (USER_ID, USER_NAME, PASSWORD, USER_TYPE, GENDER,
+		EMAIL, TELEPHONE, ACCOUNT, REGISTER_TIME)
+		values (#{userId,jdbcType=INTEGER},
+		#{userName,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER},
+		#{gender,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR},
+		#{telephone,jdbcType=VARCHAR}, #{account,jdbcType=INTEGER},
+		#{registerTime, jdbcType=DATE})
+	</insert>
+
+    <select id="select_all" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from User
+    </select>
+
+    <select id="getUsersByType" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from User where user_type=#{userType}
+    </select>
+
+    <select id="getUserById" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from User where user_id = #{userId}
+    </select>
+
+    <select id="getUserByUserNameAndPassword" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from User where user_name = #{userName}
+        <if test="password != null">
+            AND password = #{password}
+        </if>
+    </select>
+
+    <select id="update" parameterType="java.util.Map">
+		update User set USER_NAME=#{userName,jdbcType=VARCHAR},PASSWORD=#{password,jdbcType=VARCHAR},USER_TYPE=#{userType,jdbcType=INTEGER},
+		GENDER=#{gender,jdbcType=INTEGER},EMAIL=#{email,jdbcType=VARCHAR},ACCOUNT=#{account, jdbcType=INTEGER},
+		TELEPHONE=#{telephone,jdbcType=VARCHAR} where USER_ID=#{userId,jdbcType=INTEGER}
+	</select>
+
+    <select id="updateAccount" parameterType="java.util.Map">
+		update User set ACCOUNT=#{user.account, jdbcType=INTEGER} where USER_ID=#{user.userId,jdbcType=INTEGER}
+	</select>
+
+</mapper>
