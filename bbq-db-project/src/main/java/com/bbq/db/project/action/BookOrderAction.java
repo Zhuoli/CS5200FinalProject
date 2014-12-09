@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 
+import com.bbq.db.project.model.*;
 import com.bbq.db.project.mongodb.MongoDBManager;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -16,12 +17,6 @@ import bbq.db.project.dao.utils.Constants;
 import bbq.db.project.dao.utils.StrutsUtil;
 
 
-
-
-import com.bbq.db.project.model.Address;
-import com.bbq.db.project.model.BookInOrder;
-import com.bbq.db.project.model.BookOrder;
-import com.bbq.db.project.model.User;
 import com.bbq.db.project.service.AddressService;
 import com.bbq.db.project.service.BookInOrderService;
 import com.bbq.db.project.service.BookOrderService;
@@ -106,7 +101,7 @@ public class BookOrderAction extends BaseAction {
     			logger.error("error::module:UserAction][action:login][][error:{empty params}]");
     			map.put("code", Constants.NO_DATA);
     		} else {
-    	    	System.out.println(user.getUserName().toString());
+                Book book = bookService.getBookById(bookId);
     			bookOrder = bookOrderService.getOrderByUserIDandOrderStatus(user.getUserId(), "unprocess");
     			if (bookOrder == null) {
                     bookOrder = new BookOrder();
@@ -115,9 +110,21 @@ public class BookOrderAction extends BaseAction {
     				bookOrder.setOrderTime(new Date());
     				bookOrder.setAddress(null);
     				bookOrderService.insertBookOrder(bookOrder);
+                    BookInOrder bookInOrder = new BookInOrder();
+                    bookInOrder.setBook(book);
+                    bookInOrder.setBookorder(bookOrder);
+                    bookInOrder.setQuantity(quantity);
+                    bookInOrderService.insertBookInOrder(bookInOrder);
                     MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "addBookToOrder",
                             JSONObject.fromObject(bookOrder).toString());
-    			}
+    			} else{
+                    BookInOrder bookInOrder = new BookInOrder();
+                    bookInOrder.setBook(book);
+                    bookInOrder.setBookorder(bookOrder);
+                    bookInOrder.setQuantity(quantity);
+                    bookInOrderService.insertBookInOrder(bookInOrder);
+                }
+
 
 				map.put("code", Constants.CODE_SUCCESS);
     		}
@@ -180,9 +187,9 @@ public class BookOrderAction extends BaseAction {
     		bookOrderService.updateBookOrder(neworder);
     		user.setAccount(user_amount-amount);
     		userService.updateUserAccount(user);
-            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Check Out Order",
-                    JSONObject.fromObject(bookInOrders).toString());
     		bookOrders = bookOrderService.getOrderByUserId(user.getUserId());
+            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Check Out Order",
+                    JSONObject.fromObject(user).toString());
     	}catch (Exception e){
     		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
     		return "error";

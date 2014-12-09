@@ -87,7 +87,7 @@ Order Information
 </table> 
 <p />
 <div>
-Amount:${amount}
+Amount:${amount/100}
 </div>
 <p />
 <table width="500" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator">  

@@ -183,6 +183,7 @@ public class BookAction extends BaseAction {
                 String code = bookService.insertOrUpdateBook(book, user, categoryId);
                 map.put("code", code);
                 map.put("bookId", book.getBookId());
+                map.put("userId", user.getUserId());
             }
         } catch (Exception e) {
             logger.error("error: [module:BookAction][action:addBook][][error:{}]", e);

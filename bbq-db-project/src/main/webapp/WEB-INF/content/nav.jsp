@@ -21,10 +21,12 @@
 <div>
     <div class="nav-index">
         <a href="<%=basePath%>index">Index</a>                   &nbsp;
+    <c:if test="${sessionScope.user.userRole.roleId == 1 || sessionScope.user.userRole.roleId == 2}">
+        <a href="<%=basePath%>book/preAddBook">Add Book</a>   &nbsp;
+    </c:if>
     <c:if test="${sessionScope.user.userRole.roleId == 2}">
         <a href="<%=basePath%>user/showAllUsers">All Users</a>   &nbsp;
         <a href="<%=basePath%>user/userLogs">Action Logs</a>
-
     </c:if>
     </div>
 </div>   <br/>

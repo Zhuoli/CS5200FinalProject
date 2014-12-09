@@ -32,7 +32,7 @@
     <p>email: ${user.email}</p>
     <p>telephone: ${user.telephone}</p>
     <c:if test="${sessionScope.user.userId == user.userId}">
-        <p>account: ${user.account}</p>
+        <p>account: ${user.account/100}</p>
     </c:if>
 </fieldset>
 

@@ -32,8 +32,7 @@
             $.get("<%=basePath%>user/loginOut",
                     function(data, status){
                         if(data['code'] == 'A00000') {
-                            $('#userinfo').hide()
-                            $('#login-div').show()
+                            window.location.href='<%=basePath%>index';
                         } else {
                             alert('logout failed, please retry!');
                         }

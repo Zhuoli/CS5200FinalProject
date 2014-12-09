@@ -94,7 +94,7 @@
                     function(data, status){
                         if(data['code'] == 'A00000') {
                             alert('success!');
-                            location.href="<%=basePath%>book/viewBook?bookId=" + data['bookId'];
+                            location.href="<%=basePath%>user/userInfo?userId=" + data['userId'];
                         } else if(data['code'] == 'E00005') {
                             alert('Can not change the book!');
                         } else if(data['code'] == 'E00003'){

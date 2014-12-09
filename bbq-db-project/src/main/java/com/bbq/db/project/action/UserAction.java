@@ -87,9 +87,9 @@ public class UserAction extends BaseAction{
         Map<String, Object> map = new HashMap<String, Object>();
         try {
             User dbUser = userService.getUserByUserNameAndPassword(user.getUserName(), null);
-            UserRole userRole = userRoleService.getUserRoleById(userRoleId);
             if(dbUser == null) {
                 user.setRegisterTime(new Date());
+                UserRole userRole = userRoleService.getUserRoleById(1);
                 user.setUserRole(userRole);
                 userService.insertUser(user);
                 Map<String, Object> session = ActionContext.getContext().getSession();
@@ -98,6 +98,7 @@ public class UserAction extends BaseAction{
                 MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Add User",
                         JSONObject.fromObject(user).toString());
             } else if(user.getUserId() > 0){
+                UserRole userRole = userRoleService.getUserRoleById(userRoleId);
                 user.setUserRole(userRole);
                 userService.updateUser(user);
                 MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Update User",

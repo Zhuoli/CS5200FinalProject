@@ -26,7 +26,16 @@ public class BookInOrderService {
 	private UserDao userDao;
 	
 	public void insertBookInOrder(BookInOrder bookinorder) {
-		bookinorderDao.insert(bookinorder);
+        BookInOrder oldBookInOrder = bookinorderDao.getBookInOrderByOrderIDandBookID(bookinorder.getBookorder(),bookinorder.getBook());
+        if(oldBookInOrder != null)
+        {int quantity = oldBookInOrder.getQuantity()+ bookinorder.getQuantity();
+            BookInOrder newbookinorder = new BookInOrder();
+            newbookinorder.setBook(bookinorder.getBook());
+            newbookinorder.setBookorder(bookinorder.getBookorder());
+            newbookinorder.setQuantity(quantity);
+            bookinorderDao.update(newbookinorder);}
+        else{
+		    bookinorderDao.insert(bookinorder);   }
 	}
 	
 	public List<BookInOrder> getBookInOrderByOrderID(BookOrder bookorder) {

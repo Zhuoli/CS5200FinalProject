@@ -73,7 +73,7 @@ public class BookDaoTest {
 	
 	@Test
 	public void getBookByUserId() {
-		List<Book> bookes = bookDao.getBookByUserId(1);
+		List<Book> bookes = bookDao.getBookByUserId(3);
 		Assert.assertTrue(bookes.size() > 0);
 	}
 	
@@ -101,7 +101,7 @@ public class BookDaoTest {
 	public void updateBookQuantity() {
 		
 		Book book  = new Book();
-		book.setBookId(7);
+		book.setBookId(1);
 		book.setQuantity(10);
 		int effectCount = bookDao.updateQuantity(book);
 		Assert.assertTrue(effectCount > 0);
