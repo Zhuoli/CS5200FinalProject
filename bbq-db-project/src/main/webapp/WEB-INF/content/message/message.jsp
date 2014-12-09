@@ -8,7 +8,8 @@
 <head>
 <base href="<%=basePath%>">
 <link href="<%=basePath%>css/view.css" rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
 <meta charset="utf-8">
 <style>
 body{
@@ -16,53 +17,9 @@ body{
  }
  </style>
 <title>Message: Send message</title>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("#comment_form").validate({
-            rules: {
-            	receiver: {
-                    required: true,
-                    minlength: 2
-                },
-                title: {
-                    required: true,
-                    minlength: 2
-                },
-                content: {
-                    required: true,
-                    minlength: 2,
-                }
-            },
-
-            submitHandler: function() {
-                $.post("<%=basePath%>user/addUser.action",
-                    {
-                        "msg.receiver": $('#receiver').val(),
-                        "msg.title": $('#title').val(),
-                        "msg.content": $('#content').val(),
-                        "msg.time": new Date().toString();
-                    },
-                    function(data, status){
-                        if(data['code'] == 'A00000') {
-                            alert('register success!');
-                            var jumpPage = <%=request.getParameter("lastPage")%>
-                            if(jumpPage == null) {
-                                jumpPage = '<%=basePath%>index.action';
-                            }
-                            window.location.href=jumpPage;
-                        } else {
-                            alert('username has already exist!');
-                        }
-                    });
-            }
-        });
-
-    });
-</script>
 </head>
 <body>
 	<h3>Send messages</h3>
-
     <jsp:include page="../user-login.jsp"/>
 
 <div id="comment_form">
@@ -78,11 +35,35 @@ body{
 	</div>
 	<div>
 		<!-- <input type="submit" name="submit" value="Add Comment"> -->
-		<button id='send'>send</button>  &nbsp;
+		<button onclick="myFunction()">Click me</button>  &nbsp;
 	</div>
 	
 </div>
 
+
+<script>
+function myFunction() {
+    $.post("<%=basePath%>message/send.action",
+            {
+                "receiver": $('#receiver').val(),
+                "title": $('#title').val(),
+                "content": $('#content').val()
+            },
+            function(data, status){
+                 if(data['code'] == 'A00000') {
+                    alert('register success!');
+                    var jumpPage = <%=request.getParameter("lastPage")%>
+                    if(jumpPage == null) {
+                        jumpPage = '<%=basePath%>index.action';
+                    }
+                    window.location.href=jumpPage;
+                } else {
+                    alert("send failed" );
+                }
+            });
+		
+	}
+</script>
 
 
 </body>

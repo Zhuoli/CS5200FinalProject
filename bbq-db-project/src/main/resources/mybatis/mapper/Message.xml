@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="Message" >
-	<resultMap id="BaseResultMap" type="Message" >
-		<id column="MESSAGE_ID" property="messageId" jdbcType="INTEGER" />
-		<result column="SENDER" property="sender" jdbcType="INTEGER" />
-		<result column="RECEIVER" property="receiver" jdbcType="INTEGER" />
-		<result column="TITLE" property="title" jdbcType="VARCHAR" />
-		<result column="CONTENT" property="content" jdbcType="VARCHAR" />
-		<result column="TIME" property="time" jdbcType="DATE" />
-	</resultMap>
-	
-	<sql id="Base_Column_List" >
+    <resultMap id="BaseResultMap" type="Message" >
+        <id column="MESSAGE_ID" property="messageId" jdbcType="INTEGER" />
+        <result column="TITLE" property="title" jdbcType="VARCHAR" />
+        <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+        <result column="TIME" property="time" jdbcType="DATE" />
+        <association property="receiver" column="RECEIVER" select="User.getUserById" />
+        <association column="SENDER" property="sender" select="User.getUserById" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
 		MESSAGE_ID, SENDER, RECEIVER, TITLE, CONTENT, TIME
 	</sql>
-	
-	<insert id="insert" parameterType="Message">
+
+    <insert id="insert" parameterType="Message">
 		insert into Message (MESSAGE_ID, SENDER, RECEIVER, TITLE, CONTENT, TIME)
 		values (#{messageId,jdbcType=INTEGER},
 		#{sender.userId,jdbcType=INTEGER},
 		#{receiver.userId,jdbcType=INTEGER},
-		#{title,jdbcType=VARCHAR}, 
-		#{content,jdbcType=VARCHAR}, 
+		#{title,jdbcType=VARCHAR},
+		#{content,jdbcType=VARCHAR},
 		#{time,jdbcType=DATE})
 	</insert>
-	
-	<select id="select_all" resultMap="BaseResultMap">
-		select <include refid="Base_Column_List" /> from Message
-	</select>
-	
-	<select id="getMessageById" parameterType="java.util.Map" resultMap="BaseResultMap">
-		select <include refid="Base_Column_List" /> from Message where message_id = #{messageId}
-	</select>
-	
-	<select id="getMessageBySenderID" parameterType="java.util.Map" resultMap="BaseResultMap">
-		select <include refid="Base_Column_List" /> from Message where sender = #{user.userId}
-	</select>
-	
-	<select id="getMessageByReceiverID" parameterType="java.util.Map" resultMap="BaseResultMap">
-		select <include refid="Base_Column_List" /> from Message where receiver = #{user.userId}
-	</select>
-	
-	<select id="update" parameterType="java.util.Map">
+
+    <select id="select_all" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from Message
+    </select>
+
+    <select id="getMessageById" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from Message where message_id = #{messageId}
+    </select>
+
+    <select id="getMessageBySenderID" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from Message where sender = #{user.userId}
+    </select>
+
+    <select id="getMessageByReceiverID" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from Message where receiver = #{user.userId}
+    </select>
+
+    <select id="update" parameterType="java.util.Map">
 		update Message set receiver=#{receiver.userId,jdbcType=VARCHAR}, title=#{title,jdbcType=VARCHAR},
 		content=#{content,jdbcType=VARCHAR}, time=#{time,jdbcType=DATE} where message_id=#{messageId,jdbcType=INTEGER}
 	</select>
-	
-	<select id="delete" parameterType="java.util.Map">
+
+    <select id="delete" parameterType="java.util.Map">
 		delete from Message where message_id=#{messageId,jdbcType=INTEGER}
 	</select>
-	
+
 </mapper>

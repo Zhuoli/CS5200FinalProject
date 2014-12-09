@@ -33,7 +33,7 @@ import java.util.Set;
 public class TestMongo {
 
     @Test
-    public void selectAllAddress() throws Exception{
+    public void testMongo() throws Exception{
 
         if(Boolean.valueOf(Constants.MONGO_IS_OPEN)) {
             MongoClient mongoClient = new MongoClient("127.0.0.1", 27017);

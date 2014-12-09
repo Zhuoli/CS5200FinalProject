@@ -271,6 +271,7 @@ public class UserAction extends BaseAction{
         this.users = users;
     }
 
+
 	public UserRoleService getUserRoleService() {
 		return userRoleService;
 	}
@@ -295,13 +296,12 @@ public class UserAction extends BaseAction{
 		this.userRoleId = userRoleId;
 	}
 
-	public List<UserLog> getUserLogs() {
-		return userLogs;
-	}
+	
+    public List<UserLog> getUserLogs() {
+        return userLogs;
+    }
 
-	public void setUserLogs(List<UserLog> userLogs) {
-		this.userLogs = userLogs;
-	}
-    
-    
+    public void setUserLogs(List<UserLog> userLogs) {
+        this.userLogs = userLogs;
+    }
 }

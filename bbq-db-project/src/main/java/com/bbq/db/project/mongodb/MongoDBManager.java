@@ -50,7 +50,7 @@ public class MongoDBManager {
             dbObject.put(Constants.MONGO_KEY_USERROLE, userRoleId);
             dbObject.put(Constants.MONGO_KEY_ACTIONNAME, actionName);
             dbObject.put(Constants.MONGO_KEY_PARAMS, params);
-            dbObject.put(Constants.MONGO_KEY_ACTIONTIME, DateUtil.formatDate(new Date(), "yyyyMMdd HH:mm:ss"));
+            dbObject.put(Constants.MONGO_KEY_ACTIONTIME, DateUtil.formatDate(new Date(), "yyyy-MM-dd HH:mm:ss"));
             db.getCollection(Constants.MONGO_LOG_COLLECTION).insert(dbObject);
         }
     }
@@ -60,7 +60,9 @@ public class MongoDBManager {
         List<UserLog> userLogs = new ArrayList<UserLog>();
 
         if(Boolean.valueOf(Constants.MONGO_IS_OPEN)) {
-            DBCursor cursor = db.getCollection(Constants.MONGO_LOG_COLLECTION).find();
+            DBObject sortType = new BasicDBObject();
+            sortType.put(Constants.MONGO_KEY_ACTIONTIME, -1);
+            DBCursor cursor = db.getCollection(Constants.MONGO_LOG_COLLECTION).find().sort(sortType).limit(1000);
             while(cursor.hasNext()) {
                 UserLog userLog = new UserLog();
                 DBObject dbObject = cursor.next();
@@ -68,8 +70,8 @@ public class MongoDBManager {
                 userLog.setUserName((String)dbObject.get(Constants.MONGO_KEY_USERNAME));
                 userLog.setUserRoleId((Integer)dbObject.get(Constants.MONGO_KEY_USERROLE));
                 userLog.setActionName((String)dbObject.get(Constants.MONGO_KEY_ACTIONNAME));
-                userLog.setActionTime((Date)dbObject.get(Constants.MONGO_KEY_PARAMS));
-                userLog.setParams((String)dbObject.get(Constants.MONGO_KEY_ACTIONTIME));
+                userLog.setActionTime((String)dbObject.get(Constants.MONGO_KEY_ACTIONTIME));
+                userLog.setParams((String)dbObject.get(Constants.MONGO_KEY_PARAMS));
                 userLogs.add(userLog);
             }
         }
