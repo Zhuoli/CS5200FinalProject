@@ -70,8 +70,10 @@ public class MessageAction extends BaseAction {
 	      msg.setTime(new Date());
 	      try {
 	          	messageService.insertMessage(msg);
+               map.put("code", Constants.CODE_SUCCESS);
 	      } catch (Exception e) {
-	          logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
+	          logger.error("error: [module:MessageAction][action:send][][error:{}]", e);
+              map.put("code", Constants.INNER_ERROR);
 	      }
 	
 	      StrutsUtil.renderJson(JSONObject.fromObject(map).toString());

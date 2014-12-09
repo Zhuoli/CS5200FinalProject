@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -32,7 +33,7 @@
 				From: <c:out value="${message.sender.userName}"/>
 			</div>
 			<div id="date">
-				Time: <c:out value="${message.time}"/>
+				Time: <fmt:formatDate value="${message.time}" pattern="yyyy-MM-dd HH:mm"></fmt:formatDate>
 			</div>
 			        &nbsp;
 			<div id="content"> 

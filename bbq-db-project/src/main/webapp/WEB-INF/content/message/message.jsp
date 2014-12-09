@@ -47,7 +47,7 @@ function myFunction() {
             {
                 "receiver": $('#receiver').val(),
                 "title": $('#title').val(),
-                "content": $('#content').val(),
+                "content": $('#content').val()
             },
             function(data, status){
                  if(data['code'] == 'A00000') {
