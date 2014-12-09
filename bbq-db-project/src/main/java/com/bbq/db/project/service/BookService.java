@@ -5,13 +5,18 @@ import java.util.List;
 
 import bbq.db.project.dao.utils.Constants;
 import bbq.db.project.dao.utils.PageInfo;
+
 import com.bbq.db.project.mongodb.MongoDBManager;
+
 import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bbq.db.project.dao.BookCategoryDao;
 import com.bbq.db.project.dao.BookDao;
 import com.bbq.db.project.model.Book;
+import com.bbq.db.project.model.BookCategory;
 import com.bbq.db.project.model.User;
 
 @Service("bookService")
@@ -19,9 +24,12 @@ public class BookService {
 
 	@Autowired
 	private BookDao bookDao;
+	@Autowired
+	private BookCategoryDao bookCategoryDao;
 	
-	public String insertOrUpdateBook(Book book, User user) {
-
+	public String insertOrUpdateBook(Book book, User user, int categoryId) {
+        BookCategory bookcategory = bookCategoryDao.getCategoryById(categoryId);
+        book.setCategory(bookcategory);
         if(book.getBookId() > 0) {
             Book dbBook = bookDao.getBookById(book.getBookId());
             book.setUser(dbBook.getUser());

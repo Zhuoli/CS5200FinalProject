@@ -97,8 +97,10 @@
                             location.href="<%=basePath%>book/viewBook.action?bookId=" + data['bookId'];
                         } else if(data['code'] == 'E00005') {
                             alert('Can not change the book!');
-                        } else {
+                        } else if(data['code'] == 'E00003'){
                             alert('Please login in first!');
+                        }else {
+                            alert('Error!');
                         }
                     });
             }

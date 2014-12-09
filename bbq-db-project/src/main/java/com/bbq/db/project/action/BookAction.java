@@ -33,7 +33,7 @@ import java.util.*;
  * Created with IntelliJ IDEA.
  * User: maohao
  * Date: 14-12-4
- * Time: 涓婂崍12:01
+ * Time: 娑撳﹤宕�2:01
  * To change this template use File | Settings | File Templates.
  */
 @Namespace("/book")
@@ -145,7 +145,7 @@ public class BookAction extends BaseAction {
             SimpleDateFormat sDateFormat;
             Random r = new Random();
 
-            String savePath = ServletActionContext.getServletContext().getRealPath(""); //鑾峰彇椤圭洰鏍硅矾寰�
+            String savePath = ServletActionContext.getServletContext().getRealPath(""); //閼惧嘲褰囨い鍦窗閺嶇鐭惧锟�
             savePath = savePath + "/uploads/";
 
             HttpServletResponse response  = ServletActionContext.getResponse();
@@ -180,20 +180,7 @@ public class BookAction extends BaseAction {
             if(user == null) {
                 map.put("code", Constants.NO_DATA);
             } else {
-            	BookCategory category = bookCategoryService.getCategoryById(categoryId);
-            	Book newbook = new Book();
-            	newbook.setAuthor(book.getAuthor());
-            	newbook.setBookId(book.getBookId());
-            	newbook.setIsbn(book.getIsbn());
-            	newbook.setPic(book.getPic());
-            	newbook.setPrice(book.getPrice());
-            	newbook.setPublisher(book.getPublisher());
-            	newbook.setPublishTime(book.getPublishTime());
-            	newbook.setQuantity(book.getQuantity());
-            	newbook.setTitle(book.getTitle());
-            	newbook.setUser(book.getUser());
-            	newbook.setCategory(category);
-                String code = bookService.insertOrUpdateBook(newbook, user);
+                String code = bookService.insertOrUpdateBook(book, user, categoryId);
                 map.put("code", code);
                 map.put("bookId", book.getBookId());
             }
