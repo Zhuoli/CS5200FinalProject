@@ -16,12 +16,16 @@
 <body>
 <header>
 </header>
-	<h1>Buy Book In Queue - User Info</h1>
+	<h1 class="h1">Buy Book In Queue - User Info</h1>
     <c:if test="${sessionScope.user.userId == user.userId}">
-        <a href="<%=basePath%>message/view.action"> Message Center</a>          &nbsp;
-        <a href="<%=basePath%>bookorder/getAllOrders.action">My Orders</a>
+    <div class="nav-message">
+        <a href="<%=basePath%>message/view"> Message Center</a>          &nbsp;
+        <a href="<%=basePath%>bookorder/getAllOrders">My Orders</a>
+    </div>
     </c:if>
     <jsp:include page="../user-login.jsp"/>
+    <jsp:include page="../nav.jsp"/>
+
 <fieldset>
     <p>username:${user.userName}</p>
     <p>gender: ${user.gender == 1 ? 'male' : 'female'}</p>

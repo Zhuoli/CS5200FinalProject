@@ -19,10 +19,10 @@ body{
 <title>Message: Send message</title>
 </head>
 <body>
-	<h3>Send messages</h3>
+	<h3 class="h1">Send messages</h3>
     <jsp:include page="../user-login.jsp"/>
-
-<div id="comment_form">
+    <jsp:include page="../nav.jsp"/>
+    <div id="comment_form">
 	
 	<div>
 		<input type="text" name="receiver" id="receiver" value="" placeholder="receiver">
@@ -43,7 +43,7 @@ body{
 
 <script>
 function myFunction() {
-    $.post("<%=basePath%>message/send.action",
+    $.post("<%=basePath%>message/send",
             {
                 "receiver": $('#receiver').val(),
                 "title": $('#title').val(),
@@ -54,7 +54,7 @@ function myFunction() {
                     alert('register success!');
                     var jumpPage = <%=request.getParameter("lastPage")%>
                     if(jumpPage == null) {
-                        jumpPage = '<%=basePath%>index.action';
+                        jumpPage = '<%=basePath%>index';
                     }
                     window.location.href=jumpPage;
                 } else {

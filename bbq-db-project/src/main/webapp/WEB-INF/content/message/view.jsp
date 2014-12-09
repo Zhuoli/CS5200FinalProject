@@ -17,10 +17,11 @@
 
 </head>
 <body>
-	<h1>User Message Box</h1>
+	<h1 class="h1">User Message Box</h1>
     <jsp:include page="../user-login.jsp"/>
-	<c:if test="${sessionScope.user.userId == user.userId}">
-        <a href="<%=basePath%>message/newMessage.action"> Create new Message</a>
+    <jsp:include page="../nav.jsp"/>
+    <c:if test="${sessionScope.user.userId == user.userId}">
+        <a href="<%=basePath%>message/newMessage"> Create new Message</a>
     </c:if>
 	<h3>View Alll Messages</h3>
 	<c:forEach var="message" items="${msgs}">
@@ -41,7 +42,7 @@
 			</div>
 			<div>	
 				<c:if test="${sessionScope.user.userId == user.userId}">
-        		<a href="<%=basePath%>message/newMessage.action"> Reply</a>
+        		<a href="<%=basePath%>message/newMessage"> Reply</a>
     			</c:if>
 			</div>
 		</fieldset>
@@ -49,18 +50,18 @@
 
 <script>
 function myFunction() {
-    $.post("<%=basePath%>message/send.action",
+    $.post("<%=basePath%>message/send",
             {
                 "receiver": $('#receiver').val(),
                 "title": $('#title').val(),
-                "content": $('#content').val(),
+                "content": $('#content').val()
             },
             function(data, status){
 <%--                 if(data['code'] == 'A00000') {
                     alert('register success!');
                     var jumpPage = <%=request.getParameter("lastPage")%>
                     if(jumpPage == null) {
-                        jumpPage = '<%=basePath%>index.action';
+                        jumpPage = '<%=basePath%>index';
                     }
                     window.location.href=jumpPage;
                 } else {

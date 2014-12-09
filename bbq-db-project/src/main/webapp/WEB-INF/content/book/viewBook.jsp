@@ -26,7 +26,7 @@
                 return false;
             }
 
-            $.post("<%=basePath%>bookorder/addBookToOrder.action",
+            $.post("<%=basePath%>bookorder/addBookToOrder",
                     {
                         bookId: ${book.bookId},
                         quantity: quantity
@@ -47,6 +47,7 @@
 </header>
 	<h1 class="h1">Buy Book In Queue - ViewBook</h1>
     <jsp:include page="../user-login.jsp"/>
+    <jsp:include page="../nav.jsp"/>
 	<div>
         <div class="pic">
            <img src="<%=basePath%>uploads/${book.pic}" width="500" height="400">
@@ -60,9 +61,12 @@
                  <li>Price: ${book.price / 100}</li>  <br/>
                  <li>Publisher: ${book.publisher}</li> <br/>
                  <li>Book Category: ${book.category.categoryName}</li> <br/>
-                 <li>Book owner: <a href="<%=basePath%>user/userInfo.action?userId=${book.user.userId}">${book.user.userName}</a></li> <br/>
+                 <li>Book owner: <a href="<%=basePath%>user/userInfo?userId=${book.user.userId}">${book.user.userName}</a></li> <br/>
                  <li>How many do I want? <input name='quantity' id='quantity' type='text'/>
-                 <button id='addBookToOrder'>AddToCart</button></li>
+                 <button id='addBookToOrder'>AddToCart</button></li> <br/>
+                 <c:if test="${sessionScope.user.userRole.roleId == 2 || sessionScope.user.userId == book.user.userId}">
+                 <li> <a href="<%=basePath%>book/preAddBook?bookId=${book.bookId}">Update</a> </li>
+                 </c:if>
              </ul>
         </div>
     </div>

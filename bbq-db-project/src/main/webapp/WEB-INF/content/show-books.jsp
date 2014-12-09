@@ -17,7 +17,7 @@
         <c:forEach var="book" items="${books}">
             <tr>
                 <input type="hidden" name='bookId' value=${book.bookId}/>
-                <td><a href="<%=basePath%>book/viewBook.action?bookId=${book.bookId}" target="_blank">${book.title}</a>
+                <td><a href="<%=basePath%>book/viewBook?bookId=${book.bookId}" target="_blank">${book.title}</a>
                 <td>${book.author}</td>
                 <td>${book.isbn}</td>
                 <td>${book.quantity}</td>
@@ -25,7 +25,7 @@
                 <td>
                     <c:choose>
                         <c:when test="${sessionScope.user.userRole.roleId == 2 || sessionScope.user.userId == book.user.userId}">
-                            <a href="<%=basePath%>book/preAddBook.action?bookId=${book.bookId}">Update</a>
+                            <a href="<%=basePath%>book/preAddBook?bookId=${book.bookId}">Update</a>
                         </c:when>
                         <c:otherwise>
                             Can't update

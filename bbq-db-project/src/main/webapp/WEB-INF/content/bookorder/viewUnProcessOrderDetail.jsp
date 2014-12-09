@@ -17,7 +17,7 @@
     });
     
     function checkout() {  
-    	$.post("<%=basePath%>bookinorder/orderAmount.action",
+    	$.post("<%=basePath%>bookinorder/orderAmount",
                 {
        	         bookOrderId: $('#orderId1').val()
                 },
@@ -33,7 +33,7 @@
     }  
 
     function updateBookQuantity(index) {
-         $.post("<%=basePath%>bookinorder/updateQuantity.action",
+         $.post("<%=basePath%>bookinorder/updateQuantity",
                  {
         	         bookOrderId: $('#orderId' + index).val(),
         	         quantity: $('#quantity' + index).val(),
@@ -51,7 +51,7 @@
     
     
     function deleteBookInOrder(index) {        
-        $.post("<%=basePath%>bookinorder/deleteBookInOrder.action",
+        $.post("<%=basePath%>bookinorder/deleteBookInOrder",
                 {
        	         bookOrderId: $('#orderId' + index).val(),
        	         bookId: $('#bookId' + index).val()
@@ -68,13 +68,13 @@
     
     function cancleOrder() {        
     	var bookOrderId = $('#orderId1').val();
-    	window.location.href='<%=basePath%>bookorder/updateStatus.action?bookOrderId=' + bookOrderId;
+    	window.location.href='<%=basePath%>bookorder/updateStatus?bookOrderId=' + bookOrderId;
     	
     }
     
     function checkOut() {        
     	var bookOrderId = $('#orderId1').val();
-    	window.location.href='<%=basePath%>bookinorder/orderAmount.action?bookOrderId=' + bookOrderId;
+    	window.location.href='<%=basePath%>bookinorder/orderAmount?bookOrderId=' + bookOrderId;
     	
     }
 </script>
@@ -82,6 +82,7 @@
 <body>
  <h1 class="h1">Order Details</h1>
  <jsp:include page="../user-login.jsp"/>
+ <jsp:include page="../nav.jsp"/>
  <div align='center'>
  <table width="200" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator" >  
 	<tr>  

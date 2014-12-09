@@ -41,7 +41,7 @@
             },
 
             submitHandler: function() {
-                $.post("<%=basePath%>user/addUser.action",
+                $.post("<%=basePath%>user/addUser",
                     {
                         "user.userName": $('#username').val(),
                         "user.password": $('#password').val(),
@@ -54,7 +54,7 @@
                             alert('register success!');
                             var jumpPage = <%=request.getParameter("lastPage")%>
                             if(jumpPage == null) {
-                                jumpPage = '<%=basePath%>index.action';
+                                jumpPage = '<%=basePath%>index';
                             }
                             window.location.href=jumpPage;
                         } else {
@@ -79,7 +79,9 @@
 <body>
 <header>
 </header>
-	<h1>Buy Book In Queue - BBQ</h1>
+	<h1 class="h1">Buy Book In Queue - BBQ</h1>
+    <jsp:include page="../nav.jsp"/>
+
 <tr>
     <form id="form">
         <fieldset>

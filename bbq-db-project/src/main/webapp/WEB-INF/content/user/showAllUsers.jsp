@@ -19,7 +19,7 @@
     function updateUser(userId){
 
 
-        $.post("<%=basePath%>user/getUserById.action",
+        $.post("<%=basePath%>user/getUserById",
                 {
                     userId: userId
                 },
@@ -47,7 +47,7 @@
 
     function submitUpdate(userId) {
 
-        $.post("<%=basePath%>user/addUser.action",
+        $.post("<%=basePath%>user/addUser",
                 {
                     "user.userId"  : userId,
                     "user.userName": $('#userName').val(),
@@ -73,6 +73,7 @@
 <header>
 </header>
 	<h1 class="h1">Buy Book In Queue - All Users</h1>
+    <jsp:include page="../nav.jsp"/>
 <div class="CSSTableGenerator">
     <table>
         <tr>
@@ -86,7 +87,7 @@
         <c:if test="${sessionScope.user.userRole.roleId == 2}">
             <c:forEach var="user" items="${users}">
                 <tr>
-                    <td><a href="<%=basePath%>user/userInfo.action?userId=${user.userId}" target="_blank">${user.userName}</a>
+                    <td><a href="<%=basePath%>user/userInfo?userId=${user.userId}" target="_blank">${user.userName}</a>
                     <td>${user.gender == 1 ? 'male' : 'female'}</td>
                     <td>${user.email}</td>
                     <td>${user.telephone}</td>

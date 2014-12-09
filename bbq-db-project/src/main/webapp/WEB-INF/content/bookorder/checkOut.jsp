@@ -15,7 +15,7 @@
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
     	$('#addAddress').click(function() {
-            $.post("<%=basePath%>address/addNewAddress.action",
+            $.post("<%=basePath%>address/addNewAddress",
                     {
                         street: $('#street').val(),
                         city: $('#city').val(),
@@ -40,7 +40,7 @@
     	if (index == null){
     		alert("please select an address!")
     	}else{
-    		$.post("<%=basePath%>bookorder/checkQuantityandAmount.action",
+    		$.post("<%=basePath%>bookorder/checkQuantityandAmount",
                     {
     			     bookOrderId: $('#orderId1').val(),
     			     amount: $('#amount').val()
@@ -48,7 +48,7 @@
                     function(data, status){
                         if(data['code'] == 'A00000') {
                         	var addressId = $('#addressId'+ index).val();   	
-                    		window.location.href='<%=basePath%>bookorder/checkOut.action?bookOrderId=' + bookOrderId+'&amount='+amount+'&addressId=' + addressId;
+                    		window.location.href='<%=basePath%>bookorder/checkOut?bookOrderId=' + bookOrderId+'&amount='+amount+'&addressId=' + addressId;
                         } else if (data['code'] == 'E00006'){
                             alert('no enough account!');
                         } else if (data['code'] == 'E00007'){
@@ -64,6 +64,8 @@
 </head>
 <body>
 <h1 class="h1">check out</h1>
+<jsp:include page="../user-login.jsp"/>
+<jsp:include page="../nav.jsp"/>
 <div>
 Order Information
 </div>

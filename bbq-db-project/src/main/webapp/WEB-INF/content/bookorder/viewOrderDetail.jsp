@@ -15,6 +15,7 @@
 <body>
  <h1 class="h1">Order Details</h1>
  <jsp:include page="../user-login.jsp"/>
+ <jsp:include page="../nav.jsp"/>
  <table width="500" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator">  
 	<tr>  
    	 	<th>Book Title</th>  

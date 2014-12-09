@@ -101,3 +101,9 @@
 }
 .update-pic{float:right; margin-right:500px; margin-top: 25px;}
 .add-book{float:left; margin-left:50px;}
+.nav-index{position: absolute;
+            left: 50px;
+            top: 70px;}
+.nav-message{position: absolute;
+            left: 300px;
+            top: 70px;}

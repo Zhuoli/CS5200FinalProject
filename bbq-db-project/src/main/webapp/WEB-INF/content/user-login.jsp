@@ -11,7 +11,7 @@
 
         $('#login').click(function() {
 
-            $.post("<%=basePath%>user/login.action",
+            $.post("<%=basePath%>user/login",
                     {
                         userName: $('#username').val(),
                         password: $('#password').val()
@@ -29,7 +29,7 @@
 
         $('#logout').click(function() {
 
-            $.get("<%=basePath%>user/loginOut.action",
+            $.get("<%=basePath%>user/loginOut",
                     function(data, status){
                         if(data['code'] == 'A00000') {
                             $('#userinfo').hide()
@@ -44,7 +44,7 @@
     function onRegister() {
 
         var lastPage = window.location.href;
-        window.location.href='<%=basePath%>user/preRegister.action?lastPage='+lastPage;
+        window.location.href='<%=basePath%>user/preRegister?lastPage='+lastPage;
     }
 </script>
 
@@ -56,7 +56,7 @@
        <a onclick="onRegister()" href="javascript:void(0)">register</a>
     </div>
     <div ${sessionScope.user == null ? 'hidden=true' : ''} id="userinfo" >
-       <a href="<%=basePath%>user/userInfo.action?userId=${sessionScope.user.userId}" id='mypage'>${sessionScope.user.userName}</a>
+       <a href="<%=basePath%>user/userInfo?userId=${sessionScope.user.userId}" id='mypage'>${sessionScope.user.userName}</a>
        <button id='logout'>logout</button>
     </div>
 </div>   <br/>

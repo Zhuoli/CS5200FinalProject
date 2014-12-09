@@ -17,6 +17,7 @@
 <body>
  <h1 class="h1">User Orders</h1>
  <jsp:include page="../user-login.jsp"/>
+ <jsp:include page="../nav.jsp"/>
  <table width="500" border="0" cellspacing="0" cellpadding="0" class="CSSTableGenerator">  
 	<tr>  
    	 	<th>Order Id</th>  
@@ -25,7 +26,7 @@
 	</tr>  
 	<c:forEach var="bookOrder" items="${bookOrders}">
 	<tr>
-    	<td><a href="<%=basePath%>bookorder/orderDetail.action?bookOrderId=${bookOrder.orderId}" target="_blank">${bookOrder.orderId}</a></td>
+    	<td><a href="<%=basePath%>bookorder/orderDetail?bookOrderId=${bookOrder.orderId}" target="_blank">${bookOrder.orderId}</a></td>
     	<td>${bookOrder.orderStatus}</td>
     	<td><fmt:formatDate value="${bookOrder.orderTime}" pattern="yyyy-MM-dd HH:mm"/></td>
 	</tr>

@@ -28,7 +28,7 @@
 
         $("#fileupload").uploadify({
             'swf'     : '<%=basePath%>uploadify/uploadify.swf',
-            'uploader': '<%=basePath%>book/uploadImg.action',
+            'uploader': '<%=basePath%>book/uploadImg',
             'folder': '<%=basePath%>uploads',
             'cancelImg': '<%=basePath%>img/uploadify-cancel.png',
             'queueID'        : 'fileQueue',
@@ -79,7 +79,7 @@
             },
 
             submitHandler: function() {
-                $.post("<%=basePath%>book/addBook.action",
+                $.post("<%=basePath%>book/addBook",
                     {
                         "book.bookId":$('#id').val(),
                         "book.title": $('#title').val(),
@@ -94,7 +94,7 @@
                     function(data, status){
                         if(data['code'] == 'A00000') {
                             alert('success!');
-                            location.href="<%=basePath%>book/viewBook.action?bookId=" + data['bookId'];
+                            location.href="<%=basePath%>book/viewBook?bookId=" + data['bookId'];
                         } else if(data['code'] == 'E00005') {
                             alert('Can not change the book!');
                         } else if(data['code'] == 'E00003'){
@@ -130,6 +130,7 @@
         </s:else>
     </h1>
     <jsp:include page="../user-login.jsp"/>
+    <jsp:include page="../nav.jsp"/>
 <tr>
     <form id="form">
         <fieldset>

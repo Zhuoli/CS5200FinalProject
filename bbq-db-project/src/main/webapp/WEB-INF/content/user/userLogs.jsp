@@ -19,6 +19,9 @@
 <header>
 </header>
 	<h1 class="h1">Buy Book In Queue - User Actions</h1>
+    <jsp:include page="../user-login.jsp"/>
+    <jsp:include page="../nav.jsp"/>
+
 <div class="CSSTableGenerator">
     <table>
         <tr>
@@ -32,8 +35,8 @@
         <c:if test="${sessionScope.user.userRole.roleId == 2}">
             <c:forEach var="userLog" items="${userLogs}">
                 <tr>
-                    <td><a href="<%=basePath%>user/userInfo.action?userId=${userLog.userId}" target="_blank">${user.userId}</a></td>
-                    <td><a href="<%=basePath%>user/userInfo.action?userId=${userLog.userId}" target="_blank">${user.userName}</a></td>
+                    <td><a href="<%=basePath%>user/userInfo?userId=${userLog.userId}" target="_blank">${user.userId}</a></td>
+                    <td><a href="<%=basePath%>user/userInfo?userId=${userLog.userId}" target="_blank">${user.userName}</a></td>
                     <td>${userLog.userRoleId}</td>
                     <td>${userLog.actionName}</td>
                     <td>${userLog.actionTime}</td>

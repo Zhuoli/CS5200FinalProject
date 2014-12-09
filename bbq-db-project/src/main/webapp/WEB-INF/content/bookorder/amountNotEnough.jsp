@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="../nav.jsp"/>
 Account Is Not Enough!!
 </body>
 </html>

@@ -29,7 +29,7 @@
             },
 
             submitHandler: function() {
-                $.post("<%=basePath%>user/login.action",
+                $.post("<%=basePath%>user/login",
                         {
                             userName: $('#username').val(),
                             password: $('#password').val()
@@ -37,7 +37,7 @@
                         function(data, status){
                             if(data['code'] == 'A00000') {
                                alert('login success');
-                                location.href="<%=basePath%>index.action";
+                                location.href="<%=basePath%>index";
                             } else {
                                 alert('login failed, please retry!');
                             }
@@ -65,6 +65,7 @@
 <header>
 </header>
 	<h1 class="h1">Buy Book In Queue - Login</h1>
+    <jsp:include page="../nav.jsp"/>
     <h4 class="error-msg">${message}</h4>
 <tr>
     <form id="form">

@@ -20,14 +20,14 @@
         if(pageNo <= 0) {
             pageNo = 1;
         }
-        window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=' + pageNo;
+        window.location.href='<%=basePath%>index?pageInfo.currentPageNo=' + pageNo;
     }
     function nextPage(){
         var pageNo = ${pageInfo.currentPageNo + 1};
         if(pageNo > ${pageInfo.totalPage}) {
             pageNo = ${pageInfo.totalPage};
         }
-        window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=' + pageNo;
+        window.location.href='<%=basePath%>index?pageInfo.currentPageNo=' + pageNo;
     }
     function jumpToPage() {
         var pageNo = $('#pageNo').val();
@@ -36,7 +36,7 @@
         } else if(pageNo > ${pageInfo.totalPage}) {
             pageNo = ${pageInfo.totalPage};
         }
-        window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=' + pageNo;
+        window.location.href='<%=basePath%>index?pageInfo.currentPageNo=' + pageNo;
     }
 </script>
 
@@ -46,17 +46,17 @@
 </header>
 	<h1 class="h1">Buy Book In Queue - Welcome</h1>
 	<jsp:include page="user-login.jsp"/>
-
+    <jsp:include page="nav.jsp"/>
     <jsp:include page="show-books.jsp"/>
 
     <div style="margin-top: 20px; text-align: center">
         CurrentPage: ${pageInfo.currentPageNo}     &nbsp;&nbsp;  Total : ${pageInfo.totalPage}
     </div>
     <div style="margin-top: 15px; text-align: center">
-        <a onclick="javascript:window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=1'" href="javascript:void(0)">firstPage</a>      &nbsp;
+        <a onclick="javascript:window.location.href='<%=basePath%>index?pageInfo.currentPageNo=1'" href="javascript:void(0)">firstPage</a>      &nbsp;
         <a onclick="previousPage()" href="javascript:void(0)">previousPage</a>   &nbsp;
         <a onclick="nextPage()" href="javascript:void(0)">nextPage</a>  &nbsp;
-        <a onclick="javascript:window.location.href='<%=basePath%>index.action?pageInfo.currentPageNo=${pageInfo.totalPage}'" href="javascript:void(0)">lastPage</a>  &nbsp;&nbsp;
+        <a onclick="javascript:window.location.href='<%=basePath%>index?pageInfo.currentPageNo=${pageInfo.totalPage}'" href="javascript:void(0)">lastPage</a>  &nbsp;&nbsp;
     </div>
     <div style="margin-top: 10px; text-align: center">
         <a onclick="jumpToPage()" href="javascript:void(0)">go</a>

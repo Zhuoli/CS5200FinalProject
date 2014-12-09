@@ -98,6 +98,7 @@ public class UserAction extends BaseAction{
                 MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Add User",
                         JSONObject.fromObject(user).toString());
             } else if(user.getUserId() > 0){
+                user.setUserRole(userRole);
                 userService.updateUser(user);
                 MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Update User",
                         JSONObject.fromObject(user).toString());
