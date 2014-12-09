@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.bbq.db.project.dao.UserDao;
 import com.bbq.db.project.model.User;
+import com.bbq.db.project.model.UserRole;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class UserService {
 		return userDao.getUserByUserNameAndPassword(userName, password);
 	}
 
-    public List<User> getUsersByType(Integer type){
+    public List<User> getUsersByType(UserRole type){
         return userDao.getUsersByType(type);
     }
 	

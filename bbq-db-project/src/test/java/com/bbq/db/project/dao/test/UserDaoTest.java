@@ -11,7 +11,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.bbq.db.project.dao.UserDao;
+import com.bbq.db.project.dao.UserRoleDao;
 import com.bbq.db.project.model.User;
+import com.bbq.db.project.model.UserRole;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -25,6 +27,8 @@ public class UserDaoTest {
 	
 	@Autowired
 	public UserDao userDao;
+	@Autowired
+	public UserRoleDao userRoleDao;
 	
 	@Test
 	public void insertUser() {
@@ -64,10 +68,11 @@ public class UserDaoTest {
 	public void updateUser() {
 		
 		User user = new User();
+		UserRole userRole = userRoleDao.getUserRoleById(1);
 		user.setUserId(3);
 		user.setUserName("JohnUpdate");
 		user.setPassword("asdfghjk");
-        user.setUserType(1);
+        user.setUserRole(userRole);
 		user.setGender(1);
 		user.setEmail("johnUpdate@gmail.com");
 		user.setTelephone("2068888888");
@@ -89,8 +94,8 @@ public class UserDaoTest {
 
     @Test
     public void getUsersByType() {
-
-        List<User> users = userDao.getUsersByType(1);
+    	UserRole userRole = userRoleDao.getUserRoleById(1);
+        List<User> users = userDao.getUsersByType(userRole);
         Assert.assertTrue(users.size() > 0);
     }
 }

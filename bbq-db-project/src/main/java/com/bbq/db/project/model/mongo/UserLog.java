@@ -2,6 +2,8 @@ package com.bbq.db.project.model.mongo;
 
 import java.util.Date;
 
+import com.bbq.db.project.model.UserRole;
+
 /**
  * Created with IntelliJ IDEA.
  * User: maohao
@@ -13,7 +15,7 @@ public class UserLog {
 
     private Integer userId;
     private String userName;
-    private Integer userType;
+    private int userRoleId;
     private String actionName;
     private Date actionTime;
     private String params;
@@ -34,15 +36,18 @@ public class UserLog {
         this.userName = userName;
     }
 
-    public Integer getUserType() {
-        return userType;
-    }
+    
 
-    public void setUserType(Integer userType) {
-        this.userType = userType;
-    }
 
-    public String getActionName() {
+	public int getUserRoleId() {
+		return userRoleId;
+	}
+
+	public void setUserRoleId(int userRoleId) {
+		this.userRoleId = userRoleId;
+	}
+
+	public String getActionName() {
         return actionName;
     }
 

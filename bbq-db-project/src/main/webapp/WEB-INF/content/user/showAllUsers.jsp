@@ -52,7 +52,7 @@
                     "user.userId"  : userId,
                     "user.userName": $('#userName').val(),
                     "user.password": $('#password').val(),
-                    "user.userType"  : 1,
+                    userRoleId  : 1,
                     "user.gender": $('#gender').val(),
                     "user.email": $('#email').val(),
                     "user.telephone": $('#telephone').val(),
@@ -83,7 +83,7 @@
             <td>Account</td>
             <td>Operation</td>
         </tr>
-        <c:if test="${sessionScope.user.userType == 2}">
+        <c:if test="${sessionScope.user.userRole.roleId == 2}">
             <c:forEach var="user" items="${users}">
                 <tr>
                     <td><a href="<%=basePath%>user/userInfo.action?userId=${user.userId}" target="_blank">${user.userName}</a>

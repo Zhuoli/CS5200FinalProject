@@ -33,7 +33,7 @@ import java.util.*;
  * Created with IntelliJ IDEA.
  * User: maohao
  * Date: 14-12-4
- * Time: 娑撳﹤宕�2:01
+ * Time: 濞戞挸锕ゅ畷锟�:01
  * To change this template use File | Settings | File Templates.
  */
 @Namespace("/book")
@@ -123,7 +123,7 @@ public class BookAction extends BaseAction {
                 Map<String, Object> session = ActionContext.getContext().getSession();
                 User user = (User)session.get("user");
                 if(user == null || (user.getUserId() != book.getUser().getUserId()
-                                    && user.getUserType() != Constants.ADMIN)) {
+                                    && user.getUserRole().getRoleId() != Constants.ADMIN)) {
                     return ERROR;
                 }
             }
@@ -145,7 +145,7 @@ public class BookAction extends BaseAction {
             SimpleDateFormat sDateFormat;
             Random r = new Random();
 
-            String savePath = ServletActionContext.getServletContext().getRealPath(""); //閼惧嘲褰囨い鍦窗閺嶇鐭惧锟�
+            String savePath = ServletActionContext.getServletContext().getRealPath(""); //闁兼儳鍢茶ぐ鍥ㄣ亜閸︻厽绐楅柡宥囶攰閻儳顕ラ敓锟�
             savePath = savePath + "/uploads/";
 
             HttpServletResponse response  = ServletActionContext.getResponse();

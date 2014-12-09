@@ -34,15 +34,15 @@ public class BookService {
             Book dbBook = bookDao.getBookById(book.getBookId());
             book.setUser(dbBook.getUser());
             book.setPublishTime(dbBook.getPublishTime());
-            if(book.getUser().getUserId() != user.getUserId() && user.getUserType() != Constants.ADMIN)
+            if(book.getUser().getUserId() != user.getUserId() && user.getUserRole().getRoleId() != Constants.ADMIN)
                 return Constants.CAN_NOT_ACCESS;
-            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Update Book",
+            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Update Book",
                                                     JSONObject.fromObject(book).toString());
             bookDao.update(book);
         } else {
             book.setUser(user);
             book.setPublishTime(new Date());
-            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Add Book",
+            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Add Book",
                                                     JSONObject.fromObject(book).toString());
             bookDao.insert(book);
         }

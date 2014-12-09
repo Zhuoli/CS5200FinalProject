@@ -6,7 +6,7 @@ public class User {
 	private int userId;
 	private String userName;
 	private String password;
-    private int userType;
+	private UserRole userRole;
 	private Integer gender;
 	private String email;
 	private String telephone;
@@ -63,26 +63,26 @@ public class User {
         this.account = account;
     }
 
-    public int getUserType() {
-        return userType;
-    }
-
-    public void setUserType(int userType) {
-        this.userType = userType;
-    }
-
-    public User(int userId, String userName, String password, Integer userType, Integer gender,
-			String email, String telephone, Integer account, Date registerTime) {
+    
+	public User(int userId, String userName, String password,
+			UserRole userRole, Integer gender, String email, String telephone,
+			Date registerTime, int account) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.password = password;
-        this.userType = userType;
+		this.userRole = userRole;
 		this.gender = gender;
 		this.email = email;
 		this.telephone = telephone;
-        this.account = account;
 		this.registerTime = registerTime;
+		this.account = account;
+	}
+	public UserRole getUserRole() {
+		return userRole;
+	}
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
 	}
 	public User() {
 		super();

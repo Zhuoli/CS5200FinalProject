@@ -115,7 +115,7 @@ public class BookOrderAction extends BaseAction {
     				bookOrder.setOrderTime(new Date());
     				bookOrder.setAddress(null);
     				bookOrderService.insertBookOrder(bookOrder);
-                    MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "addBookToOrder",
+                    MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "addBookToOrder",
                             JSONObject.fromObject(bookOrder).toString());
     			}
 
@@ -180,7 +180,7 @@ public class BookOrderAction extends BaseAction {
     		bookOrderService.updateBookOrder(neworder);
     		user.setAccount(user_amount-amount);
     		userService.updateUserAccount(user);
-            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Check Out Order",
+            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Check Out Order",
                     JSONObject.fromObject(bookInOrders).toString());
     		bookOrders = bookOrderService.getOrderByUserId(user.getUserId());
     	}catch (Exception e){
@@ -242,7 +242,7 @@ public class BookOrderAction extends BaseAction {
     		Map<String, Object> session = ActionContext.getContext().getSession();
         	User user = (User)session.get("user");
         	bookOrders = bookOrderService.getOrderByUserId(user.getUserId());
-            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Update Book Order",
+            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Update Book Order",
                     JSONObject.fromObject(bookOrder).toString());
     	}catch (Exception e){
     		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);

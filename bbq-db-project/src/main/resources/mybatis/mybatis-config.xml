@@ -20,6 +20,7 @@
 		<typeAlias alias="BookInOrder" type="com.bbq.db.project.model.BookInOrder"/>
 		<typeAlias alias="AdminInfo" type="com.bbq.db.project.model.AdminInfo"/>
 		<typeAlias alias="BookCategory" type="com.bbq.db.project.model.BookCategory"/>
+		<typeAlias alias="UserRole" type="com.bbq.db.project.model.UserRole"/>
 	</typeAliases>
 	
 	<mappers>
@@ -32,5 +33,6 @@
 		<mapper resource="mybatis/mapper/BookInOrder.xml"/>
 		<mapper resource="mybatis/mapper/AdminInfo.xml"/>
 		<mapper resource="mybatis/mapper/BookCategory.xml"/>
+		<mapper resource="mybatis/mapper/UserRole.xml"/>
 	</mappers> 
 </configuration>

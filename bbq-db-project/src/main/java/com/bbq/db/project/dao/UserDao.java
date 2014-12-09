@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bbq.db.project.dao.base.BatisEntityDao;
 import com.bbq.db.project.model.User;
+import com.bbq.db.project.model.UserRole;
 
 @Service("userDao")
 public class UserDao extends BatisEntityDao<User>{
@@ -31,9 +32,9 @@ public class UserDao extends BatisEntityDao<User>{
 		return super.getSqlSession().update("User.updateAccount", sqlMap);
 	}
 
-    public List<User> getUsersByType(Integer type) {
-        Map<String, Integer> sqlMap = new HashMap<String, Integer>();
-        sqlMap.put("userType", type);
+    public List<User> getUsersByType(UserRole type) {
+        Map<String, UserRole> sqlMap = new HashMap<String, UserRole>();
+        sqlMap.put("userRole", type);
         return super.getSqlSession().selectList("User.getUsersByType", sqlMap);
     }
 

@@ -10,9 +10,11 @@ import bbq.db.project.dao.utils.ResultMessageConstants;
 import bbq.db.project.dao.utils.StrutsUtil;
 
 import com.bbq.db.project.model.Book;
+import com.bbq.db.project.model.UserRole;
 import com.bbq.db.project.model.mongo.UserLog;
 import com.bbq.db.project.mongodb.MongoDBManager;
 import com.bbq.db.project.service.BookService;
+import com.bbq.db.project.service.UserRoleService;
 import com.opensymphony.xwork2.ActionContext;
 
 import net.sf.json.JSONObject;
@@ -31,6 +33,8 @@ public class UserAction extends BaseAction{
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private UserRoleService userRoleService;
     @Autowired
     private BookService bookService;
 
@@ -38,6 +42,7 @@ public class UserAction extends BaseAction{
 	private String password;
 	private User user;
     private Integer userId;
+    private Integer userRoleId;
     private List<Book> books;
     private List<User> users;
     private List<UserLog> userLogs;
@@ -82,17 +87,19 @@ public class UserAction extends BaseAction{
         Map<String, Object> map = new HashMap<String, Object>();
         try {
             User dbUser = userService.getUserByUserNameAndPassword(user.getUserName(), null);
+            UserRole userRole = userRoleService.getUserRoleById(userRoleId);
             if(dbUser == null) {
                 user.setRegisterTime(new Date());
+                user.setUserRole(userRole);
                 userService.insertUser(user);
                 Map<String, Object> session = ActionContext.getContext().getSession();
                 session.put("user", user);
                 map.put("code", Constants.CODE_SUCCESS);
-                MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Add User",
+                MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Add User",
                         JSONObject.fromObject(user).toString());
             } else if(user.getUserId() > 0){
                 userService.updateUser(user);
-                MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Update User",
+                MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Update User",
                         JSONObject.fromObject(user).toString());
                 map.put("code", Constants.CODE_SUCCESS);
             } else {
@@ -154,8 +161,8 @@ public class UserAction extends BaseAction{
         try {
             Map<String, Object> session = ActionContext.getContext().getSession();
             User user = (User)session.get("user");
-            if(user != null && user.getUserType() == Constants.ADMIN) {
-                 users = userService.getUsersByType(Constants.NORMAL_USER);
+            if(user != null && user.getUserRole().getRoleId() == Constants.ADMIN) {
+                 users = userService.getUsersByType(userRoleService.getUserRoleById(Constants.NORMAL_USER));
             } else {
                  this.message = ResultMessageConstants.NOT_ADMIN;
                  return ERROR;
@@ -195,7 +202,7 @@ public class UserAction extends BaseAction{
         try {
             Map<String, Object> session = ActionContext.getContext().getSession();
             User user = (User)session.get("user");
-            if(user != null && user.getUserType() == Constants.ADMIN) {
+            if(user != null && user.getUserRole().getRoleId() == Constants.ADMIN) {
                 userLogs = MongoDBManager.getDBInstance().getUserLogs();
             } else {
                 this.message = ResultMessageConstants.NOT_ADMIN;
@@ -263,4 +270,38 @@ public class UserAction extends BaseAction{
     public void setUsers(List<User> users) {
         this.users = users;
     }
+
+	public UserRoleService getUserRoleService() {
+		return userRoleService;
+	}
+
+	public void setUserRoleService(UserRoleService userRoleService) {
+		this.userRoleService = userRoleService;
+	}
+
+	public BookService getBookService() {
+		return bookService;
+	}
+
+	public void setBookService(BookService bookService) {
+		this.bookService = bookService;
+	}
+
+	public Integer getUserRoleId() {
+		return userRoleId;
+	}
+
+	public void setUserRoleId(Integer userRoleId) {
+		this.userRoleId = userRoleId;
+	}
+
+	public List<UserLog> getUserLogs() {
+		return userLogs;
+	}
+
+	public void setUserLogs(List<UserLog> userLogs) {
+		this.userLogs = userLogs;
+	}
+    
+    
 }

@@ -45,7 +45,7 @@ public class AddressAction extends BaseAction{
 	    		address.setZipcode(zipcode);
 	    		address.setUser(user);
 	    		addressService.insertAddress(address);
-                MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Add Address",
+                MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserRole().getRoleId(), "Add Address",
                         JSONObject.fromObject(address).toString());
 	    		map.put("code", Constants.CODE_SUCCESS);
 	    	}

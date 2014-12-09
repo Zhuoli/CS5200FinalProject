@@ -24,7 +24,7 @@
                 <td>${book.price}</td>
                 <td>
                     <c:choose>
-                        <c:when test="${sessionScope.user.userType == 2 || sessionScope.user.userId == book.user.userId}">
+                        <c:when test="${sessionScope.user.userRole.roleId == 2 || sessionScope.user.userId == book.user.userId}">
                             <a href="<%=basePath%>book/preAddBook.action?bookId=${book.bookId}">Update</a>
                         </c:when>
                         <c:otherwise>

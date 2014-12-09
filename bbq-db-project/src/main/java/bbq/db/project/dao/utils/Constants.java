@@ -37,7 +37,7 @@ public class Constants {
 
     public static final String MONGO_KEY_USERID = "USER_ID";
     public static final String MONGO_KEY_USERNAME = "USER_NAME";
-    public static final String MONGO_KEY_USERTYPE = "USER_TYPE";
+    public static final String MONGO_KEY_USERROLE = "USER_ROLE";
     public static final String MONGO_KEY_ACTIONNAME = "ACTION_NAME";
     public static final String MONGO_KEY_ACTIONTIME = "ACTION_TIME";
     public static final String MONGO_KEY_PARAMS = "PARAMS";
