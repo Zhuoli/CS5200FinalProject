@@ -59,6 +59,7 @@
                  <li>Quantity: ${book.quantity}</li>  <br/>
                  <li>Price: ${book.price / 100}</li>  <br/>
                  <li>Publisher: ${book.publisher}</li> <br/>
+                 <li>Book Category: ${book.category.categoryName}</li> <br/>
                  <li>Book owner: <a href="<%=basePath%>user/userInfo.action?userId=${book.user.userId}">${book.user.userName}</a></li> <br/>
                  <li>How many do I want? <input name='quantity' id='quantity' type='text'/>
                  <button id='addBookToOrder'>AddToCart</button></li>
