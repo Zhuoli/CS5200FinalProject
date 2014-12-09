@@ -46,7 +46,7 @@ public class MessageAction extends BaseAction {
    
     @Action(value = "newMessage", results = { @Result(name = "success", location = "message.jsp") })
     public String newMessage(){
-
+   
         return SUCCESS;
     }
 
