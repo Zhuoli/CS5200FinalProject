@@ -8,11 +8,11 @@
 <head>
 <%-- <base href="<%=basePath%>">
 <link href="<%=basePath%>css/view.css" rel="stylesheet" type="text/css" /> --%>
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
 <title>User's Message Box</title>
-
-
 
 </head>
 <body>

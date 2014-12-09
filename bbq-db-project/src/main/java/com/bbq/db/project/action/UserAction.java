@@ -263,4 +263,12 @@ public class UserAction extends BaseAction{
     public void setUsers(List<User> users) {
         this.users = users;
     }
+
+    public List<UserLog> getUserLogs() {
+        return userLogs;
+    }
+
+    public void setUserLogs(List<UserLog> userLogs) {
+        this.userLogs = userLogs;
+    }
 }

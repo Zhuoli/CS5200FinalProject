@@ -8,7 +8,8 @@
 <head>
 <base href="<%=basePath%>">
 <link href="<%=basePath%>css/view.css" rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
 <meta charset="utf-8">
 <style>
 body{

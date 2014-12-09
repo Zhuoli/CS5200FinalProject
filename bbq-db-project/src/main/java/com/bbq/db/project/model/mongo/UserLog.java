@@ -15,7 +15,7 @@ public class UserLog {
     private String userName;
     private Integer userType;
     private String actionName;
-    private Date actionTime;
+    private String actionTime;
     private String params;
 
     public Integer getUserId() {
@@ -50,11 +50,11 @@ public class UserLog {
         this.actionName = actionName;
     }
 
-    public Date getActionTime() {
+    public String getActionTime() {
         return actionTime;
     }
 
-    public void setActionTime(Date actionTime) {
+    public void setActionTime(String actionTime) {
         this.actionTime = actionTime;
     }
 

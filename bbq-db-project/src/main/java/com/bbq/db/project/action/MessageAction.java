@@ -1,8 +1,11 @@
 package com.bbq.db.project.action;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import bbq.db.project.dao.utils.StrutsUtil;
+import net.sf.json.JSONObject;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -23,8 +26,8 @@ import com.opensymphony.xwork2.ActionContext;
 public class MessageAction extends BaseAction {
 	@Autowired
     private MessageService messageService;
-	List<Message> msgs=null;
-	Message msg=null;
+	List<Message> msgs;
+	Message msg;
     
     @Action(value = "view", results ={ @Result(name = "success", location = "view.jsp") })
     public String view(){
@@ -38,12 +41,20 @@ public class MessageAction extends BaseAction {
     @Action(value = "newMessage", results = { @Result(name = "success", location = "message.jsp") })
     public String newMessage(){
 
+        try {
+
+        } catch (Exception e) {
+            logger.error("error: [module:MessageAction][action:newMessage][][error:{}]", e);
+        }
+
         return SUCCESS;
     }
 
   @Action(value = "send")
   public String send(){
 	  logger.error("send received");
+      Map<String, Object> map = new HashMap<String, Object>();
+
       try {
           if(msg == null){
               logger.error("error: msg is null [module:MessageAction][action:send][][error:{empty params}]");
@@ -53,7 +64,9 @@ public class MessageAction extends BaseAction {
       } catch (Exception e) {
           logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
       }
-      return SUCCESS;
+
+      StrutsUtil.renderJson(JSONObject.fromObject(map).toString());
+      return null;
   }
 
 	public List<Message> getMsgs() {
@@ -72,9 +85,4 @@ public class MessageAction extends BaseAction {
 	public void setmsg(Message msg) {
 		this.msg = msg;
 	}
-
-
-   
-
-
 }
