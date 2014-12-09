@@ -3,11 +3,11 @@
 <mapper namespace="Message" >
 	<resultMap id="BaseResultMap" type="Message" >
 		<id column="MESSAGE_ID" property="messageId" jdbcType="INTEGER" />
-		<result column="SENDER" property="sender" jdbcType="INTEGER" />
-		<result column="RECEIVER" property="receiver" jdbcType="INTEGER" />
 		<result column="TITLE" property="title" jdbcType="VARCHAR" />
 		<result column="CONTENT" property="content" jdbcType="VARCHAR" />
 		<result column="TIME" property="time" jdbcType="DATE" />
+        <association property="receiver" column="RECEIVER" select="User.getUserById" />  
+		<association column="sender" property="SENDER" select="User.getUserById" />
 	</resultMap>
 	
 	<sql id="Base_Column_List" >

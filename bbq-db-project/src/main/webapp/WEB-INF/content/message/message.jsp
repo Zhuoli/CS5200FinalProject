@@ -50,7 +50,7 @@ function myFunction() {
                 "content": $('#content').val(),
             },
             function(data, status){
-<%--                 if(data['code'] == 'A00000') {
+                 if(data['code'] == 'A00000') {
                     alert('register success!');
                     var jumpPage = <%=request.getParameter("lastPage")%>
                     if(jumpPage == null) {
@@ -58,9 +58,8 @@ function myFunction() {
                     }
                     window.location.href=jumpPage;
                 } else {
-                    alert(data['code'] );
-                } --%>
-                alert('send success!')
+                    alert("send failed" );
+                }
             });
 		
 	}
