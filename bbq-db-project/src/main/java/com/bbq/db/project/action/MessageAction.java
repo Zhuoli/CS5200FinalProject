@@ -33,34 +33,29 @@ public class MessageAction extends BaseAction {
     	 msgs=messageService.getMessageByReceiverID(user);
     	 return SUCCESS;
     }
-    
+   
+   
+    @Action(value = "newMessage", results = { @Result(name = "success", location = "message.jsp") })
+    public String newMessage(){
 
-//  @Action(value = "send", results = { @Result(name = "success", location = "message.jsp") })
-//  public String send(Message message){
-//      try {
-//          if(message == null){
-//              logger.error("error: [module:MessageAction][action:send][][error:{empty params}]");
-//          } else {
-//          	messageService.insertMessage(message);
-//          }
-//      } catch (Exception e) {
-//          logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
-//      }
-//      return SUCCESS;
-//  }
-    @Action(value = "send")
-    public String send(){
-        try {
-            if(msg.getReceiver() == null || msg.getSender()==null|| msg.getTitle()==null){
-                logger.error("error: [module:MessageAction][action:send][][error:{empty params}]");
-            } else {
-            	messageService.insertMessage(msg);
-            }
-        } catch (Exception e) {
-            logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
-        }
         return SUCCESS;
     }
+
+  @Action(value = "send")
+  public String send(){
+	  logger.error("send received");
+      try {
+          if(msg == null){
+              logger.error("error: msg is null [module:MessageAction][action:send][][error:{empty params}]");
+          } else {
+          	messageService.insertMessage(msg);
+          }
+      } catch (Exception e) {
+          logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
+      }
+      return SUCCESS;
+  }
+
 	public List<Message> getMsgs() {
 		return msgs;
 	}
