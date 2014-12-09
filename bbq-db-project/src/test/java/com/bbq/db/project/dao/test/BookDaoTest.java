@@ -19,6 +19,7 @@ import com.bbq.db.project.dao.UserDao;
 import com.bbq.db.project.model.Book;
 import com.bbq.db.project.model.BookCategory;
 import com.bbq.db.project.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -28,6 +29,7 @@ locations={
 		"/spring/spring.xml"
 }
 )
+@Transactional
 public class BookDaoTest {
 	
 	@Autowired

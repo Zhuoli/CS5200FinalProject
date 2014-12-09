@@ -18,8 +18,10 @@ import com.bbq.db.project.dao.BookDao;
 import com.bbq.db.project.model.Book;
 import com.bbq.db.project.model.BookCategory;
 import com.bbq.db.project.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("bookService")
+@Transactional
 public class BookService {
 
 	@Autowired

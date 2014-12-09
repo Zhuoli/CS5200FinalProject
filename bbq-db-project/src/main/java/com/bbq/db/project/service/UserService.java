@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 import com.bbq.db.project.dao.UserDao;
 import com.bbq.db.project.model.User;
 import com.bbq.db.project.model.UserRole;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service("userService")
+@Transactional
 public class UserService {
 
 	@Autowired

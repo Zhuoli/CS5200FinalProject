@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.bbq.db.project.dao.AdminInfoDao;
 import com.bbq.db.project.model.AdminInfo;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -22,6 +23,7 @@ locations={
 		"/spring/spring.xml"
 }
 )
+@Transactional
 public class AdminInfoDaoTest {
 	@Autowired
 	public AdminInfoDao admininfoDao;

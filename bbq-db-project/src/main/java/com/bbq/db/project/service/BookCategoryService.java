@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.bbq.db.project.dao.BookCategoryDao;
 import com.bbq.db.project.model.BookCategory;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("bookCategoryService")
+@Transactional
 public class BookCategoryService {
 	@Autowired
 	private BookCategoryDao bookCategoryDao;

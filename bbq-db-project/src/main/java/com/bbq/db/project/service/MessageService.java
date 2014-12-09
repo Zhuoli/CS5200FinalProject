@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import com.bbq.db.project.dao.MessageDao;
 import com.bbq.db.project.model.Message;
 import com.bbq.db.project.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("messageService")
+@Transactional
 public class MessageService {
 	@Autowired
 	private MessageDao messageDao;

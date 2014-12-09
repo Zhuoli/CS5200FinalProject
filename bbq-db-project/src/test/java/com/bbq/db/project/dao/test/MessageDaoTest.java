@@ -15,6 +15,7 @@ import com.bbq.db.project.dao.MessageDao;
 import com.bbq.db.project.dao.UserDao;
 import com.bbq.db.project.model.Message;
 import com.bbq.db.project.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -24,6 +25,7 @@ locations={
 		"/spring/spring.xml"
 }
 )
+@Transactional
 public class MessageDaoTest {
 	@Autowired
 	public MessageDao messageDao;

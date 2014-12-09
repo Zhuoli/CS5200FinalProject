@@ -13,6 +13,7 @@ import com.bbq.db.project.dao.AddressDao;
 import com.bbq.db.project.dao.UserDao;
 import com.bbq.db.project.model.Address;
 import com.bbq.db.project.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -21,7 +22,8 @@ locations={
 		"/mybatis/mybatis-config.xml",
 		"/spring/spring.xml"
 }
-) 
+)
+@Transactional
 public class AddressDaoTest {
 	
 	@Autowired

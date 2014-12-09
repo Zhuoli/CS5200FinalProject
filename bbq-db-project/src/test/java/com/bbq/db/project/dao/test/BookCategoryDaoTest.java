@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.bbq.db.project.dao.BookCategoryDao;
 import com.bbq.db.project.model.BookCategory;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -23,6 +24,7 @@ locations={
 		"/spring/spring.xml"
 }
 )
+@Transactional
 public class BookCategoryDaoTest {
 	@Autowired
 	public BookCategoryDao bookCategoryDao;

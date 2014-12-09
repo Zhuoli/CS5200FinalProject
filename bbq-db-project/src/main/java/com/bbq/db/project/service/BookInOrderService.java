@@ -13,8 +13,10 @@ import com.bbq.db.project.model.Book;
 import com.bbq.db.project.model.BookInOrder;
 import com.bbq.db.project.model.BookOrder;
 import com.bbq.db.project.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("bookInOrderService")
+@Transactional
 public class BookInOrderService {
 	@Autowired
 	private BookInOrderDao bookinorderDao;

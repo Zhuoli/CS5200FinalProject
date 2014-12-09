@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import com.bbq.db.project.dao.AddressDao;
 import com.bbq.db.project.model.Address;
 import com.bbq.db.project.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("addressService")
+@Transactional
 public class AddressService {
 	@Autowired
 	private AddressDao addressDao; 

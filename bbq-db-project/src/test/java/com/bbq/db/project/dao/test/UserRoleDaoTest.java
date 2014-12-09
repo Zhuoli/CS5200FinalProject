@@ -16,6 +16,7 @@ import com.bbq.db.project.dao.UserRoleDao;
 import com.bbq.db.project.model.Address;
 import com.bbq.db.project.model.User;
 import com.bbq.db.project.model.UserRole;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -24,7 +25,8 @@ locations={
 		"/mybatis/mybatis-config.xml",
 		"/spring/spring.xml"
 }
-) 
+)
+@Transactional
 public class UserRoleDaoTest {
 	@Autowired
 	public UserRoleDao userRoleDao;

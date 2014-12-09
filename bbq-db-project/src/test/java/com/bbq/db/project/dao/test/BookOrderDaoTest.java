@@ -18,6 +18,7 @@ import com.bbq.db.project.model.Address;
 import com.bbq.db.project.model.Book;
 import com.bbq.db.project.model.BookOrder;
 import com.bbq.db.project.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -28,7 +29,7 @@ locations={
 		"/spring/spring.xml"
 }
 )
-
+@Transactional
 public class BookOrderDaoTest {
 
 	@Autowired

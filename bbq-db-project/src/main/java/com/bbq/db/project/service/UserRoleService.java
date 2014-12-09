@@ -5,8 +5,10 @@ import org.springframework.stereotype.Service;
 
 import com.bbq.db.project.dao.UserRoleDao;
 import com.bbq.db.project.model.UserRole;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("userRoleService")
+@Transactional
 public class UserRoleService {
 	@Autowired
 	private UserRoleDao userRoleDao;
