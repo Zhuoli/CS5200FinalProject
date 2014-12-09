@@ -6,9 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 
-
-
-
+import com.bbq.db.project.mongodb.MongoDBManager;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -117,6 +115,8 @@ public class BookOrderAction extends BaseAction {
     				bookOrder.setOrderTime(new Date());
     				bookOrder.setAddress(null);
     				bookOrderService.insertBookOrder(bookOrder);
+                    MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "addBookToOrder",
+                            JSONObject.fromObject(bookOrder).toString());
     			}
 
 				map.put("code", Constants.CODE_SUCCESS);
@@ -178,10 +178,10 @@ public class BookOrderAction extends BaseAction {
     		neworder.setOrderStatus("check out");
     		neworder.setOrderId(bookOrderId);
     		bookOrderService.updateBookOrder(neworder);
-    		User newuser = new User();
-    		newuser.setUserId(user.getUserId());
-    		newuser.setAccount(user_amount-amount);
-    		userService.updateUserAccount(newuser);
+    		user.setAccount(user_amount-amount);
+    		userService.updateUserAccount(user);
+            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Check Out Order",
+                    JSONObject.fromObject(bookInOrders).toString());
     		bookOrders = bookOrderService.getOrderByUserId(user.getUserId());
     	}catch (Exception e){
     		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
@@ -242,6 +242,8 @@ public class BookOrderAction extends BaseAction {
     		Map<String, Object> session = ActionContext.getContext().getSession();
         	User user = (User)session.get("user");
         	bookOrders = bookOrderService.getOrderByUserId(user.getUserId());
+            MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Update Book Order",
+                    JSONObject.fromObject(bookOrder).toString());
     	}catch (Exception e){
     		logger.error("error: [module:BookOrderAction][action:get][][error:{}]", e);
     	}

@@ -14,8 +14,8 @@
 <link href="<%=basePath%>css/uploadify.css" rel="stylesheet" type="text/css" />
 <link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>js/jquery.validate.js"></script>
 <script type="text/javascript" src="<%=basePath%>uploadify/jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/jquery.validate.js"></script>
 <script type="text/javascript">
 
     $.validator.setDefaults({

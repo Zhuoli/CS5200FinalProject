@@ -10,6 +10,7 @@ import bbq.db.project.dao.utils.ResultMessageConstants;
 import bbq.db.project.dao.utils.StrutsUtil;
 
 import com.bbq.db.project.model.Book;
+import com.bbq.db.project.mongodb.MongoDBManager;
 import com.bbq.db.project.service.BookService;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -85,8 +86,12 @@ public class UserAction extends BaseAction{
                 Map<String, Object> session = ActionContext.getContext().getSession();
                 session.put("user", user);
                 map.put("code", Constants.CODE_SUCCESS);
+                MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Add User",
+                        JSONObject.fromObject(user).toString());
             } else if(user.getUserId() > 0){
                 userService.updateUser(user);
+                MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Update User",
+                        JSONObject.fromObject(user).toString());
                 map.put("code", Constants.CODE_SUCCESS);
             } else {
                 map.put("code", Constants.USER_EXISTS);

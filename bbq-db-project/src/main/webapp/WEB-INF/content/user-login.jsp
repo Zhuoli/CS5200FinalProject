@@ -6,11 +6,6 @@
 %>
 <!DOCTYPE html>
 
-<html>
-<head>
-<link href="<%=basePath%>css/table.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
-<meta charset="utf-8">
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
 
@@ -52,8 +47,6 @@
         window.location.href='<%=basePath%>user/preRegister.action?lastPage='+lastPage;
     }
 </script>
-
-</head>
 
 <div class='login-user'>
     <div ${sessionScope.user == null ? '' : 'hidden=true'}  id="login-div">

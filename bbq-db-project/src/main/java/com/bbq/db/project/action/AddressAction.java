@@ -3,6 +3,7 @@ package com.bbq.db.project.action;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.bbq.db.project.mongodb.MongoDBManager;
 import net.sf.json.JSONObject;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -44,6 +45,8 @@ public class AddressAction extends BaseAction{
 	    		address.setZipcode(zipcode);
 	    		address.setUser(user);
 	    		addressService.insertAddress(address);
+                MongoDBManager.getDBInstance().add(user.getUserId(), user.getUserName(), user.getUserType(), "Add Address",
+                        JSONObject.fromObject(address).toString());
 	    		map.put("code", Constants.CODE_SUCCESS);
 	    	}
     	}catch (Exception e){
@@ -55,9 +58,7 @@ public class AddressAction extends BaseAction{
     	return null;
     	
     }
-	
-	
-	
+
 	public AddressService getAddressService() {
 		return addressService;
 	}
