@@ -1,4 +1,6 @@
 CS5200FinalProject
 ==================
 
-Database
+CS5200 Final Project: Buy Book in Queue
+
+A used book web service
